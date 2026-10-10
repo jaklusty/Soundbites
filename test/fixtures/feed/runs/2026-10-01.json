@@ -1,0 +1,247 @@
+{
+  "run": "2026-10-01",
+  "region": "UK",
+  "candidates": [
+    {
+      "title": "AINSI BAS LA VIDA (HARDTEKK)",
+      "artist": "WHOiAM",
+      "search": "WHOiAM AINSI BAS LA VIDA (HARDTEKK)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "uses": 111000,
+      "energy": "high",
+      "mood": [
+        "hardtekk",
+        "relentless kick",
+        "french vocal"
+      ],
+      "suits": "Relentless hardtekk rework in which the French vocal works as texture; suits fast, high-intensity cutting.",
+      "licence": "platform",
+      "notes": "111k user videos and growing 11.6% a day on tokchart's live board, 30 Sep. tokchart is the only source carrying it, so the growth rate is one reading, not a consensus."
+    },
+    {
+      "title": "The Morning",
+      "artist": "The Weeknd",
+      "search": "The Weeknd The Morning",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 20000,
+      "energy": "low",
+      "mood": [
+        "r&b",
+        "slow",
+        "nocturnal",
+        "reverb-heavy"
+      ],
+      "suits": "Slow nocturnal R&B with wide reverb and a long intro; suits night-time and atmospheric footage.",
+      "licence": "platform",
+      "notes": "20k posts per Scott Social (28 Sep); 26k and rising per SocialPilot (14 Sep). Two sources agree, and the count is low enough to be early."
+    },
+    {
+      "title": "GEEKIN",
+      "artist": "Nemzzz (feat. Lil Yachty)",
+      "search": "Nemzzz (feat. Lil Yachty) GEEKIN",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 18000,
+      "energy": "high",
+      "mood": [
+        "uk rap",
+        "half-time",
+        "sparse",
+        "menacing"
+      ],
+      "suits": "UK rap over a sparse, menacing low end with gaps to cut into; suits punchy, slow-impact edits.",
+      "licence": "platform",
+      "notes": "18k posts and flagged new this week by Scott Social, 28 Sep. Single source, though the count is very early."
+    },
+    {
+      "title": "Eat Me Better",
+      "artist": "nimino (feat. Charlotte Plank)",
+      "search": "nimino (feat. Charlotte Plank) Eat Me Better",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "uk garage",
+        "electronic",
+        "chopped vocal",
+        "bright"
+      ],
+      "suits": "Bright, garage-leaning electronic track that uses a chopped vocal as rhythm; suits fast-cut montages and transitions.",
+      "licence": "platform",
+      "notes": "Rising on both Buffer's and SocialPilot's TikTok lists. Two sources, though both lists are ageing."
+    },
+    {
+      "title": "Sunny",
+      "artist": "Boney M. & R3HAB",
+      "search": "Boney M. & R3HAB Sunny",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 169000,
+      "energy": "high",
+      "mood": [
+        "dance",
+        "disco rework",
+        "bright"
+      ],
+      "suits": "Relentlessly bright four-to-the-floor dance rework of the disco original; suits joyful, high-energy montages.",
+      "licence": "platform",
+      "notes": "290k per SocialPilot (14 Sep) and 169k per Scott Social (28 Sep), so the two sources disagree on scale. Either way the highest-use track in this run and the closest to its ceiling."
+    },
+    {
+      "title": "The Rivers of Belief",
+      "artist": "Enigma",
+      "search": "Enigma The Rivers of Belief",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 39000,
+      "energy": "low",
+      "mood": [
+        "ambient",
+        "instrumental",
+        "spacious"
+      ],
+      "suits": "Slow, spacious ambient instrumental of chant and pads; works as a calm background bed.",
+      "licence": "platform",
+      "notes": "39k posts per Scott Social, 28 Sep, listed as an instrumental. Single source."
+    },
+    {
+      "title": "Reason To Stay",
+      "artist": "Olivia Dean",
+      "search": "Olivia Dean Reason To Stay",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 65000,
+      "energy": "medium",
+      "mood": [
+        "uk soul-pop",
+        "warm",
+        "unhurried"
+      ],
+      "suits": "Warm, unhurried UK soul-pop; suits text-overlay storytelling.",
+      "licence": "platform",
+      "notes": "65k and rising per SocialPilot, 14 Sep. Single source and two weeks old at this run, so check it is still moving."
+    },
+    {
+      "title": "In & Out",
+      "artist": "Ravyn Lenae",
+      "search": "Ravyn Lenae In & Out",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 4500,
+      "energy": "medium",
+      "mood": [
+        "r&b",
+        "smooth",
+        "airy"
+      ],
+      "suits": "Smooth, airy R&B with a high, floating vocal; suits light, relaxed edits.",
+      "licence": "platform",
+      "notes": "4.5k posts and flagged new by Scott Social, 28 Sep. The earliest entry in this run by a wide margin, and so the least proven."
+    },
+    {
+      "title": "Autumn Colors",
+      "artist": "LuLuMusic",
+      "search": "LuLuMusic Autumn Colors",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 55000,
+      "energy": "low",
+      "mood": [
+        "instrumental",
+        "seasonal",
+        "warm",
+        "unhurried"
+      ],
+      "suits": "Warm, unhurried seasonal instrumental; works as a background bed for autumn-themed footage.",
+      "licence": "platform",
+      "notes": "55k posts per Scott Social, 28 Sep. Single source."
+    },
+    {
+      "title": "Summer Vibes",
+      "artist": "Past Day",
+      "search": "Past Day Summer Vibes",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 78000,
+      "energy": "medium",
+      "mood": [
+        "instrumental",
+        "bright",
+        "loop"
+      ],
+      "suits": "Bright instrumental loop with no vocal that loops cleanly to any length; works as an upbeat background bed.",
+      "licence": "platform",
+      "notes": "78k posts per Scott Social, 28 Sep, listed as instrumental. Single source."
+    },
+    {
+      "title": "Bass Persuades",
+      "artist": "Miley Cyrus",
+      "search": "Miley Cyrus Bass Persuades",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 78000,
+      "energy": "high",
+      "mood": [
+        "pop",
+        "bass-heavy",
+        "vocal-led"
+      ],
+      "suits": "Driving pop with a heavy low end and a central vocal; works where the track leads the edit.",
+      "licence": "platform",
+      "notes": "78k and rising per SocialPilot, 14 Sep. Single source and two weeks old at this run."
+    },
+    {
+      "title": "Patient Zero",
+      "artist": "Taylor Swift",
+      "search": "Taylor Swift Patient Zero",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 53000,
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "vocal-led",
+        "lyric hook"
+      ],
+      "suits": "Vocal-forward pop with a strong lyric hook; works where the lyric carries the post, such as text-overlay edits.",
+      "licence": "platform",
+      "notes": "53k posts and flagged new by Scott Social, 28 Sep. Single source."
+    },
+    {
+      "title": "Pure",
+      "artist": "Sienna Spiro",
+      "search": "Sienna Spiro Pure",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 41000,
+      "energy": "medium",
+      "mood": [
+        "uk singer-songwriter",
+        "restrained",
+        "spacious"
+      ],
+      "suits": "Restrained singer-songwriter arrangement with space around the vocal; suits quiet, reflective posts.",
+      "licence": "platform",
+      "notes": "41k posts per Scott Social, 28 Sep. Single source."
+    },
+    {
+      "title": "Someday We Will Dream About Today",
+      "artist": "The Sways",
+      "search": "The Sways Someday We Will Dream About Today",
+      "platform": "reels",
+      "direction": "peaking",
+      "uses": 213000,
+      "energy": "medium",
+      "mood": [
+        "indie",
+        "wistful",
+        "nostalgic"
+      ],
+      "suits": "Wistful indie known as a nostalgia-recap sound; suits look-back and recap edits.",
+      "licence": "platform",
+      "notes": "213k posts per Scott Social, 28 Sep: the highest count in this run and already well used, so filed as peaking, not rising."
+    }
+  ]
+}

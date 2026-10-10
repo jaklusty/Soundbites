@@ -1,0 +1,232 @@
+{
+  "run": "2026-09-21",
+  "region": "UK",
+  "candidates": [
+    {
+      "title": "Glue",
+      "artist": "Bicep",
+      "search": "Bicep Glue",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "uk breakbeat",
+        "melancholic",
+        "mostly instrumental"
+      ],
+      "suits": "Melancholic, mostly instrumental breakbeat with rave-pad chords and a chopped vocal; works for moody, atmospheric sequences.",
+      "licence": "platform",
+      "notes": "#11 on kworb.net's UK TikTok chart (undated daily chart, read 21 Sep), up 2 places. Single source."
+    },
+    {
+      "title": "Run / seaside / early morning / comfortable EDM loop(1213476)",
+      "artist": "zomap",
+      "search": "zomap Run / seaside / early morning / comfortable EDM loop(1213476)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "edm",
+        "bright",
+        "instrumental",
+        "library music"
+      ],
+      "suits": "Bright instrumental EDM loop from a music library; works as an upbeat background bed.",
+      "licence": "platform",
+      "notes": "New entry at #2 on Metricool's UK TikTok chart, 16 Sep. Single source; the row is unverified beyond the chart listing."
+    },
+    {
+      "title": "Who You Share It With",
+      "artist": "Layup feat. Katelyn Tarver",
+      "search": "Layup feat. Katelyn Tarver Who You Share It With",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "indie-pop",
+        "cinematic",
+        "warm"
+      ],
+      "suits": "Warm, cinematic indie-pop that swells under a reflective vocal; lends itself to recap and montage edits.",
+      "licence": "platform",
+      "notes": "New entry at #4 on Metricool's UK TikTok chart, 16 Sep. Single source. Musicbed catalogue track."
+    },
+    {
+      "title": "Do It Better",
+      "artist": "Beachcrimes & Tia Tia",
+      "search": "Beachcrimes & Tia Tia Do It Better",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "uk house",
+        "bouncy",
+        "vocal hook"
+      ],
+      "suits": "Bouncy UK house with a confident vocal hook; suits fast-cut, upbeat edits.",
+      "licence": "platform",
+      "notes": "New entry at #5 on kworb.net's UK TikTok chart (undated daily chart, read 21 Sep). Single source."
+    },
+    {
+      "title": "Muscle Drive",
+      "artist": "Wbsound",
+      "search": "Wbsound Muscle Drive",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "techno",
+        "driving",
+        "instrumental"
+      ],
+      "suits": "Driving instrumental techno with a relentless pulse; suits fast, high-tempo cutting.",
+      "licence": "platform",
+      "notes": "Flagged rising on SocialPilot's TikTok list, 15 Sep; also on Buffer's TikTok list (last updated 5 Aug), so seen in August and still flagged rising in mid-September."
+    },
+    {
+      "title": "I Heard",
+      "artist": "Young Fathers",
+      "search": "Young Fathers I Heard",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "percussive",
+        "stripped-back",
+        "gospel-tinged vocal",
+        "tense"
+      ],
+      "suits": "Stripped-back percussion under raw, gospel-tinged vocals; suits tense, rhythm-led sequences.",
+      "licence": "platform",
+      "notes": "Flagged rising on SocialPilot's TikTok list, 15 Sep; also on Buffer's TikTok list (last updated 5 Aug), so seen in August and still flagged rising in mid-September."
+    },
+    {
+      "title": "Mind Blank",
+      "artist": "OTE (feat. Zorro)",
+      "search": "OTE (feat. Zorro) Mind Blank",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "feel-good",
+        "sunny"
+      ],
+      "suits": "Light, feel-good pop groove; suits easy-going, upbeat montages.",
+      "licence": "platform",
+      "notes": "Flagged rising on SocialPilot's TikTok list, 15 Sep; also on Buffer's TikTok list (last updated 5 Aug), so seen in August and still flagged rising in mid-September. Epidemic Sound catalogue track."
+    },
+    {
+      "title": "Velvety Captor",
+      "artist": "DJ BAI",
+      "search": "DJ BAI Velvety Captor",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "piano",
+        "smooth",
+        "instrumental"
+      ],
+      "suits": "Smooth, polished piano instrumental; works as a calm background bed for scenic footage.",
+      "licence": "platform",
+      "notes": "Flagged rising on SocialPilot's TikTok list, 15 Sep; also on Buffer's TikTok list (last updated 5 Aug), so seen in August and still flagged rising in mid-September. Exists as a TikTok-only sound."
+    },
+    {
+      "title": "Coming Up Roses",
+      "artist": "Harry Styles",
+      "search": "Harry Styles Coming Up Roses",
+      "platform": "tiktok",
+      "direction": "rising",
+      "uses": 348000,
+      "energy": "low",
+      "mood": [
+        "orchestral ballad",
+        "waltz",
+        "romantic"
+      ],
+      "suits": "Slow orchestral waltz ballad with strings and piano; suits romantic, slow-paced moments.",
+      "licence": "platform",
+      "notes": "348k and growing about 72% a day on tokchart, 21 Sep, which put it on course to pass 500k within days. Single source."
+    },
+    {
+      "title": "American Girls",
+      "artist": "Harry Styles",
+      "search": "Harry Styles American Girls",
+      "platform": "reels",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "guitar-pop",
+        "bright",
+        "singalong"
+      ],
+      "suits": "Bright, singalong guitar-pop; suits upbeat travel-style montages and recaps.",
+      "licence": "platform",
+      "notes": "Listed by SocialPilot; also on CreatorDB's Instagram audio list (20 Sep), whose counts match SocialPilot exactly, so it is not an independent second source. Effectively single source."
+    },
+    {
+      "title": "Makes No Difference",
+      "artist": "The Rose Hips",
+      "search": "The Rose Hips Makes No Difference",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "indie-pop",
+        "mellow",
+        "wistful",
+        "sparse"
+      ],
+      "suits": "Soft, sparse and wistful indie-pop; suits quiet, reflective posts.",
+      "licence": "platform",
+      "notes": "Flagged rising on SocialPilot's TikTok list, 15 Sep; also on Buffer's TikTok list (last updated 5 Aug), so seen in August and still flagged rising in mid-September."
+    },
+    {
+      "title": "EDIT PHONK",
+      "artist": "Bgnzinho",
+      "search": "Bgnzinho EDIT PHONK",
+      "platform": "tiktok",
+      "direction": "peaking",
+      "energy": "high",
+      "mood": [
+        "brazilian phonk",
+        "aggressive",
+        "distorted 808"
+      ],
+      "suits": "Short, aggressive Brazilian phonk with cowbell and distorted 808s; suits hard, beat-matched cuts.",
+      "licence": "platform",
+      "notes": "#7 on kworb.net's UK TikTok chart (undated daily chart, read 21 Sep), position unchanged. Single source."
+    },
+    {
+      "title": "Nicole Kidman",
+      "artist": "ADÉLA",
+      "search": "ADÉLA Nicole Kidman",
+      "platform": "both",
+      "direction": "peaking",
+      "energy": "high",
+      "mood": [
+        "pop",
+        "glossy",
+        "glamorous"
+      ],
+      "suits": "Glossy, strutting pop; suits reveal and transition-led edits.",
+      "licence": "platform",
+      "notes": "Corroborated by tokchart (21 Sep), NewEngen's TikTok list (14 Sep) and CreatorDB's Instagram audio list (20 Sep). CreatorDB labels it peaking."
+    },
+    {
+      "title": "Phonk Aura Drift Night Ride",
+      "artist": "alex-morgan",
+      "search": "alex-morgan Phonk Aura Drift Night Ride",
+      "energy": "high",
+      "mood": [
+        "drift phonk",
+        "instrumental",
+        "night-drive"
+      ],
+      "suits": "Instrumental drift phonk with cowbell and 808s; suits fast, hard-hitting cuts.",
+      "licence": "clearable",
+      "notes": "Not taken from a trend chart: a clearable library track sourced from Pixabay."
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "run": "2026-10-05",
+  "region": "UK",
+  "candidates": [
+    {
+      "title": "MAFIA",
+      "artist": "Soothewave",
+      "search": "Soothewave MAFIA",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "phonk",
+        "dark trap",
+        "instrumental",
+        "distorted bass"
+      ],
+      "suits": "Dark phonk/trap instrumental with a distorted low end and chopped vocal stabs; suits fast, hard-hitting cuts.",
+      "licence": "platform",
+      "notes": "#6 on Metricool's UK TikTok chart, 30 Sep. Single chart and no use count published, so the ranking is the signal and the scale is unknown."
+    },
+    {
+      "title": "Uncasually",
+      "artist": "Bonobo",
+      "search": "Bonobo Uncasually",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "downtempo electronica",
+        "organic",
+        "textural",
+        "instrumental-leaning"
+      ],
+      "suits": "Textural, organic downtempo electronica with headroom in the mids; works as a background bed.",
+      "licence": "platform",
+      "notes": "#1 on Metricool's UK TikTok chart, 30 Sep (also #1 on the 23 Sep chart). Single chart, no use count. From the 2026 album Distance in Static."
+    },
+    {
+      "title": "Aesthetic",
+      "artist": "BoominBeats",
+      "search": "BoominBeats Aesthetic",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "trap",
+        "instrumental",
+        "half-time"
+      ],
+      "suits": "Half-time trap instrumental with gaps to cut into and no vocal; suits punchy, slow-impact edits.",
+      "licence": "platform",
+      "notes": "#8 on Metricool's UK TikTok chart, 30 Sep. Single chart, no use count."
+    },
+    {
+      "title": "The Killing Moon (Remastered Version)",
+      "artist": "Echo & The Bunnymen",
+      "search": "Echo & The Bunnymen The Killing Moon (Remastered Version)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "bpm": 93,
+      "energy": "medium",
+      "mood": [
+        "post-punk",
+        "moody",
+        "strings",
+        "vocal-led"
+      ],
+      "suits": "Big, moody post-punk with strings, acoustic guitar and a prominent lead vocal; works where the track leads the sequence.",
+      "licence": "platform",
+      "notes": "#3 on Metricool's UK TikTok chart, 30 Sep. Single chart."
+    },
+    {
+      "title": "September",
+      "artist": "Art Music",
+      "search": "Art Music September",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 164000,
+      "energy": "medium",
+      "mood": [
+        "instrumental",
+        "seasonal"
+      ],
+      "suits": "Instrumental bed with no vocal; works as a background track.",
+      "licence": "platform",
+      "notes": "164k posts per Scott Social, 28 Sep, listed as instrumental. Single source and a week old at this run, so check it is still climbing; genre unverified beyond the instrumental tag."
+    },
+    {
+      "title": "All Day, All Week (Extended Instrumental)",
+      "artist": "Soul Heads",
+      "search": "Soul Heads All Day, All Week (Extended Instrumental)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "house-leaning",
+        "electronic",
+        "instrumental",
+        "upbeat"
+      ],
+      "suits": "Upbeat, house-leaning instrumental that loops long by design; carries a montage without an obvious edit point.",
+      "licence": "platform",
+      "notes": "#9 on Metricool's global TikTok chart, 1 Oct. Single chart, no use count; a global listing, not a UK one."
+    },
+    {
+      "title": "Late Night Low End",
+      "artist": "Velvet Smoke",
+      "search": "Velvet Smoke Late Night Low End",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "deep house",
+        "jazz-noir",
+        "unhurried"
+      ],
+      "suits": "Low, unhurried deep house; suits night-time footage.",
+      "licence": "platform",
+      "notes": "#10 on Metricool's UK TikTok chart, 30 Sep. Single chart, no use count. Genre inferred from the artist's channel name, not heard."
+    },
+    {
+      "title": "DUNG DING BREGA",
+      "artist": "3VILCORE & PHEYX",
+      "search": "3VILCORE & PHEYX DUNG DING BREGA",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "phonk",
+        "brega funk",
+        "chaotic",
+        "percussive"
+      ],
+      "suits": "Chaotic, percussive phonk crossed with brega funk, with shouted vocal stabs used as rhythm; suits meme-style compilations and fast edits.",
+      "licence": "platform",
+      "notes": "#8 on Metricool's global TikTok chart, 1 Oct, described there as driving meme compilations and fast dance edits. Single chart, no use count; a global listing, not a UK one."
+    },
+    {
+      "title": "Selfish Coil",
+      "artist": "DJ BAI",
+      "search": "DJ BAI Selfish Coil",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "cinematic",
+        "ambient",
+        "instrumental",
+        "spacious"
+      ],
+      "suits": "Smooth, spacious cinematic instrumental; works as a background bed for travel-vlog style footage.",
+      "licence": "platform",
+      "notes": "#10 on Metricool's global TikTok chart, 1 Oct. Single chart, no use count, and no artist page found anywhere else, so thinly evidenced."
+    },
+    {
+      "title": "Little Things",
+      "artist": "Adrián Berenguer (ANBR)",
+      "search": "Adrián Berenguer (ANBR) Little Things",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "neoclassical",
+        "solo piano",
+        "instrumental"
+      ],
+      "suits": "Fully instrumental, rubato solo piano; works as a reflective closer, not something to cut to a beat.",
+      "licence": "platform",
+      "notes": "#7 on Metricool's UK TikTok chart, 30 Sep. Single chart, no use count. Two versions exist and the trend may be using the 'Immaterial' variant."
+    },
+    {
+      "title": "Sunset in Girona",
+      "artist": "Noah Preminger & Max Light",
+      "search": "Noah Preminger & Max Light Sunset in Girona",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "jazz",
+        "sax and guitar duo",
+        "instrumental",
+        "warm"
+      ],
+      "suits": "Warm, conversational tenor sax and guitar jazz duo; suits cosy lifestyle and travel recap edits.",
+      "licence": "platform",
+      "notes": "#1 on Metricool's global TikTok chart, 1 Oct, described as a cosy lifestyle-and-travel soundtrack. Single chart, no use count; a global listing, not a UK one. From the album Stitching Life."
+    },
+    {
+      "title": "Nicole Kidman",
+      "artist": "ADÉLA",
+      "search": "ADÉLA Nicole Kidman",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 185000,
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "vocal-led",
+        "lyric-driven"
+      ],
+      "suits": "Vocal-led pop where the lyric is the point; works for text-overlay or piece-to-camera posts.",
+      "licence": "platform",
+      "notes": "185k posts and filed rising by SocialPilot, 1 Oct. The highest-use rising track in this run and the only one with a real post count, but a single source."
+    },
+    {
+      "title": "Racing Hard Driving Motorcycle",
+      "artist": "331music",
+      "search": "331music Racing Hard Driving Motorcycle",
+      "energy": "high",
+      "mood": [
+        "electro",
+        "driving",
+        "instrumental"
+      ],
+      "suits": "Driving electro bed of synth and drums with no vocal; suits fast-paced action footage.",
+      "licence": "clearable",
+      "notes": "Licence-safe library track, not a trending sound. Pixabay Content Licence, no attribution required. 2:25 long."
+    },
+    {
+      "title": "Biker Trail",
+      "artist": "DamHall",
+      "search": "DamHall Biker Trail",
+      "energy": "high",
+      "mood": [
+        "action rock",
+        "guitar-driven",
+        "instrumental"
+      ],
+      "suits": "Guitar-driven, midrange-heavy action rock with no vocal; suits energetic action footage.",
+      "licence": "clearable",
+      "notes": "Licence-safe library track, not a trending sound. Pixabay Content Licence, no attribution required. 2:22 long."
+    },
+    {
+      "title": "Bikers' Stories",
+      "artist": "AlexGuz",
+      "search": "AlexGuz Bikers' Stories",
+      "energy": "medium",
+      "mood": [
+        "adventure",
+        "western-leaning",
+        "instrumental"
+      ],
+      "suits": "Western-leaning adventure theme with a main-title feel and no vocal; suits travel and vlog-style edits.",
+      "licence": "clearable",
+      "notes": "Licence-safe library track, not a trending sound. Pixabay Content Licence, no attribution required. 2:30 long."
+    }
+  ]
+}

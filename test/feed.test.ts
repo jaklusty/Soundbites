@@ -24,8 +24,8 @@ describe('feed index and run files', () => {
     expect(() => parseIndex('nope')).toThrow(FeedError)
     expect(() => parseIndex('{}')).toThrow(/no runs/)
   })
-  it('parses the real feed files from Audio-Trends', async () => {
-    const reader = folderReader('/home/user/Audio-Trends')
+  it('parses the real feed files from Audio-Trends (snapshot of 10 October 2026)', async () => {
+    const reader = folderReader(join(__dirname, 'fixtures', 'feed'))
     const idx = parseIndex(await reader.text('index.json'))
     expect(idx.runs.length).toBeGreaterThanOrEqual(6)
     const run = parseRunFile(await reader.text(idx.runs[0]!.file), idx.runs[0]!.run)

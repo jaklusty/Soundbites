@@ -1,0 +1,251 @@
+{
+  "run": "2026-10-08",
+  "region": "UK",
+  "candidates": [
+    {
+      "title": "The Killing Moon (Remastered Version)",
+      "artist": "Echo & The Bunnymen",
+      "search": "Echo & The Bunnymen The Killing Moon (Remastered Version)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "bpm": 93,
+      "energy": "medium",
+      "mood": [
+        "post-punk",
+        "moody",
+        "strings",
+        "vocal-led"
+      ],
+      "suits": "Big, moody post-punk with strings, acoustic guitar and a central lead vocal; works where the track leads the sequence.",
+      "licence": "platform",
+      "notes": "#1 on Metricool's UK TikTok chart, 7 Oct, up from #3 on 30 Sep: a real week-over-week climb. Spooky-season driven, so the window closes around Halloween."
+    },
+    {
+      "title": "Neon Nights",
+      "artist": "Adrian Rover",
+      "search": "Adrian Rover Neon Nights",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "synthwave",
+        "retrowave",
+        "instrumental"
+      ],
+      "suits": "Fully instrumental 1980s-style synthwave with driving synth basslines and melodic hooks; carries a montage without a lyric.",
+      "licence": "platform",
+      "notes": "Logged as a new entry at #3 on Metricool's UK TikTok chart, 7 Oct. Single chart and no use count published, so the ranking is the signal and the scale is unknown."
+    },
+    {
+      "title": "MONTAGEM VIBRADAO",
+      "artist": "Flame Runner",
+      "search": "Flame Runner MONTAGEM VIBRADAO",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "brazilian phonk",
+        "distorted",
+        "percussive",
+        "vocal chops"
+      ],
+      "suits": "Heavily distorted Brazilian phonk with high-energy percussion and vocal chops used as rhythm; suits aggressive, fast cuts.",
+      "licence": "platform",
+      "notes": "New entry at #7 on Metricool's UK TikTok chart, 7 Oct. Single chart, no use count."
+    },
+    {
+      "title": "The Perfect Girl",
+      "artist": "Mareux",
+      "search": "Mareux The Perfect Girl",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "dark synth-pop",
+        "cold",
+        "reverb-heavy",
+        "cover"
+      ],
+      "suits": "Cold, reverb-drenched dark synth-pop in which the vocal works as texture; suits moody, stylised footage.",
+      "licence": "platform",
+      "notes": "Named by Lightreel (3 Oct) as the track behind 'looksmaxxing' edits. Qualitative only, no use count, and a resurging older track, not a new riser, so the evidence is weak."
+    },
+    {
+      "title": "LET ME BE",
+      "artist": "The Second Voice",
+      "search": "The Second Voice LET ME BE",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "electronic",
+        "tension and release",
+        "build"
+      ],
+      "suits": "Electronic production built around tension resolving into a sharp release; suits build-and-reveal edits.",
+      "licence": "platform",
+      "notes": "Logged as a new entry at #5 on Metricool's UK TikTok chart, 7 Oct. Single chart, no use count. Vocal presence is unclear from the chart description."
+    },
+    {
+      "title": "Self Aware",
+      "artist": "Mark Allan Wolfe",
+      "search": "Mark Allan Wolfe Self Aware",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "instrumental",
+        "hypnotic",
+        "cinematic",
+        "smooth"
+      ],
+      "suits": "Smooth, hypnotic instrumental with a cinematic feel and no vocal; works as a background bed under talking.",
+      "licence": "platform",
+      "notes": "New entry at #2 on Metricool's global TikTok chart, 5 Oct. Single chart, no use count; a global listing, not a UK one."
+    },
+    {
+      "title": "Autumn Colors",
+      "artist": "LuLuMusic",
+      "search": "LuLuMusic Autumn Colors",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 55000,
+      "energy": "low",
+      "mood": [
+        "instrumental",
+        "seasonal",
+        "warm",
+        "unhurried"
+      ],
+      "suits": "Warm, unhurried seasonal instrumental; works as a background bed for autumn-themed footage.",
+      "licence": "platform",
+      "notes": "55k posts and filed rising by CreatorDB (7 Oct); listed independently as instrumental by Scott Social (5 Oct) at the same 55k. Two agreeing sources with a real count, well below the 500k level the run treated as saturation."
+    },
+    {
+      "title": "90s Lo-fi Hip Hop (1612417)",
+      "artist": "WICSTONE",
+      "search": "WICSTONE 90s Lo-fi Hip Hop (1612417)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "lo-fi hip hop",
+        "instrumental",
+        "steady"
+      ],
+      "suits": "Steady instrumental lo-fi hip hop beat that loops without an obvious edit point; suits long shots more than cut sequences.",
+      "licence": "platform",
+      "notes": "New entry at #2 on Metricool's UK TikTok chart, 7 Oct. Single chart, no use count. The numeric suffix in the title is a production-library ID."
+    },
+    {
+      "title": "Afternoon in Sicily (Lofi)",
+      "artist": "Muspace Lofi",
+      "search": "Muspace Lofi Afternoon in Sicily (Lofi)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "lofi",
+        "nylon-string guitar",
+        "instrumental",
+        "warm"
+      ],
+      "suits": "Warm lofi with nylon-string guitar, soft hip-hop drums and outdoor ambience; suits relaxed, slow-paced edits.",
+      "licence": "platform",
+      "notes": "New entry at #8 on Metricool's UK TikTok chart, 7 Oct. Single chart, no use count."
+    },
+    {
+      "title": "Glorious Moment",
+      "artist": "Chillout & D'Michel Leb",
+      "search": "Chillout & D'Michel Leb Glorious Moment",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "orchestral",
+        "piano and strings",
+        "instrumental",
+        "swelling"
+      ],
+      "suits": "Grand, swelling orchestral strings over piano chords; suits reveal and recap payoff moments.",
+      "licence": "platform",
+      "notes": "New entry at #10 on Metricool's UK TikTok chart, 7 Oct. Single chart, bottom of it, no use count: the thinnest UK evidence in this run. The artist name contains a slashed-o in the original chart listing."
+    },
+    {
+      "title": "Pure",
+      "artist": "Sienna Spiro",
+      "search": "Sienna Spiro Pure",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 70000,
+      "energy": "low",
+      "mood": [
+        "vocal-led",
+        "sparse",
+        "lyric-driven"
+      ],
+      "suits": "Sparse, vocal-led song where the lyric is the point; works for text-overlay or piece-to-camera posts.",
+      "licence": "platform",
+      "notes": "41k posts per Scott Social (5 Oct) rising to 70k per CreatorDB (7 Oct), filed rising with a heat score of 69. Two sources and roughly 70% growth in two days, the fastest acceleration measured in this run."
+    },
+    {
+      "title": "Uncasually",
+      "artist": "Bonobo",
+      "search": "Bonobo Uncasually",
+      "platform": "tiktok",
+      "direction": "peaking",
+      "energy": "medium",
+      "mood": [
+        "downtempo electronica",
+        "organic percussion",
+        "ambient synths",
+        "instrumental-leaning"
+      ],
+      "suits": "Organic downtempo electronica with ambient synths and headroom in the mids; works as a background bed.",
+      "licence": "platform",
+      "notes": "#6 on Metricool's UK TikTok chart, 7 Oct, down from #1 on 30 Sep. That fall is why it is filed as peaking."
+    },
+    {
+      "title": "Retro Drive (Synthwave Background)",
+      "artist": "Pixabay / synthwave-background-183741",
+      "search": "Pixabay / synthwave-background-183741 Retro Drive (Synthwave Background)",
+      "energy": "high",
+      "mood": [
+        "synthwave",
+        "instrumental",
+        "retro",
+        "driving"
+      ],
+      "suits": "Driving, retro synthwave instrumental with no vocal; suits fast-paced footage.",
+      "licence": "clearable",
+      "notes": "Licence-safe library track, not a trending sound. Pixabay Content Licence, no attribution required. No artist name recorded."
+    },
+    {
+      "title": "Escape (80s Synthwave)",
+      "artist": "Aries Beats",
+      "search": "Aries Beats Escape (80s Synthwave)",
+      "energy": "medium",
+      "mood": [
+        "retrowave",
+        "instrumental",
+        "melodic"
+      ],
+      "suits": "Melodic, less propulsive retrowave instrumental; works as a background bed.",
+      "licence": "clearable",
+      "notes": "Licence-safe library track, not a trending sound. Pixabay Content Licence, no attribution required."
+    },
+    {
+      "title": "Phonk Drift",
+      "artist": "Pixabay / phonk-phonk-drift-496890",
+      "search": "Pixabay / phonk-phonk-drift-496890 Phonk Drift",
+      "energy": "high",
+      "mood": [
+        "drift phonk",
+        "instrumental",
+        "distorted bass"
+      ],
+      "suits": "Instrumental drift phonk with a distorted low end and no lyric; suits aggressive, fast cuts.",
+      "licence": "clearable",
+      "notes": "Licence-safe library track, not a trending sound. Pixabay Content Licence, no attribution required. No artist name recorded."
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "run": "2026-09-24",
+  "region": "UK",
+  "candidates": [
+    {
+      "title": "Eat Me Better",
+      "artist": "nimino (feat. Charlotte Plank)",
+      "search": "nimino (feat. Charlotte Plank) Eat Me Better",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "uk electronic",
+        "garage-house",
+        "chopped vocal",
+        "warm"
+      ],
+      "suits": "Warm, rolling garage-house groove built on a chopped vocal sample; suits fast-cut montages and transitions.",
+      "licence": "platform",
+      "notes": "#7 on Metricool's UK TikTok chart, 16 Sep (down from #5 on the previous chart); also listed by SocialPilot's TikTok list (15 Sep) and Buffer (last updated 5 Aug). Three sources across about six weeks."
+    },
+    {
+      "title": "Aperture",
+      "artist": "Harry Styles",
+      "search": "Harry Styles Aperture",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "pop",
+        "bright",
+        "propulsive",
+        "singalong"
+      ],
+      "suits": "Bright, propulsive major-key pop with a singalong lift; suits upbeat montages and recaps.",
+      "licence": "platform"
+    },
+    {
+      "title": "Kiss of Life",
+      "artist": "Sade",
+      "search": "Sade Kiss of Life",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 450000,
+      "energy": "medium",
+      "mood": [
+        "smooth soul",
+        "warm",
+        "mellow"
+      ],
+      "suits": "Smooth, warm soul with a mellow, low-sitting vocal; suits relaxed, slow-paced edits.",
+      "licence": "platform",
+      "notes": "About 450k reels at this run, close to the 500k level the run treated as late. CreatorDB's Instagram audio chart (23 Sep) was the run's only source of use counts."
+    },
+    {
+      "title": "Someone New",
+      "artist": "Hozier",
+      "search": "Hozier Someone New",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 20000,
+      "energy": "medium",
+      "mood": [
+        "folk-rock",
+        "feel-good",
+        "celebratory"
+      ],
+      "suits": "Feel-good folk-rock with a half-time swing; suits celebratory, upbeat montages.",
+      "licence": "platform",
+      "notes": "About 20k reels and called rising on CreatorDB's Instagram audio chart, 23 Sep; at the very bottom of the count range, so early."
+    },
+    {
+      "title": "Bass Persuades",
+      "artist": "Miley Cyrus",
+      "search": "Miley Cyrus Bass Persuades",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "dance-pop",
+        "confident",
+        "bass-heavy"
+      ],
+      "suits": "Confident dance-pop with a driving low end; suits energetic, fast-cut edits.",
+      "licence": "platform"
+    },
+    {
+      "title": "The Morning",
+      "artist": "The Weeknd",
+      "search": "The Weeknd The Morning",
+      "platform": "reels",
+      "direction": "rising",
+      "uses": 26000,
+      "energy": "medium",
+      "mood": [
+        "r&b",
+        "moody",
+        "nocturnal",
+        "sparse"
+      ],
+      "suits": "Moody, nocturnal R&B over a sparse guitar loop; suits night-time and atmospheric footage.",
+      "licence": "platform",
+      "notes": "About 26k reels and called rising on CreatorDB's Instagram audio chart, 23 Sep; at the very bottom of the count range, so early."
+    },
+    {
+      "title": "Sunny",
+      "artist": "Boney M. & R3HAB",
+      "search": "Boney M. & R3HAB Sunny",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "disco-house",
+        "remix",
+        "bright"
+      ],
+      "suits": "Bright four-to-the-floor disco-house remix of the classic; suits sunny, high-energy montages.",
+      "licence": "platform"
+    },
+    {
+      "title": "Right Round",
+      "artist": "Flo Rida feat. Kesha",
+      "search": "Flo Rida feat. Kesha Right Round",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "electro-pop",
+        "nostalgic",
+        "vocal-heavy"
+      ],
+      "suits": "Nostalgic electro-pop with a big vocal hook; suits punchy, fast-cut edits.",
+      "licence": "platform"
+    },
+    {
+      "title": "Reason To Stay",
+      "artist": "Olivia Dean",
+      "search": "Olivia Dean Reason To Stay",
+      "platform": "reels",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "uk neo-soul",
+        "intimate",
+        "light swing"
+      ],
+      "suits": "Intimate UK neo-soul with a light swing; suits quiet, personal posts.",
+      "licence": "platform",
+      "notes": "Single source (CreatorDB's Instagram audio chart, 23 Sep); treat as unconfirmed."
+    },
+    {
+      "title": "LET ME BE",
+      "artist": "The Second Voice",
+      "search": "The Second Voice LET ME BE",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "anthemic",
+        "mid-tempo"
+      ],
+      "suits": "Anthemic mid-tempo pop with a big open chorus; suits uplifting recap moments.",
+      "licence": "platform",
+      "notes": "Listed on Metricool's UK TikTok chart, 16 Sep. Single source, chart row only."
+    },
+    {
+      "title": "Ghost",
+      "artist": "Jhené Aiko",
+      "search": "Jhené Aiko Ghost",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "r&b",
+        "airy",
+        "breathy"
+      ],
+      "suits": "Airy, breathy and weightless R&B; suits soft, reflective posts.",
+      "licence": "platform",
+      "notes": "Associated with the 'I got a vision for myself' post format. No chart source or use count recorded."
+    },
+    {
+      "title": "Rich Girl (feat. Eve)",
+      "artist": "Gwen Stefani",
+      "search": "Gwen Stefani Rich Girl (feat. Eve)",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "pop",
+        "mid-2000s nostalgia",
+        "vocal-heavy"
+      ],
+      "suits": "Mid-2000s nostalgia pop with a marching hook; suits reveal and transition-led edits.",
+      "licence": "platform"
+    },
+    {
+      "title": "Dream of You",
+      "artist": "Burgundy Blues",
+      "search": "Burgundy Blues Dream of You",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "retro-soul",
+        "soft",
+        "unobtrusive"
+      ],
+      "suits": "Soft, unobtrusive retro-soul; works as a background bed under talking.",
+      "licence": "platform"
+    },
+    {
+      "title": "Midnight Drive",
+      "artist": "Pixabay (royalty-free synthwave)",
+      "search": "Pixabay (royalty-free synthwave) Midnight Drive",
+      "energy": "high",
+      "mood": [
+        "synthwave",
+        "instrumental",
+        "arpeggiated pads"
+      ],
+      "suits": "Instrumental night-drive synthwave with arpeggiated pads and no vocals; suits night-time footage.",
+      "licence": "clearable",
+      "notes": "Not taken from a trend chart: a royalty-free Pixabay library track. No artist name recorded."
+    },
+    {
+      "title": "Epic Cinematic Trap",
+      "artist": "Pixabay (royalty-free)",
+      "search": "Pixabay (royalty-free) Epic Cinematic Trap",
+      "energy": "high",
+      "mood": [
+        "cinematic trap",
+        "instrumental",
+        "orchestral stabs"
+      ],
+      "suits": "Instrumental cinematic trap with orchestral stabs over 808s; suits dramatic reveals and hard cuts.",
+      "licence": "clearable",
+      "notes": "Not taken from a trend chart: a royalty-free Pixabay library track. No artist name recorded."
+    }
+  ]
+}

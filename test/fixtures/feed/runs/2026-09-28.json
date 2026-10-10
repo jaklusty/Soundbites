@@ -1,0 +1,218 @@
+{
+  "run": "2026-09-28",
+  "region": "UK",
+  "candidates": [
+    {
+      "title": "Muscle Drive",
+      "artist": "Wbsound",
+      "search": "Wbsound Muscle Drive",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "hard techno",
+        "instrumental",
+        "relentless"
+      ],
+      "suits": "Relentless four-to-the-floor hard techno with no vocals; suits fast, high-intensity cutting.",
+      "licence": "platform",
+      "notes": "Flagged rising by both SocialPilot (15 Sep) and Buffer's TikTok list."
+    },
+    {
+      "title": "Uncasually",
+      "artist": "Bonobo",
+      "search": "Bonobo Uncasually",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "downtempo electronica",
+        "warm",
+        "instrumental"
+      ],
+      "suits": "Warm, rolling instrumental electronica with plenty of headroom; works as a background bed.",
+      "licence": "platform",
+      "notes": "#1 on Metricool's UK TikTok chart, 23 Sep."
+    },
+    {
+      "title": "MAFIA",
+      "artist": "Soothewave",
+      "search": "Soothewave MAFIA",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "phonk-adjacent",
+        "dark",
+        "sparse",
+        "half-time"
+      ],
+      "suits": "Dark, sparse, phonk-adjacent low end with a half-time feel; suits menacing, slow-impact shots.",
+      "licence": "platform",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source."
+    },
+    {
+      "title": "I Heard",
+      "artist": "Young Fathers",
+      "search": "Young Fathers I Heard",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "art-pop",
+        "percussive",
+        "minimalist",
+        "chanted vocal"
+      ],
+      "suits": "Minimalist, clattering percussion with chanted vocals and big gaps; suits rhythm-led cutting.",
+      "licence": "platform",
+      "notes": "Flagged rising by both SocialPilot (15 Sep) and Buffer's TikTok list."
+    },
+    {
+      "title": "Mind Blank",
+      "artist": "OTE (feat. Zorro)",
+      "search": "OTE (feat. Zorro) Mind Blank",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "electronic",
+        "uplifting",
+        "bright"
+      ],
+      "suits": "Bright, uplifting electronic track; versatile for upbeat montages and recaps.",
+      "licence": "clearable",
+      "notes": "Flagged rising by both SocialPilot (15 Sep) and Buffer's TikTok list. Epidemic Sound catalogue track: clearable via subscription, not free. An instrumental version also exists in that catalogue."
+    },
+    {
+      "title": "Neon Nights",
+      "artist": "Adrian Rover",
+      "search": "Adrian Rover Neon Nights",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "synth",
+        "late-night",
+        "moody",
+        "sparse"
+      ],
+      "suits": "Sparse, moody late-night synth track; suits night-time city footage.",
+      "licence": "platform",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source. It was #1 on the same chart on 16 Sep."
+    },
+    {
+      "title": "Dream big",
+      "artist": "STOSLIV & LOVIXX",
+      "search": "STOSLIV & LOVIXX Dream big",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "dance-pop",
+        "anthemic",
+        "uplifting"
+      ],
+      "suits": "Anthemic dance-pop lift with a high-sitting vocal; suits milestone and recap montages.",
+      "licence": "platform",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source."
+    },
+    {
+      "title": "Velvety Captor",
+      "artist": "DJ BAI",
+      "search": "DJ BAI Velvety Captor",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "medium",
+      "mood": [
+        "smooth",
+        "reflective",
+        "unhurried"
+      ],
+      "suits": "Smooth, unhurried and reflective; works as a bed for scenic travel footage.",
+      "licence": "platform",
+      "notes": "Flagged rising by both SocialPilot (15 Sep) and Buffer's TikTok list. Exists only as a TikTok sound."
+    },
+    {
+      "title": "In My Own Mind",
+      "artist": "Atomica Music",
+      "search": "Atomica Music In My Own Mind",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "production library",
+        "slow",
+        "unobtrusive"
+      ],
+      "suits": "Slow, deliberately unobtrusive production-library bed; works as background under talking.",
+      "licence": "clearable",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source. Production-music library track, clearable via licence."
+    },
+    {
+      "title": "Makes No Difference",
+      "artist": "The Rose Hips",
+      "search": "The Rose Hips Makes No Difference",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "indie",
+        "mellow",
+        "reflective"
+      ],
+      "suits": "Mellow, reflective indie; suits text-overlay storytelling posts.",
+      "licence": "platform",
+      "notes": "Flagged rising by both SocialPilot (15 Sep) and Buffer's TikTok list."
+    },
+    {
+      "title": "Late Night Low End",
+      "artist": "Velvet Smoke",
+      "search": "Velvet Smoke Late Night Low End",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "slow",
+        "glossy",
+        "low-end heavy"
+      ],
+      "suits": "Slow, glossy and patient low-end groove; suits detail and close-up shots.",
+      "licence": "platform",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source. Described as heavily used on detail-shot content."
+    },
+    {
+      "title": "Run / seaside / early morning / comfortable EDM loop(1213476)",
+      "artist": "zomap",
+      "search": "zomap Run / seaside / early morning / comfortable EDM loop(1213476)",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "high",
+      "mood": [
+        "edm",
+        "bright",
+        "instrumental",
+        "loop"
+      ],
+      "suits": "Bright, fully instrumental EDM loop that loops cleanly to any length; works as an upbeat background bed.",
+      "licence": "clearable",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source. It was a new entry at #2 on the 16 Sep chart. Audiostock/Artlist stock catalogue track, clearable via licence."
+    },
+    {
+      "title": "Little Things",
+      "artist": "Adrián Berenguer (ANBR)",
+      "search": "Adrián Berenguer (ANBR) Little Things",
+      "platform": "tiktok",
+      "direction": "rising",
+      "energy": "low",
+      "mood": [
+        "cinematic",
+        "piano and strings",
+        "spacious"
+      ],
+      "suits": "Slow, spacious cinematic piano and strings; suits reflective, slow-paced footage.",
+      "licence": "clearable",
+      "notes": "Listed on Metricool's UK TikTok chart, 23 Sep. Single source. Artlist composer: clearable via subscription."
+    }
+  ]
+}
