@@ -35,8 +35,6 @@ mac:
   entitlements: build/entitlements.mac.plist
   entitlementsInherit: build/entitlements.mac.inherit.plist
   # ------------------------------------------------------------------------------------------
-  # The bundled ffmpeg is a universal Mach-O, so no single-architecture files are expected.
-  x64ArchFiles: ""
   extendInfo:
     NSMicrophoneUsageDescription: Soundbites does not use the microphone.
 
