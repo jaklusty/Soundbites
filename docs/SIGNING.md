@@ -63,6 +63,6 @@ Once the above is done:
 2. In the main process, on launch: `autoUpdater.checkForUpdatesAndNotify()` from
    `electron-updater`, replacing the "a newer version is available" link in the About screen.
    `publish` in `electron-builder.yml` already points at GitHub Releases for this repository.
-3. Because the repository is private, friends' copies cannot read GitHub Releases without a
-   token. Either make the releases public (a separate public repository that only holds
-   releases), or ship a read-only token in the app (not recommended). Decide before enabling.
+3. The repository is public, so GitHub Releases are readable by every copy of the app without a
+   token. (If it is ever made private again, the update check and the LGPL source offer both
+   need a public home for the releases.)

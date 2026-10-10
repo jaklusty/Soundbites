@@ -1,7 +1,7 @@
 // Downloads the bundled ffmpeg from a release made by .github/workflows/ffmpeg.yml into
 // vendor/ffmpeg/<mac|win>/ and verifies it against the release's SHA256SUMS.
 // Usage: node scripts/fetch-ffmpeg.mjs mac|win <release-tag>
-// Needs GH_TOKEN (the repo is private). Uses the gh CLI, present on all GitHub runners.
+// Uses the gh CLI, present on all GitHub runners (GH_TOKEN avoids API rate limits).
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { mkdirSync, readFileSync, rmSync, existsSync } from 'node:fs'
