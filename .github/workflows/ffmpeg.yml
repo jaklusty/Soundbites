@@ -28,7 +28,7 @@ env:
   # machine (Homebrew, system libs) is linked in by accident.
   FFMPEG_COMMON: >-
     --disable-shared --enable-static --disable-autodetect --disable-doc --disable-debug
-    --disable-ffplay --disable-network --disable-devices --disable-htmlpages --disable-manpages
+    --disable-ffplay --disable-network --disable-devices --enable-indev=lavfi --disable-htmlpages --disable-manpages
     --enable-libmp3lame --pkg-config-flags=--static
 
 jobs:
@@ -80,7 +80,8 @@ jobs:
           if echo "$CONF" | grep -q -- '--enable-nonfree'; then echo "nonfree flag present"; exit 1; fi
           out/ffmpeg -hide_banner -version | head -3
           # Only system frameworks/libs may be dynamically linked.
-          otool -L out/ffmpeg | tail -n +2 | awk '{print $1}' | grep -v -E '^(/usr/lib/|/System/Library/)' && { echo "non-system dylib linked"; exit 1; } || true
+          # Library lines are indented; the per-architecture header lines of a universal binary are not.
+          otool -L out/ffmpeg | grep -E '^[[:space:]]' | awk '{print $1}' | grep -v -E '^(/usr/lib/|/System/Library/)' && { echo "non-system dylib linked"; exit 1; } || true
           # Encoder/filter sanity: mp3 encode, wav output, loudness measurement, opus+aac decode present.
           out/ffmpeg -hide_banner -encoders | grep -q libmp3lame
           out/ffmpeg -hide_banner -encoders | grep -q pcm_s16le

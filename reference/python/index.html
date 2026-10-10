@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soundbites</title>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --panel: #ffffff;
+    --line: #e5e1da;
+    --ink: #1c1a17;
+    --muted: #78716a;
+    --faint: #a8a29a;
+    --accent: #b4531f;
+    --accent-soft: #fdf0e6;
+    --rising: #2f7d4f;
+    --rising-bg: #e8f4ec;
+    --peaking: #9a6b12;
+    --peaking-bg: #fbf2df;
+    --fading: #8a8580;
+    --fading-bg: #f0eeeb;
+    --star: #d4a017;
+    --radius: 9px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16151a;
+      --panel: #1e1d23;
+      --line: #302e37;
+      --ink: #eceaf0;
+      --muted: #9b96a5;
+      --faint: #6d6878;
+      --accent: #e8874a;
+      --accent-soft: #2c1f18;
+      --rising: #6cc48c;
+      --rising-bg: #16301f;
+      --peaking: #d4a955;
+      --peaking-bg: #2e2515;
+      --fading: #7d7889;
+      --fading-bg: #26242c;
+      --star: #e8c15a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.5 ui-sans-serif, -apple-system, "SF Pro Text", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  /* ---------- header ---------- */
+  header { margin-bottom: 22px; }
+  .titlebar {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -0.02em; font-weight: 620; }
+  .runinfo { color: var(--muted); font-size: 13px; }
+  .runinfo b { color: var(--ink); font-weight: 560; }
+
+  .controls {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    margin-top: 14px;
+  }
+  input[type=search], select {
+    font: inherit; color: var(--ink); background: var(--panel);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 7px 11px; outline: none;
+  }
+  input[type=search] { flex: 1 1 220px; min-width: 0; }
+  input[type=search]:focus, select:focus { border-color: var(--accent); }
+
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .chip {
+    font: inherit; font-size: 13px; cursor: pointer;
+    background: var(--panel); color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 12px; transition: all .12s;
+  }
+  .chip:hover { color: var(--ink); }
+  .chip[aria-pressed="true"] {
+    background: var(--accent); border-color: var(--accent); color: #fff;
+  }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 30px; }
+  .sechead {
+    display: flex; align-items: baseline; gap: 9px;
+    padding-bottom: 7px; margin-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .sechead h2 {
+    font-size: 12px; margin: 0; font-weight: 640;
+    text-transform: uppercase; letter-spacing: .09em; color: var(--muted);
+  }
+  .count { font-size: 12px; color: var(--faint); }
+  .blurb { font-size: 13px; color: var(--muted); margin: -4px 0 12px; }
+
+  /* ---------- track ---------- */
+  .track {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 12px; align-items: start;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 12px 13px; margin-bottom: 7px;
+  }
+  .track.playing { border-color: var(--accent); background: var(--accent-soft); }
+  .track.gone { opacity: .62; }
+
+  .play {
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+    display: grid; place-items: center; font-size: 13px; padding: 0;
+    transition: all .12s;
+  }
+  .play:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .play:disabled { cursor: not-allowed; opacity: .4; }
+  .track.playing .play { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .name { font-weight: 580; letter-spacing: -0.01em; }
+  .artist { color: var(--muted); font-weight: 400; }
+  .meta {
+    display: flex; gap: 7px; flex-wrap: wrap; align-items: center;
+    margin-top: 5px; font-size: 12.5px; color: var(--muted);
+  }
+  .badge {
+    font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 5px;
+    letter-spacing: .02em;
+  }
+  .badge.rising  { color: var(--rising);  background: var(--rising-bg); }
+  .badge.peaking { color: var(--peaking); background: var(--peaking-bg); }
+  .badge.fading  { color: var(--fading);  background: var(--fading-bg); }
+  .badge.clearable {
+    color: var(--accent); background: var(--accent-soft);
+    border: 1px solid var(--line);
+  }
+  .dot { color: var(--faint); }
+  .hook { color: var(--muted); }
+  .faintish { color: var(--faint); }
+  .badge.pool { color: var(--rising); background: var(--rising-bg); }
+  .suits { margin-top: 5px; font-size: 13px; color: var(--muted); }
+  .gonenote { margin-top: 5px; font-size: 12.5px; color: var(--faint); font-style: italic; }
+  .full { margin-top: 6px; font-size: 12.5px; color: var(--muted); }
+  .full.pending { color: var(--faint); font-style: italic; }
+  .fullbadge {
+    font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 5px;
+    color: var(--star); background: var(--peaking-bg);
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .side { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .star {
+    background: none; border: none; cursor: pointer; font-size: 17px;
+    color: var(--faint); padding: 2px 3px; line-height: 1; transition: all .12s;
+  }
+  .star:hover { color: var(--star); transform: scale(1.12); }
+  .star[aria-pressed="true"] { color: var(--star); }
+  .star:disabled { cursor: not-allowed; }
+  .uses { font-size: 11.5px; color: var(--faint); white-space: nowrap; }
+
+  audio { width: 100%; margin-top: 9px; height: 32px; }
+  .empty {
+    color: var(--muted); font-size: 14px; padding: 18px 2px; font-style: italic;
+  }
+  footer {
+    margin-top: 44px; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--faint); line-height: 1.7;
+  }
+  .status {
+    border-radius: var(--radius); padding: 10px 13px; font-size: 13px;
+    margin-top: 14px; line-height: 1.55;
+  }
+  .status.bad { background: var(--peaking-bg); color: var(--peaking); }
+  .status.info { background: var(--panel); border: 1px solid var(--line); color: var(--muted); }
+  .status b { font-weight: 640; }
+  .status ul { margin: 6px 0 0; padding-left: 18px; }
+  .status .act {
+    font: inherit; font-size: 12.5px; cursor: pointer; margin-top: 8px;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px;
+  }
+  .status .act:hover { border-color: var(--accent); color: var(--accent); }
+  .status .act:disabled { opacity: .5; cursor: default; }
+  .warn {
+    background: var(--peaking-bg); color: var(--peaking);
+    border-radius: var(--radius); padding: 9px 12px; font-size: 13px;
+    margin-top: 14px;
+  }
+  kbd {
+    font: 11px ui-monospace, monospace; background: var(--bg);
+    border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="titlebar">
+    <h1>Soundbites</h1>
+    <span class="runinfo" id="runinfo"></span>
+  </div>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search title, artist, mood, what it suits…" autocomplete="off">
+    <select id="profile" title="Relevance profile"></select>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div id="apiwarn"></div>
+  <div id="status"></div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div><kbd>/</kbd> search &nbsp; <kbd>space</kbd> play/pause &nbsp; <kbd>esc</kbd> clear</div>
+  <div id="storage"></div>
+  <div style="margin-top:6px">
+    Trending audio is licensed for use inside Reels and TikTok. Cut to the reference,
+    export muted, add the official audio at upload — or pick a
+    <b>clearable</b> track for anything baked into the export.
+  </div>
+</footer>
+
+</div>
+
+<script src="library.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DATA = window.SOUNDBITES || { library: { tracks: [] }, favourites: [], profile: {} };
+  var TRACKS = (DATA.library && DATA.library.tracks) || [];
+  var PROFILE = DATA.profile || {};
+  var favourites = new Set(DATA.favourites || []);
+  var promoteQueue = new Set();
+  var apiLive = false;
+  var current = null;
+
+  var state = { q: "", filter: "all", profile: PROFILE.active || "" };
+
+  var el = {
+    main: document.getElementById("main"),
+    q: document.getElementById("q"),
+    chips: document.getElementById("chips"),
+    profile: document.getElementById("profile"),
+    runinfo: document.getElementById("runinfo"),
+    apiwarn: document.getElementById("apiwarn"),
+    status: document.getElementById("status"),
+    storage: document.getElementById("storage")
+  };
+
+  // ---------------------------------------------------------------- api
+
+  var TOKEN = (function () {
+    var m = /[?&]k=([^&]+)/.exec(location.search);
+    return m ? decodeURIComponent(m[1]) : "";
+  })();
+
+  function api(path, body) {
+    // Content-Type must be application/json: the server rejects anything else,
+    // which is what stops a foreign page from POSTing here.
+    return fetch(path + (TOKEN ? (path.indexOf("?") < 0 ? "?" : "&") +
+                  "k=" + encodeURIComponent(TOKEN) : ""), {
+      method: body ? "POST" : "GET",
+      headers: { "Content-Type": "application/json" },
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function (r) {
+      if (!r.ok) { var e = new Error(r.status); e.status = r.status; throw e; }
+      return r.json();
+    });
+  }
+
+  function probeApi() {
+    return api("/api/state").then(function (s) {
+      apiLive = true;
+      if (s.favourites) favourites = new Set(s.favourites);
+      promoteQueue = new Set(s.promote_queue || []);
+      if (s.profile && s.profile.views) {
+        PROFILE = s.profile;
+          // Default is EVERYTHING. A saved view is something you turn on, never
+        // a gate on what you get to see.
+        state.profile = (PROFILE.views && PROFILE.views.active) || "";
+      }
+    }).catch(function (err) {
+      apiLive = false;
+      // An earlier version blamed file:// for every failure, so a
+      // token-protected page told the user to start a server that was
+      // already running.
+      var msg;
+      if (err && err.status === 403) {
+        msg = 'This library needs its access token. Open the link that ends ' +
+              'in <code>?k=…</code> — without it, starring and full-track ' +
+              'pulls are unavailable.';
+      } else if (err && err.status === 500) {
+        msg = 'The server is running but one of the library files is damaged. ' +
+              'Check the terminal — nothing has been deleted.';
+      } else {
+        msg = 'Opened straight off disk, so starring is read-only. Start the ' +
+              'server (<code>python3 serve.py</code>) and use ' +
+              '<a href="http://127.0.0.1:8765">127.0.0.1:8765</a> to save favourites.';
+      }
+      el.apiwarn.innerHTML = '<div class="warn">' + msg + '</div>';
+    });
+  }
+
+  // ---------------------------------------------------------------- helpers
+
+  function safeUrl(u) {
+    // track.source_url comes from web research: treat it as untrusted.
+    var s = String(u == null ? "" : u).trim();
+    return /^https?:\/\//i.test(s) ? s : "";
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function fmtUses(n) {
+    if (n == null) return "";
+    if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, "") + "m uses";
+    if (n >= 1e3) return Math.round(n / 1e3) + "k uses";
+    return n + " uses";
+  }
+
+  function trend(track) {
+    // Direction the use count moved between the two most recent observations.
+    var h = track.uses_history;
+    if (!h) return "";
+    var keys = Object.keys(h).sort();
+    if (keys.length < 2) return "";
+    var a = h[keys[keys.length - 2]], b = h[keys[keys.length - 1]];
+    if (!a || !b || b === a) return "";
+    var pct = Math.round(((b - a) / a) * 100);
+    if (Math.abs(pct) < 3) return "";
+    return (pct > 0 ? "▲ " : "▼ ") + Math.abs(pct) + "% since last run";
+  }
+
+  function matchesProfile(track) {
+    if (!state.profile) return true;
+    var p = track.profiles || [];
+    return p.length === 0 || p.indexOf(state.profile) !== -1;
+  }
+
+  function matchesQuery(track) {
+    if (!state.q) return true;
+    var hay = [
+      track.title, track.artist, track.suits, track.notes,
+      (track.mood || []).join(" "), track.energy, track.platform
+    ].join(" ").toLowerCase();
+    return state.q.toLowerCase().split(/\s+/).every(function (term) {
+      return hay.indexOf(term) !== -1;
+    });
+  }
+
+  function matchesFilter(track) {
+    switch (state.filter) {
+      case "rising":    return track.direction === "rising";
+      case "peaking":   return track.direction === "peaking";
+      case "favourite": return favourites.has(track.id);
+      case "clearable": return track.licence === "clearable";
+      case "pool":      return !!track.pinned;
+      case "playable":  return !!track.clip_present;
+      default:          return true;
+    }
+  }
+
+  function visible() {
+    return TRACKS.filter(function (t) {
+      return matchesProfile(t) && matchesQuery(t) && matchesFilter(t);
+    });
+  }
+
+  // ---------------------------------------------------------------- render
+
+  function fmtTime(sec) {
+    var m = Math.floor(sec / 60), s = Math.round(sec % 60);
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  function fmtMb(bytes) {
+    var mb = bytes / 1e6;
+    // A sub-megabyte file used to render as "0 MB".
+    return mb >= 10 ? mb.toFixed(0) + " MB"
+         : mb >= 1  ? mb.toFixed(1) + " MB"
+                    : Math.round(bytes / 1e3) + " KB";
+  }
+
+  function fullLine(track) {
+    // The 30s clip is for judging fit. Once starred, the whole track is pulled
+    // so sections can be chosen against real footage.
+    if (track.full) {
+      var mb = track.full_bytes ? fmtMb(track.full_bytes) : "";
+      return '<div class="full"><span class="fullbadge">full track</span> ' +
+        '<a href="' + esc(track.full) + '" target="_blank" rel="noopener">' +
+        esc(track.full.split("/").pop()) + "</a>" +
+        (mb ? ' <span class="dot">·</span> <span class="uses">' + mb + "</span>" : "") +
+        ' <span class="dot">·</span> <span class="uses">drag into Resolve to pick your section</span>' +
+        "</div>";
+    }
+    if (promoteQueue.has(track.id)) {
+      return '<div class="full pending">Pulling the full track…</div>';
+    }
+    if (track.full_error) {
+      return '<div class="full pending">Full track could not be pulled (' +
+        esc(track.full_error) + '). The audition clip still works.</div>';
+    }
+    return "";
+  }
+
+  function trackNode(track) {
+    var node = document.createElement("div");
+    node.className = "track" + (track.clip_present ? "" : " gone");
+    node.dataset.id = track.id;
+
+    var isFav = favourites.has(track.id);
+    var dir = track.direction || "";
+    var bits = [];
+    if (track.bpm) bits.push(track.bpm + " bpm");
+    if (track.energy) bits.push(track.energy + " energy");
+    if (track.mood && track.mood.length) bits.push(track.mood.join(", "));
+    if (track.platform) bits.push(track.platform === "both" ? "TikTok + Reels" : track.platform);
+
+    var mv = trend(track);
+    var hookBits = "";
+    if (track.hook_at != null) {
+      var conf = { heatmap: "most replayed", chorus: "chorus", energy: "loudest part",
+                   explicit: "set by hand", "default": "not detected" }[track.hook_method]
+                 || track.hook_method;
+      hookBits = '<span class="dot">·</span> <span class="hook" title="' +
+        esc(track.hook_detail || "") + '">hook at ' + esc(fmtTime(track.hook_at)) +
+        " <span class=\"faintish\">(" + esc(conf) + ")</span></span>";
+    }
+
+    node.innerHTML =
+      '<button class="play" aria-label="Play"' +
+        (track.clip_present ? "" : " disabled") + ">▶</button>" +
+      '<div class="body">' +
+        '<div class="name">' + esc(track.title) +
+          (track.artist ? ' <span class="artist">· ' + esc(track.artist) + "</span>" : "") +
+        "</div>" +
+        '<div class="meta">' +
+          // "extra" is not a trend direction, so an extra shows only its own
+          // badge rather than repeating the word twice.
+          (dir && !track.pinned
+            ? '<span class="badge ' + esc(dir) + '">' + esc(dir) + "</span>" : "") +
+          (track.licence === "clearable"
+            ? '<span class="badge clearable">clearable</span>' : "") +
+          (track.pinned ? '<span class="badge pool">extra</span>' : "") +
+          bits.map(function (b, i) {
+            return (i ? '<span class="dot">·</span>' : "") + "<span>" + esc(b) + "</span>";
+          }).join("") +
+          hookBits +
+          (safeUrl(track.source_url)
+            ? ' <span class="dot">·</span> <a href="' + esc(safeUrl(track.source_url)) +
+              '" target="_blank" rel="noopener">source</a>' : "") +
+        "</div>" +
+        (track.suits ? '<div class="suits">' + esc(track.suits) + "</div>" : "") +
+        (track.clip_present ? "" :
+          '<div class="gonenote">Clip pruned to save space — the research is kept.' +
+          (safeUrl(track.source_url)
+            ? ' Ask Claude to re-pull it, or open the source.'
+            : ' No fetchable source was found for this one, so it cannot be re-pulled.') +
+          "</div>") +
+        fullLine(track) +
+      "</div>" +
+      '<div class="side">' +
+        '<button class="star" aria-pressed="' + isFav + '"' +
+          (apiLive ? "" : " disabled") +
+          ' title="' + (apiLive ? "Favourite (keeps the clip forever)"
+                                : "Start the server to save favourites") + '">' +
+          (isFav ? "★" : "☆") + "</button>" +
+        (track.uses ? '<span class="uses">' + esc(fmtUses(track.uses)) + "</span>" : "") +
+        (mv ? '<span class="uses">' + esc(mv) + "</span>" : "") +
+      "</div>";
+
+    node.querySelector(".play").addEventListener("click", function () {
+      togglePlay(node, track);
+    });
+    node.querySelector(".star").addEventListener("click", function () {
+      toggleStar(node, track);
+    });
+    return node;
+  }
+
+  function section(title, blurb, tracks) {
+    if (!tracks.length) return null;
+    var s = document.createElement("section");
+    var head = document.createElement("div");
+    head.className = "sechead";
+    head.innerHTML = "<h2>" + esc(title) + '</h2><span class="count">' +
+      tracks.length + "</span>";
+    s.appendChild(head);
+    if (blurb) {
+      var b = document.createElement("div");
+      b.className = "blurb";
+      b.textContent = blurb;
+      s.appendChild(b);
+    }
+    tracks.forEach(function (t) { s.appendChild(trackNode(t)); });
+    return s;
+  }
+
+  function render() {
+    // Re-rendering happens on every keystroke in the search box, so playback
+    // has to survive it — losing the track you were auditioning mid-listen is
+    // the single most irritating thing this page could do.
+    var resume = current
+      ? { id: current.node.dataset.id, at: current.audio.currentTime }
+      : null;
+    stop();
+    var list = visible();
+    var lastRun = (DATA.library && DATA.library.last_run) || null;
+
+    // A starred track from this run stays in Fresh where you'll see it —
+    // being a favourite shouldn't hide it from what's new.
+    // The pool is evergreen — chosen for the niche, not for this week's chart.
+    // It must not sit in "Fresh — rising" just because it was ingested today.
+    var pool    = list.filter(function (t) { return t.pinned; });
+    var rest    = list.filter(function (t) { return !t.pinned; });
+    var thisRun = rest.filter(function (t) { return t.last_seen === lastRun; });
+    var older   = rest.filter(function (t) { return t.last_seen !== lastRun; });
+
+    var fresh   = thisRun.filter(function (t) { return t.direction === "rising"; });
+    var working = thisRun.filter(function (t) { return t.direction !== "rising"; });
+    var favs    = older.filter(function (t) { return favourites.has(t.id); });
+    var archive = older.filter(function (t) { return !favourites.has(t.id); });
+
+    el.main.innerHTML = "";
+    var parts = [
+      section("Fresh — rising", "Caught in the acceleration phase. Post within 48–72 hours or the reach advantage is gone.", fresh),
+      section("Still working", "Seen this run, but peaking or already broad. Safe, less upside.", working),
+      section("Kept — favourites", "Starred in earlier runs, so their clips survive the retention sweep.", favs),
+      section("Earlier runs", "Not in the latest run. Metadata kept; clips pruned unless starred.", archive),
+      section("Extras — always here", "Not trend data. A standing set of genre suggestions, kept playable so there is always something to browse beyond this week's chart. Ignore freely.", pool)
+    ].filter(Boolean);
+
+    if (!parts.length) {
+      el.main.innerHTML = '<div class="empty">Nothing matches. ' +
+        (TRACKS.length ? "Try clearing the search or filter."
+                       : "No runs yet — ask Claude for this week's trending sounds.") +
+        "</div>";
+      return;
+    }
+    parts.forEach(function (p) { el.main.appendChild(p); });
+
+    if (resume) {
+      var node = el.main.querySelector('.track[data-id="' +
+        resume.id.replace(/"/g, '\\"') + '"]');
+      if (node) {
+        var track = TRACKS.filter(function (t) { return t.id === resume.id; })[0];
+        if (track && track.clip_present) {
+          togglePlay(node, track);
+          if (current && current.audio) current.audio.currentTime = resume.at;
+        }
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------- audio
+
+  function stop() {
+    if (!current) return;
+    if (current.audio) { current.audio.pause(); current.audio.remove(); }
+    current.node.classList.remove("playing");
+    current.node.querySelector(".play").textContent = "▶";
+    current = null;
+  }
+
+  function togglePlay(node, track) {
+    if (current && current.node === node) { stop(); return; }
+    stop();
+    if (!track.clip_present) return;
+
+    var audio = document.createElement("audio");
+    audio.controls = true;
+    audio.autoplay = true;
+    audio.preload = "none";
+    audio.src = track.clip;
+    audio.addEventListener("ended", stop);
+    audio.addEventListener("error", function () {
+      node.querySelector(".body").insertAdjacentHTML("beforeend",
+        '<div class="gonenote">That clip would not play — the file may have been pruned.</div>');
+      stop();
+    });
+    node.querySelector(".body").appendChild(audio);
+    node.classList.add("playing");
+    node.querySelector(".play").textContent = "❚❚";
+    current = { node: node, audio: audio };
+  }
+
+  // ---------------------------------------------------------------- actions
+
+  function toggleStar(node, track) {
+    if (!apiLive) return;
+    var on = !favourites.has(track.id);
+    var btn = node.querySelector(".star");
+    btn.disabled = true;
+    api("/api/star", { id: track.id, on: on }).then(function (res) {
+      favourites = new Set(res.favourites || []);
+      btn.setAttribute("aria-pressed", String(on));
+      btn.textContent = on ? "★" : "☆";
+      if (res.promotion_queued) {
+        promoteQueue.add(track.id);
+        var body = node.querySelector(".body");
+        var existing = body.querySelector(".full");
+        if (existing) existing.remove();
+        body.insertAdjacentHTML("beforeend",
+          '<div class="full pending">Pulling the full track…</div>');
+      }
+      updateStorageLine();
+    }).catch(function () {
+      apiLive = false;
+      el.apiwarn.innerHTML =
+        '<div class="warn">Could not save that star — the library server has ' +
+        'stopped. Favourites and full-track pulls are paused until it is back. ' +
+        'Restart it with <code>python3 serve.py</code>.</div>';
+      btn.title = "Not saved — server unreachable";
+    }).then(function () { btn.disabled = false; });
+  }
+
+  function updateStorageLine() {
+    var clipped = TRACKS.filter(function (t) { return t.clip_present; });
+    var withClips = clipped.length;
+    // Real bytes recorded at ingest — a source shorter than hook_start+30s
+    // yields a shorter clip, so the old fixed multiplier was a guess.
+    var clipMb = clipped.reduce(function (n, t) {
+      return n + (t.clip_bytes || 480000);
+    }, 0) / 1e6;
+    var fulls = TRACKS.filter(function (t) { return t.full; });
+    var fullMb = fulls.reduce(function (n, t) {
+      return n + (t.full_bytes || 0);
+    }, 0) / 1e6;
+    el.storage.textContent =
+      TRACKS.length + " tracked · " + withClips + " audition clips (" +
+      clipMb.toFixed(1) + " MB) · " + fulls.length +
+      " full tracks (" + fmtMb(fullMb * 1e6) + ") · " + favourites.size +
+      " favourites";
+  }
+
+  // ---------------------------------------------------------------- chrome
+
+  function buildChips() {
+    var defs = [
+      ["all", "All"], ["rising", "Rising"], ["peaking", "Peaking"],
+      ["favourite", "★ Favourites"], ["clearable", "Clearable"],
+      ["pool", "Extras"], ["playable", "Has clip"]
+    ];
+    el.chips.innerHTML = "";
+    defs.forEach(function (d) {
+      var b = document.createElement("button");
+      b.className = "chip";
+      b.textContent = d[1];
+      b.setAttribute("aria-pressed", String(state.filter === d[0]));
+      b.addEventListener("click", function () {
+        state.filter = d[0];
+        buildChips();
+        render();
+      });
+      el.chips.appendChild(b);
+    });
+  }
+
+  function buildProfiles() {
+    var views = (PROFILE && PROFILE.views) || {};
+    var profiles = views.saved || {};
+    var keys = Object.keys(profiles);
+    if (!keys.length) { el.profile.style.display = "none"; return; }
+    el.profile.innerHTML = '<option value="">Everything</option>' +
+      keys.map(function (k) {
+        return '<option value="' + esc(k) + '"' +
+          (k === state.profile ? " selected" : "") + ">" +
+          esc(profiles[k].label || k) + "</option>";
+      }).join("");
+    el.profile.addEventListener("change", function () {
+      state.profile = el.profile.value;
+      if (apiLive && state.profile) {
+        api("/api/profile", { active: state.profile }).catch(function () {});
+      }
+      render();
+    });
+  }
+
+  function buildHeader() {
+    var lib = DATA.library || {};
+    var runs = lib.last_run ? "Last run <b>" + esc(lib.last_run) + "</b>" : "No runs yet";
+    el.runinfo.innerHTML = runs + " · " + TRACKS.length + " tracked";
+    updateStorageLine();
+  }
+
+  function wireKeys() {
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "/" && document.activeElement !== el.q) {
+        e.preventDefault(); el.q.focus(); el.q.select();
+      } else if (e.key === "Escape") {
+        el.q.value = ""; state.q = ""; el.q.blur(); render();
+      } else if (e.key === " " && document.activeElement === document.body) {
+        e.preventDefault();
+        if (current) { stop(); return; }
+        var first = el.main.querySelector(".play:not(:disabled)");
+        if (first) first.click();
+      }
+    });
+    var timer;
+    el.q.addEventListener("input", function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { state.q = el.q.value.trim(); render(); }, 120);
+    });
+  }
+
+  function renderStatus(h) {
+    if (!h || !h.ok) { el.status.innerHTML = ""; return; }
+    var bits = [];
+
+    (h.issues || []).forEach(function (i) {
+      bits.push('<li><b>' + esc(i.message) + '</b>' +
+        (i.detail ? ' <span class="dot">·</span> ' + esc(i.detail) : "") + "</li>");
+    });
+    if ((h.pending || []).length) {
+      bits.push("<li><b>" + h.pending.length + " queued run(s) waiting to be " +
+        "ingested.</b> They land automatically next time the library server " +
+        "starts, or run <code>python3 catchup.py</code>.</li>");
+    }
+
+    var html = "";
+    if (bits.length) {
+      html += '<div class="status bad"><b>Needs attention</b><ul>' +
+        bits.join("") + "</ul></div>";
+    } else if (h.last_run) {
+      html += '<div class="status info">Last run <b>' + esc(h.last_run.run) +
+        "</b> — " + h.last_run.added + " new, " + h.last_run.updated + " updated" +
+        (h.last_run.no_audio ? ", " + h.last_run.no_audio + " without audio" : "") +
+        ". Everything is up to date.</div>";
+    }
+
+    if (h.reclaimable) {
+      html += '<div class="status info">' + h.reclaimable +
+        " full track(s) you have unstarred are still using " +
+        fmtMb(h.reclaim_bytes) + "." +
+        (apiLive ? '<br><button class="act" id="reclaim">Free that space</button>' :
+                   " Run <code>python3 promote.py --reclaim</code> to free it.") +
+        "</div>";
+    }
+
+    el.status.innerHTML = html;
+
+    var btn = document.getElementById("reclaim");
+    if (btn) btn.addEventListener("click", function () {
+      btn.disabled = true;
+      btn.textContent = "Freeing…";
+      api("/api/reclaim", {}).then(function () {
+        btn.textContent = "Done — reload to update";
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = "Could not free it — is the server running?";
+      });
+    });
+  }
+
+  function refreshStatus() {
+    return api("/api/health").then(renderStatus).catch(function () {});
+  }
+
+  function startPolling() {
+    if (!apiLive) return;
+    setInterval(function () {
+      refreshStatus();
+      api("/api/state").then(function (s) {
+        var before = promoteQueue.size;
+        promoteQueue = new Set(s.promote_queue || []);
+        favourites = new Set(s.favourites || favourites);
+        // A promotion finishing changes library.js, which we cannot re-read
+        // without a reload — so say so rather than showing a stale spinner.
+        if (before > 0 && promoteQueue.size < before) {
+          el.apiwarn.innerHTML =
+            '<div class="warn">A full track just finished downloading. ' +
+            '<a href="">Reload</a> to see it.</div>';
+        }
+      }).catch(function () {});
+    }, 30000);
+  }
+
+  probeApi().then(function () {
+    buildHeader();
+    buildChips();
+    buildProfiles();
+    wireKeys();
+    render();
+    refreshStatus();
+    startPolling();
+  });
+})();
+</script>
+</body>
+</html>
