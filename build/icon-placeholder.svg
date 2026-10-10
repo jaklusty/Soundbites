@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Placeholder until the logo is chosen: neutral grey rounded square with an S. -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#5a5a66"/>
+  <text x="512" y="640" font-family="Helvetica, Arial, sans-serif" font-size="420" font-weight="700" fill="#f2f2f5" text-anchor="middle">S</text>
+</svg>

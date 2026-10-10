@@ -34,7 +34,11 @@ npm run dev         # run the app with live reload
 
 Packaging happens in GitHub Actions (`Build app` workflow): a universal `.dmg` on a macOS runner
 and an NSIS installer on a Windows runner. Run the `ffmpeg (LGPL)` workflow first and pass its
-release tag (or set the repository variable `FFMPEG_RELEASE`).
+release tag when starting `Build app` (or set the repository variable `FFMPEG_RELEASE`).
+Current ffmpeg release: `ffmpeg-n8.1.3-3`.
+
+`build/icon.png` is a neutral placeholder until the logo is chosen; replace it with a 1024x1024
+PNG of the chosen variant from `design/logo/` and electron-builder makes the .icns and .ico.
 
 ## Third-party programs
 
