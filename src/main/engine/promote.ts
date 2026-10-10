@@ -129,12 +129,14 @@ export async function queuePromotion(store: Store, trackId: string): Promise<boo
   const track = library.tracks.find((t) => t.id === trackId)
   if (!track) return false
   if (track.full) return false
+  let added = false
   await store.update<{ ids: string[] }>('promote_queue.json', { ids: [] }, (q) => {
     q.ids ??= []
     if (q.ids.includes(trackId)) return undefined
+    added = true
     return { ids: [...q.ids, trackId] }
   })
-  return true
+  return added
 }
 
 /** promote.py --reclaim: delete full tracks for anything no longer starred. Never touches a favourite or a clip. */

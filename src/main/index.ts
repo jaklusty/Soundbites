@@ -99,7 +99,7 @@ function createWindow(): BrowserWindow {
             const r = JSON.parse(text) as { ready: string; first: string; duration: number; seekedTo: number; escapeBlocked: boolean }
             // With no library configured (CI) the first-launch screen is the expected outcome.
             const ok = (r.ready === 'yes' || r.ready === 'screen:none') && (!r.first || (r.duration > 1 && r.seekedTo > 1 && r.escapeBlocked))
-            app.exit(ok ? 0 : 1)
+            void engine.close().then(() => app.exit(ok ? 0 : 1))
           })
       }, 1500)
     })
