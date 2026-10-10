@@ -16,9 +16,9 @@
     "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "package:mac": "npm run build && electron-builder --mac --universal",
-    "package:win": "npm run build && electron-builder --win --x64",
-    "package:dir": "npm run build && electron-builder --dir"
+    "package:mac": "npm run build && electron-builder --mac --universal --publish never",
+    "package:win": "npm run build && electron-builder --win --x64 --publish never",
+    "package:dir": "npm run build && electron-builder --dir --publish never"
   },
   "dependencies": {
     "proper-lockfile": "^4.1.2",
