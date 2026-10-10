@@ -1,0 +1,78 @@
+# Builds the installers. macOS universal .dmg on a macOS runner (ad-hoc signed for now, see
+# docs/SIGNING.md) and the Windows x64 NSIS installer on a Windows runner. Never cross-compiled.
+name: Build app
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      ffmpeg_release:
+        description: Tag of the ffmpeg release to bundle (from the "ffmpeg (LGPL)" workflow)
+        required: true
+
+env:
+  FFMPEG_RELEASE: ${{ inputs.ffmpeg_release || vars.FFMPEG_RELEASE }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Headless shell smoke check
+        run: |
+          sudo apt-get install -y -qq xvfb > /dev/null
+          npm run build
+          SOUNDBITES_SMOKE=1 xvfb-run -a npx electron --no-sandbox out/main/index.js
+
+  mac:
+    needs: test
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Fetch bundled ffmpeg
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/fetch-ffmpeg.mjs mac "$FFMPEG_RELEASE"
+      - name: Package (universal dmg, ad-hoc signed)
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: "false"
+        run: npm run package:mac
+      - name: Verify signature seals the whole bundle
+        run: |
+          set -euo pipefail
+          APP=$(ls -d dist/mac-universal/*.app | head -1)
+          codesign --verify --deep --strict --verbose=2 "$APP"
+          codesign -dv "$APP" 2>&1 | grep -E 'Signature=adhoc|TeamIdentifier'
+          lipo -info "$APP/Contents/Resources/ffmpeg/ffmpeg"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Soundbites-mac
+          path: dist/*.dmg
+
+  windows:
+    needs: test
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Fetch bundled ffmpeg
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/fetch-ffmpeg.mjs win "$env:FFMPEG_RELEASE"
+      - name: Package (NSIS x64)
+        run: npm run package:win
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Soundbites-windows
+          path: dist/*.exe

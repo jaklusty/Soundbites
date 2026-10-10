@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soundbites app icon, variant 1: single eighth note, semicircular bite in the note head, light background. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- macOS icon grid: 824x824 rounded square, corner radius 185 -->
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="#F4ECDD"/>
+
+  <!-- Note, deep plum -->
+  <g fill="#3A2550">
+    <!-- head -->
+    <ellipse cx="400" cy="700" rx="175" ry="130" transform="rotate(-22 400 700)"/>
+    <!-- stem -->
+    <rect x="500" y="230" width="72" height="470"/>
+    <!-- flag -->
+    <path d="M 500 230
+             C 660 230, 810 400, 760 610
+             C 780 450, 700 385, 500 370 Z"/>
+  </g>
+
+  <!-- The bite: a semicircle taken out of the top-left of the note head -->
+  <circle cx="312" cy="600" r="80" fill="#F4ECDD"/>
+
+  <!-- Coral crumb that fell off the bite -->
+  <circle cx="232" cy="520" r="24" fill="#E8604A"/>
+</svg>

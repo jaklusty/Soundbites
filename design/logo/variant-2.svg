@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soundbites app icon, variant 2: beamed pair of eighth notes, bite through the beam, dark background. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- macOS icon grid: 824x824 rounded square, corner radius 185 -->
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="#17141F"/>
+
+  <!-- Notes, saffron -->
+  <g fill="#F6C453">
+    <!-- left head and stem -->
+    <ellipse cx="310" cy="740" rx="135" ry="100" transform="rotate(-20 310 740)"/>
+    <rect x="381" y="300" width="60" height="450"/>
+    <!-- right head and stem -->
+    <ellipse cx="650" cy="675" rx="135" ry="100" transform="rotate(-20 650 675)"/>
+    <rect x="721" y="235" width="60" height="450"/>
+    <!-- beam joining the two stems -->
+    <path d="M 381 300 L 781 235 L 781 370 L 381 435 Z"/>
+  </g>
+
+  <!-- The bite: a semicircle taken out of the top edge of the beam -->
+  <circle cx="581" cy="252" r="90" fill="#17141F"/>
+</svg>
