@@ -15,6 +15,7 @@ import { Store } from './store'
 import { record, clearKind } from './health'
 import { detect, type HookResult } from './hook'
 import { parseTs, newerStamp, validRunStamp, EMPTY_LIBRARY, type Candidate, type Library, type Track, type Favourites, type Profile } from './library'
+export type { Candidate } from './library'
 
 export const TRACK_FIELDS = ['title', 'artist', 'platform', 'direction', 'uses', 'bpm', 'energy', 'mood', 'suits', 'profiles', 'licence', 'notes', 'source_url'] as const
 
@@ -220,7 +221,7 @@ function nowIso(): string {
  * Run one ingest. `candidates` are already normalised. Resumable: clips already on disk are
  * skipped, so re-running after a quit picks up where it left off without duplicates.
  */
-export async function runIngest(store: Store, run: string, candidates: Candidate[], deps: IngestDeps, options: { keepRuns?: number; workRoot?: string } = {}): Promise<IngestResult> {
+export async function runIngest(store: Store, run: string, candidates: Candidate[], deps: IngestDeps, options: { keepRuns?: number; workRoot?: string; concurrency?: number; skipPrune?: boolean } = {}): Promise<IngestResult> {
   const root = store.root
   const log = deps.log ?? (() => undefined)
   const downloadAudio = deps.downloadAudio ?? true
@@ -271,83 +272,96 @@ export async function runIngest(store: Store, run: string, candidates: Candidate
   let noMatch = 0
   let stopped = false
   const outcomes = new Map<string, boolean>()
+  const concurrency = Math.min(3, Math.max(1, options.concurrency ?? 1))
 
-  try {
-    for (const p of planned) {
-      if (deps.shouldStop?.()) {
-        stopped = true
-        break
-      }
-      progress({ phase: 'downloading', done, current: p.label })
-      const existing = await fs.stat(p.clipPath).catch(() => undefined)
-      if (existing && existing.size > 0) {
-        // Already on disk (resume, or a known track): just make sure the row says so.
-        await store.update<Library>('library.json', EMPTY_LIBRARY(), (library) => {
-          mergeTrack(library, p.cand, p.id, run, p.clipRel, existing.size)
-          library.updated = nowIso()
-          return library
-        })
-        outcomes.set(p.id, true)
-        done++
-        continue
-      }
-      if (!downloadAudio) {
-        outcomes.set(p.id, false)
-        done++
-        continue
-      }
-
-      const workdir = join(workRoot, p.id)
-      await fs.mkdir(workdir, { recursive: true })
-      let got = false
-      let hook: HookResult | undefined
-      let match: Track['match'] | undefined
-      let matchUrl: string | undefined
-      let matchStatus: MatchStatus = 'no-source'
-      try {
-        const current = await store.readOr<Library>('library.json', EMPTY_LIBRARY())
-        const row = current.tracks.find((t) => t.id === p.id)
-        const src = await fetchSource(p.cand, row, workdir, deps, log)
-        matchStatus = src.status
-        match = src.match
-        matchUrl = src.url
-        if (src.file) {
-          const explicit = p.cand.hook_start !== undefined ? parseTs(p.cand.hook_start) : undefined
-          hook = await detect({
-            info: src.file.info,
-            explicit,
-            measureRms: deps.measureRms ? () => deps.measureRms!(src.file!.path) : undefined
-          })
-          log(`  · hook at ${hook.at}s (${hook.method}: ${hook.detail})`)
-          const r = await deps.clip(src.file.path, p.clipPath, hook.at)
-          got = r.ok
-          if (!r.ok) log(`  ! transcode failed: ${r.error ?? ''}`)
-        }
-      } finally {
-        await fs.rm(workdir, { recursive: true, force: true })
-      }
-
-      const size = got ? (await fs.stat(p.clipPath)).size : 0
+  const processOne = async (p: (typeof planned)[number]): Promise<void> => {
+    const existing = await fs.stat(p.clipPath).catch(() => undefined)
+    if (existing && existing.size > 0) {
+      // Already on disk (resume, or a known track): just make sure the row says so.
       await store.update<Library>('library.json', EMPTY_LIBRARY(), (library) => {
-        const rec = mergeTrack(library, p.cand, p.id, run, got ? p.clipRel : null, size, got ? hook : undefined)
-        if (match) {
-          rec.match = match
-          rec.match_status = rec.user_source_url ? 'user-link' : 'matched'
-          if (matchUrl && !rec.user_source_url) rec.source_url = matchUrl
-        } else if (matchStatus === 'no-confident-match') {
-          rec.match_status = 'no-confident-match'
-        }
+        mergeTrack(library, p.cand, p.id, run, p.clipRel, existing.size)
         library.updated = nowIso()
         return library
       })
-      if (!got) {
-        noAudio++
-        if (matchStatus === 'no-confident-match') noMatch++
-      }
-      outcomes.set(p.id, got)
-      done++
-      if (deps.pauseMs) await new Promise((r) => setTimeout(r, deps.pauseMs))
+      outcomes.set(p.id, true)
+      return
     }
+    if (!downloadAudio) {
+      outcomes.set(p.id, false)
+      return
+    }
+
+    const workdir = join(workRoot, p.id)
+    await fs.mkdir(workdir, { recursive: true })
+    let got = false
+    let hook: HookResult | undefined
+    let match: Track['match'] | undefined
+    let matchUrl: string | undefined
+    let matchStatus: MatchStatus = 'no-source'
+    try {
+      const current = await store.readOr<Library>('library.json', EMPTY_LIBRARY())
+      const row = current.tracks.find((t) => t.id === p.id)
+      const src = await fetchSource(p.cand, row, workdir, deps, log)
+      matchStatus = src.status
+      match = src.match
+      matchUrl = src.url
+      if (src.file) {
+        const explicit = p.cand.hook_start !== undefined ? parseTs(p.cand.hook_start) : undefined
+        hook = await detect({
+          info: src.file.info,
+          explicit,
+          measureRms: deps.measureRms ? () => deps.measureRms!(src.file!.path) : undefined
+        })
+        log(`  · hook at ${hook.at}s (${hook.method}: ${hook.detail})`)
+        const r = await deps.clip(src.file.path, p.clipPath, hook.at)
+        got = r.ok
+        if (!r.ok) log(`  ! transcode failed: ${r.error ?? ''}`)
+      }
+    } finally {
+      await fs.rm(workdir, { recursive: true, force: true })
+    }
+
+    const size = got ? (await fs.stat(p.clipPath)).size : 0
+    await store.update<Library>('library.json', EMPTY_LIBRARY(), (library) => {
+      const rec = mergeTrack(library, p.cand, p.id, run, got ? p.clipRel : null, size, got ? hook : undefined)
+      if (match) {
+        rec.match = match
+        rec.match_status = rec.user_source_url ? 'user-link' : 'matched'
+        if (matchUrl && !rec.user_source_url) rec.source_url = matchUrl
+      } else if (matchStatus === 'no-confident-match') {
+        rec.match_status = 'no-confident-match'
+      }
+      library.updated = nowIso()
+      return library
+    })
+    if (!got) {
+      noAudio++
+      if (matchStatus === 'no-confident-match') noMatch++
+    }
+    outcomes.set(p.id, got)
+    if (deps.pauseMs) await new Promise((r) => setTimeout(r, deps.pauseMs))
+  }
+
+  try {
+    let next = 0
+    const worker = async (): Promise<void> => {
+      for (;;) {
+        if (deps.shouldStop?.()) {
+          stopped = true
+          return
+        }
+        const p = planned[next++]
+        if (!p) return
+        progress({ phase: 'downloading', done, current: p.label })
+        await processOne(p)
+        done++
+        progress({ phase: 'downloading', done, current: p.label })
+      }
+    }
+    await Promise.all(Array.from({ length: concurrency }, () => worker()))
+    if (!stopped && deps.shouldStop?.()) stopped = true
+    if (stopped && done < planned.length) stopped = true
+    else if (done >= planned.length) stopped = false
   } finally {
     await fs.rm(workRoot, { recursive: true, force: true })
   }
@@ -358,7 +372,7 @@ export async function runIngest(store: Store, run: string, candidates: Candidate
   let tracked = 0
   const added = planned.filter((p) => !known.has(p.id) && outcomes.get(p.id)).length
   const updated = planned.filter((p) => known.has(p.id) && outcomes.get(p.id)).length
-  if (!stopped) {
+  if (!stopped && !options.skipPrune) {
     progress({ phase: 'pruning', done })
     await store.withLock(async () => {
       const library = await store.readOr<Library>('library.json', EMPTY_LIBRARY())
@@ -373,6 +387,7 @@ export async function runIngest(store: Store, run: string, candidates: Candidate
   } else {
     tracked = (await store.readOr<Library>('library.json', EMPTY_LIBRARY())).tracks.length
   }
+  const writeSummary = !stopped && !options.skipPrune
 
   const result: IngestResult = {
     run,
@@ -389,7 +404,7 @@ export async function runIngest(store: Store, run: string, candidates: Candidate
   if (noMatch) result.no_match = noMatch
   if (stopped) result.stopped = true
 
-  if (!stopped) {
+  if (writeSummary) {
     await store.write('last_run.json', result)
     const attempted = added + updated + noAudio
     if (noAudio && !(added || updated)) {

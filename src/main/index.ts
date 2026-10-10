@@ -2,7 +2,9 @@ import { app, BrowserWindow, dialog, ipcMain, nativeImage, shell, type WebConten
 import { join } from 'node:path'
 import { promises as fs } from 'node:fs'
 import { Engine } from './engine/engine'
+import { Runtime } from './engine/runtime'
 import { registerScheme, installHandler } from './protocol'
+import { existsSync } from 'node:fs'
 import { IPC, type AppState } from '../shared/ipc'
 import { EMPTY_LIBRARY, youtubeUrlOnly, type Library } from './engine/library'
 
@@ -18,6 +20,31 @@ registerScheme()
 
 const engine = new Engine({ appDataDir: app.getPath('userData'), version: app.getVersion() })
 let mainWindow: BrowserWindow | undefined
+let runtime: Runtime | undefined
+
+/** The bundled ffmpeg: resources/ffmpeg/ when packaged, vendor/ffmpeg/<os>/ in development, PATH as a last resort. */
+function ffmpegPath(): string {
+  const exe = process.platform === 'win32' ? 'ffmpeg.exe' : 'ffmpeg'
+  const candidates = [
+    join(process.resourcesPath ?? '', 'ffmpeg', exe),
+    join(app.getAppPath(), 'vendor', 'ffmpeg', process.platform === 'win32' ? 'win' : 'mac', exe)
+  ]
+  for (const c of candidates) if (existsSync(c)) return c
+  return exe
+}
+
+function startRuntime(): void {
+  runtime?.stop()
+  runtime = new Runtime(engine, {
+    toolsDir: join(app.getPath('userData'), 'tools'),
+    ffmpegPath: ffmpegPath(),
+    platform: process.platform === 'win32' ? 'win32' : 'darwin',
+    arch: process.arch === 'arm64' ? 'arm64' : 'x64',
+    skipTools: process.platform === 'linux' && !!process.env['SOUNDBITES_SMOKE'],
+    log: (line) => console.log(line)
+  })
+  void runtime.start()
+}
 
 function send(state: AppState): void {
   for (const w of BrowserWindow.getAllWindows()) {
@@ -134,23 +161,33 @@ ipcMain.handle(IPC.chooseLibraryFolder, async (e) => {
     properties: ['openDirectory', 'createDirectory'],
     buttonLabel: 'Use this folder'
   })
-  if (!r.canceled && r.filePaths[0]) await engine.open(r.filePaths[0])
+  if (!r.canceled && r.filePaths[0]) {
+    await engine.open(r.filePaths[0])
+    if (engine.isOpen) startRuntime()
+  }
   return state()
 })
 
 ipcMain.handle(IPC.createLibraryHere, async (_e, path: string) => {
-  if (typeof path === 'string' && path === engine.libraryPath) await engine.createHere(path)
+  if (typeof path === 'string' && path === engine.libraryPath) {
+    await engine.createHere(path)
+    if (engine.isOpen) startRuntime()
+  }
   return state()
 })
 
 ipcMain.handle(IPC.reopenLibrary, async () => {
   const p = engine.settings.current.libraryPath
-  if (p) await engine.open(p)
+  if (p) {
+    await engine.open(p)
+    if (engine.isOpen) startRuntime()
+  }
   return state()
 })
 
 ipcMain.handle(IPC.takeOverLock, async () => {
   await engine.takeOver()
+  if (engine.isOpen) startRuntime()
   return state()
 })
 
@@ -174,7 +211,11 @@ ipcMain.handle(IPC.saveViewRule, async (_e, key: string, rule: unknown) => {
 ipcMain.handle(IPC.updateSettings, async (_e, patch: Record<string, unknown>) => {
   const allowed: Record<string, unknown> = {}
   for (const k of ['feedBase', 'concurrency', 'requestPauseMs', 'libraryPath'] as const) if (k in patch) allowed[k] = patch[k]
+  const before = engine.settings.current
   await engine.updateSettings(allowed)
+  const after = engine.settings.current
+  if (after.libraryPath !== before.libraryPath && engine.isOpen) startRuntime()
+  else if (after.feedBase !== before.feedBase) void runtime?.checkFeed()
   return state()
 })
 
@@ -215,24 +256,34 @@ function dragIcon(): Electron.NativeImage {
   return nativeImage.createFromBuffer(png)
 }
 
-// Phase 3 wires these to the download queue; until then they report clearly.
 ipcMain.handle(IPC.retryTrack, async (_e, id: string) => {
-  await engine.recordIssue('downloads', `Try again for ${String(id)} is not available yet in this build.`)
+  await runtime?.retryTrack(String(id))
   return state()
 })
 ipcMain.handle(IPC.wrongTrack, async (_e, id: string, alsoRemoveFull: boolean) => {
   await engine.rejectMatch(String(id), Boolean(alsoRemoveFull))
+  await runtime?.retryTrack(String(id))
   return state()
 })
 ipcMain.handle(IPC.setTrackLink, async (_e, id: string, url: string) => {
   const safe = youtubeUrlOnly(url)
   if (!safe) throw new Error('That is not a YouTube link.')
   await engine.setTrackLink(String(id), safe)
+  await runtime?.retryTrack(String(id))
   return state()
 })
-ipcMain.handle(IPC.checkFeedNow, async () => state())
-ipcMain.handle(IPC.pauseDownloads, async () => state())
-ipcMain.handle(IPC.cancelDownloads, async () => state())
+ipcMain.handle(IPC.checkFeedNow, async () => {
+  await runtime?.checkFeed()
+  return state()
+})
+ipcMain.handle(IPC.pauseDownloads, async (_e, paused: boolean) => {
+  runtime?.pause(Boolean(paused))
+  return state()
+})
+ipcMain.handle(IPC.cancelDownloads, async () => {
+  runtime?.cancel()
+  return state()
+})
 ipcMain.handle(IPC.clearIssue, async (_e, index: number) => {
   await engine.clearIssue(Number(index))
   return state()
@@ -251,6 +302,7 @@ app.whenReady().then(async () => {
   if (process.env['SOUNDBITES_SMOKE']) console.log(`USERDATA ${app.getPath('userData')}`)
   installHandler(() => (engine.isOpen ? engine.libraryPath : undefined))
   await engine.start()
+  if (engine.isOpen) startRuntime()
   mainWindow = createWindow()
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) mainWindow = createWindow()
@@ -262,5 +314,6 @@ app.on('window-all-closed', () => {
 })
 
 app.on('before-quit', () => {
+  runtime?.stop()
   void engine.close()
 })

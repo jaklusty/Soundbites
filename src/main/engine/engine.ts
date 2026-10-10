@@ -269,17 +269,29 @@ export class Engine extends EventEmitter {
     this.push()
   }
 
-  /** The user pasted a YouTube link for an existing track. Never overwritten by a later feed run. */
+  /**
+   * The user pasted a YouTube link for an existing track. The current clip is removed so the
+   * next fetch cuts it from the new upload; the link is never overwritten by a later feed run.
+   */
   async setTrackLink(id: string, url: string): Promise<void> {
     const store = this.need()
-    await store.update<Library>('library.json', EMPTY_LIBRARY(), (lib) => {
+    const root = store.root
+    await store.withLock(async () => {
+      const lib = await store.readOr<Library>('library.json', EMPTY_LIBRARY())
       const t = lib.tracks.find((x) => x.id === id)
       if (!t) throw new Error('No such track')
+      if (t.clip) await fs.rm(join(root, t.clip), { force: true })
+      t.clip_present = false
+      delete t.clip_bytes
+      delete t.hook_at
+      delete t.hook_method
+      delete t.hook_detail
+      delete t.match
       t.user_source_url = url
       t.source_url = url
       t.match_status = 'user-link'
-      delete t.match
-      return lib
+      lib.updated = new Date().toISOString().replace(/\.\d{3}Z$/, '+00:00')
+      await store.writeUnlocked('library.json', lib)
     })
     this.push()
   }
