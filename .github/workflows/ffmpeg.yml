@@ -54,9 +54,11 @@ jobs:
           export MACOSX_DEPLOYMENT_TARGET=11.0
           for ARCH in arm64 x86_64; do
             P="$PWD/prefix-$ARCH"
+            # LAME's 2017 config.sub knows "aarch64", not Apple's "arm64" spelling.
+            HOST="$ARCH-apple-darwin"; [ "$ARCH" = "arm64" ] && HOST="aarch64-apple-darwin"
             rm -rf lame && mkdir lame && tar xzf src/lame.tar.gz -C lame --strip-components=1
             ( cd lame && ./configure --prefix="$P" --disable-shared --enable-static --disable-frontend --disable-decoder \
-                --host="$ARCH-apple-darwin" CFLAGS="-arch $ARCH -O2" LDFLAGS="-arch $ARCH" && make -j"$(sysctl -n hw.ncpu)" && make install )
+                --host="$HOST" CFLAGS="-arch $ARCH -O2" LDFLAGS="-arch $ARCH" && make -j"$(sysctl -n hw.ncpu)" && make install )
             rm -rf ff && cp -R src/ffmpeg ff
             EXTRA=""
             if [ "$ARCH" = "x86_64" ]; then EXTRA="--enable-cross-compile --arch=x86_64 --target-os=darwin"; fi
