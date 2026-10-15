@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'engine/engine.dart';
+import 'engine/instance_lock.dart';
 import 'ui/app.dart';
 import 'ui/controller.dart';
 import 'ui/demo_controller.dart';
@@ -50,10 +51,43 @@ Future<void> main() async {
     controller = DemoController(demo);
   } else {
     final appData = await getApplicationSupportDirectory();
+    final instance = InstanceLock(appData.path);
+    if (!await instance.tryAcquire()) {
+      runApp(const AlreadyRunningApp());
+      return;
+    }
     final engine = Engine(appDataDir: appData.path, version: appVersion);
     final ec = EngineController(engine: engine, toolsDir: p.join(appData.path, 'tools'), ffmpegPath: ffmpegPath(), skipTools: Platform.isLinux);
     await ec.start();
     controller = ec;
   }
   runApp(SoundbitesApp(controller: controller));
+}
+
+/// Shown instead of the library when another copy of Soundbites is already open.
+class AlreadyRunningApp extends StatelessWidget {
+  const AlreadyRunningApp({super.key});
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'Soundbites',
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(32),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text('Soundbites is already running', style: Theme.of(context).textTheme.titleLarge),
+                  const SizedBox(height: 12),
+                  const Text('Use the window that is already open. Close this one.'),
+                  const SizedBox(height: 24),
+                  FilledButton(onPressed: () => exit(0), child: const Text('Close')),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
 }
