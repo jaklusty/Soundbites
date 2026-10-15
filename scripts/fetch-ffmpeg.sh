@@ -11,7 +11,12 @@ gh release download "$TAG" --repo jaklusty/soundbites --pattern "$ASSET" --patte
 EXPECTED=$(grep " $ASSET\$" "$TMP/SHA256SUMS" | awk '{print $1}')
 if command -v sha256sum >/dev/null; then ACTUAL=$(sha256sum "$TMP/$ASSET" | awk '{print $1}'); else ACTUAL=$(shasum -a 256 "$TMP/$ASSET" | awk '{print $1}'); fi
 [ "$EXPECTED" = "$ACTUAL" ] || { echo "checksum mismatch for $ASSET"; exit 1; }
-if [ "$PLATFORM" = win ]; then tar -xf "$TMP/$ASSET" -C "$OUT"; else unzip -o -q "$TMP/$ASSET" -d "$OUT"; fi
+# Git Bash on the Windows runner puts GNU tar first on PATH, and that one cannot read zips;
+# Windows' own tar (bsdtar) and 7-Zip can.
+if command -v unzip >/dev/null; then unzip -o -q "$TMP/$ASSET" -d "$OUT"
+elif [ -x /c/Windows/System32/tar.exe ]; then /c/Windows/System32/tar.exe -xf "$TMP/$ASSET" -C "$OUT"
+elif command -v 7z >/dev/null; then 7z x -y -o"$OUT" "$TMP/$ASSET" >/dev/null
+else tar -xf "$TMP/$ASSET" -C "$OUT"; fi
 rm -rf "$TMP"
 ls -la "$OUT"
 echo "ffmpeg $TAG verified and placed in $OUT"
