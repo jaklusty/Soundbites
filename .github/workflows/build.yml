@@ -68,6 +68,7 @@ jobs:
         with:
           name: Soundbites-mac
           path: dist/*.dmg
+          if-no-files-found: error
 
   windows:
     needs: test
@@ -92,6 +93,7 @@ jobs:
         with:
           name: Soundbites-windows
           path: dist/*.exe
+          if-no-files-found: error
 
   release:
     if: startsWith(github.ref, 'refs/tags/v') || inputs.release_tag != ''
@@ -113,6 +115,12 @@ jobs:
         run: |
           set -euo pipefail
           ls -la dist
+          ls dist/*.dmg dist/*.exe
           (cd dist && sha256sum * > SHA256SUMS)
-          gh release create "${TAG}" dist/* --prerelease --target "${GITHUB_SHA}" --title "Soundbites ${TAG}" \
-            --notes "Test build. Unsigned (ad-hoc on macOS): see docs/first-time-opening.md for the one-time steps. Bundled ffmpeg: ${FFMPEG_RELEASE}."
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            # Re-run for an existing tag: replace the files, keep the release.
+            gh release upload "${TAG}" dist/* --clobber
+          else
+            gh release create "${TAG}" dist/* --prerelease --target "${GITHUB_SHA}" --title "Soundbites ${TAG}" \
+              --notes "Test build. Unsigned (ad-hoc on macOS): see docs/first-time-opening.md for the one-time steps. Bundled ffmpeg: ${FFMPEG_RELEASE}."
+          fi

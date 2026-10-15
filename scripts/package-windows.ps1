@@ -10,5 +10,6 @@ if (-not (Get-Command iscc -ErrorAction SilentlyContinue)) { choco install innos
 $env:SOUNDBITES_VERSION = $version
 $env:SOUNDBITES_BUILD_DIR = (Resolve-Path $build).Path
 New-Item -ItemType Directory -Force -Path dist | Out-Null
-iscc installer\windows\soundbites.iss
+iscc /O"$((Resolve-Path dist).Path)" installer\windows\soundbites.iss
+if (-not (Get-ChildItem dist -Filter *.exe)) { throw "no installer in dist" }
 Get-ChildItem dist
