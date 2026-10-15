@@ -49,7 +49,10 @@ screenshot goes to Jak early for a yes or no on the direction before the detail 
 ## Order of work
 
 1. Engine port with the existing oracles (ids first), then store, hook, ingest, promote, feed,
-   tools, runtime. Same tests as before.
-2. UI: first-launch flow, library screen, player, settings, about.
-3. Linux headless smoke run in CI, then the macOS and Windows packaging workflow.
-4. Phase 4 and 5 as in the brief.
+   tools, runtime. Same tests as before. **Done 15 October 2026:** all oracle cases pass and
+   the Python-parity ingest check leaves the same library.json, clips and last_run.json.
+2. UI: first-launch flow, library screen, player, settings, about. **Done;** first screenshot
+   sent for a yes or no.
+3. Linux headless smoke run in CI, then the macOS and Windows packaging workflow. **Done;**
+   the first Flutter build is the v0.2.0 pre-release.
+4. Phase 4 and 5 as in the brief: Jak tests on the Mac, then the Windows VM, then moving over.
