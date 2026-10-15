@@ -1,0 +1,62 @@
+{
+  "views": {
+    "note": "Saved views only change what the dashboard shows. They never affect what is captured.",
+    "active": "",
+    "saved": {
+      "instrumental": {
+        "label": "Instrumental / voiceover-safe",
+        "description": "Low-vocal tracks, for when a voice has to sit on top.",
+        "rule": {
+          "any": [
+            {
+              "field": "mood",
+              "contains": "instrumental"
+            },
+            {
+              "field": "mood",
+              "contains": "ambient"
+            },
+            {
+              "field": "suits",
+              "contains": "no vocal"
+            },
+            {
+              "field": "suits",
+              "contains": "instrumental"
+            }
+          ]
+        }
+      },
+      "high-energy": {
+        "label": "High energy",
+        "description": "Fast, loud, hard transients.",
+        "rule": {
+          "any": [
+            {
+              "field": "energy",
+              "equals": "high"
+            }
+          ]
+        }
+      },
+      "low-energy": {
+        "label": "Low energy",
+        "description": "Slower, quieter, more space.",
+        "rule": {
+          "any": [
+            {
+              "field": "energy",
+              "equals": "low"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "retention": {
+    "keep_runs": 8
+  },
+  "promote": {
+    "format": "wav16"
+  }
+}

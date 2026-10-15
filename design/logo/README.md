@@ -99,13 +99,17 @@ Renders were made with `cairosvg` (`python3 -m pip install --user cairosvg`) and
 
 ## Turning the chosen variant into the app icon
 
-electron-builder generates `icon.icns` (macOS) and `icon.ico` (Windows) itself from a single
-1024x1024 PNG placed at `build/icon.png` in the project root. So once a variant is chosen, render it
-at 1024x1024 and copy it there, for example:
+The Flutter app keeps a 1024x1024 PNG at `assets/icon/icon.png` (shown in About and used as the
+source for the platform icons). Once a variant is chosen, render it at 1024x1024 and copy it there:
 
 ```sh
-python3 -c "import cairosvg; cairosvg.svg2png(url='design/logo/variant-2.svg', write_to='build/icon.png', output_width=1024, output_height=1024)"
+python3 -c "import cairosvg; cairosvg.svg2png(url='design/logo/variant-2.svg', write_to='assets/icon/icon.png', output_width=1024, output_height=1024)"
 ```
+
+Then regenerate the platform icons from it: the macOS set in
+`macos/Runner/Assets.xcassets/AppIcon.appiconset/` (16 to 1024 px) and the Windows
+`windows/runner/resources/app_icon.ico` (16 to 256 px). The `flutter_launcher_icons` package
+does both from one PNG.
 
 The rounded-square background is part of the artwork on purpose: macOS does not clip icons, so the
 PNG must already contain the rounded square with transparent corners, which these SVGs do.

@@ -5,40 +5,58 @@ audition clips, plays them, lets you star tracks (which downloads the full song)
 library up to date from a shared online feed. Runs on macOS (Apple Silicon and Intel) and Windows
 10/11. Nothing else to install.
 
-Status: in development. See `docs/` for the design note, the signing switch and the
-first-time-opening guide.
+Status: in development. Written in Flutter; the earlier Electron version lives on the `electron`
+branch. See `docs/` for the design notes, the signing switch and the first-time-opening guide.
 
 ## Layout
 
 ```
-src/main/            Electron main process: the engine (store, ingest, hook, promote, feed, tools)
-src/preload/         the narrow bridge the sandboxed page may call
-src/renderer/        the dashboard page
-test/                unit tests (vitest)
-build/               icon and entitlements used by electron-builder
-scripts/             build helpers (fetching the bundled ffmpeg)
+lib/engine/          the engine: store, ids, hook, ingest, promote, feed, tools, runtime (plain Dart)
+lib/ui/              the screens, player and controller
+lib/main.dart        start-up: finds ffmpeg, opens the window, picks the controller
+test/engine/         engine tests, including the Python oracles and the parity check
+test/ui/             tests for the section and filter rules
+test/fixtures/       oracles, a feed snapshot and an 87-track demo library
+macos/ windows/ linux/   the platform runners (Linux is for headless checks only)
+installer/windows/   the Inno Setup script for the Windows installer
+scripts/             fetch-ffmpeg, package-mac, package-windows, smoke-linux, prepare-parity
+assets/icon/         the app icon (placeholder until the logo is chosen)
 design/logo/         icon variants
-docs/                design note, SIGNING.md, first-time-opening guide
+docs/                design notes, SIGNING.md, first-time-opening guide, moving-over notes
 LICENSES/            licence texts shown in About (ffmpeg, LAME, yt-dlp, Deno)
+reference/python/    the original Python scripts the engine must match
 .github/workflows/   ffmpeg.yml builds the LGPL ffmpeg; build.yml builds the installers
 ```
 
 ## Developing
 
+Needs the Flutter SDK (3.47 or later) and, for drag-and-drop, a Rust toolchain.
+
 ```
-npm install
-npm test            # unit tests
-npm run typecheck
-npm run dev         # run the app with live reload
+flutter pub get
+flutter test                      # unit tests (about 120)
+dart analyze --fatal-infos
+flutter run -d macos              # or -d windows
+```
+
+To look at the app with sample data and no real library, set `SOUNDBITES_DEMO_LIBRARY` to a
+library folder (for example `test/fixtures/demo-library`) before running.
+
+The Python-parity check is skipped unless prepared:
+
+```
+scripts/prepare-parity.sh <folder with ingest.py and library.json> /tmp/parity
+SOUNDBITES_PARITY=/tmp/parity flutter test test/engine/parity_test.dart
 ```
 
 Packaging happens in GitHub Actions (`Build app` workflow): a universal `.dmg` on a macOS runner
-and an NSIS installer on a Windows runner. Run the `ffmpeg (LGPL)` workflow first and pass its
-release tag when starting `Build app` (or set the repository variable `FFMPEG_RELEASE`).
-Current ffmpeg release: `ffmpeg-n8.1.3-3`.
+and an Inno Setup installer on a Windows runner. Run the `ffmpeg (LGPL)` workflow first and pass
+its release tag when starting `Build app` (or set the repository variable `FFMPEG_RELEASE`).
+Current ffmpeg release: `ffmpeg-n8.1.3-3`. Giving the run a `release_tag` publishes a pre-release.
 
-`build/icon.png` is a neutral placeholder until the logo is chosen; replace it with a 1024x1024
-PNG of the chosen variant from `design/logo/` and electron-builder makes the .icns and .ico.
+`assets/icon/icon.png` is a neutral placeholder until the logo is chosen; replace it with a
+1024x1024 PNG of the chosen variant from `design/logo/` and regenerate the platform icons
+(`macos/Runner/Assets.xcassets`, `windows/runner/resources/app_icon.ico`).
 
 ## Third-party programs
 

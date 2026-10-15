@@ -1,0 +1,2827 @@
+{
+  "version": 1,
+  "tracks": [
+    {
+      "id": "chilled-but-progressive-sweet-dreams-sven-olav-rem-972b8dae",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/chilled-but-progressive-sweet-dreams-sven-olav-rem-972b8dae.mp3",
+      "clip_present": true,
+      "title": "Sweet Dreams (Sven & Olav Remix)",
+      "artist": "Chilled But Progressive",
+      "platform": "both",
+      "direction": "rising",
+      "uses": 142000,
+      "bpm": 124,
+      "energy": "high",
+      "mood": [
+        "progressive",
+        "four-on-the-floor"
+      ],
+      "suits": "Steady club build, no vocal until late, long instrumental stretches",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "tokchart: +12.1%/day, 142k uses — fastest riser under the saturation marker",
+      "source_url": "https://www.youtube.com/watch?v=u5Ee8QrWyhc",
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 142000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "tame-impala-loser-6ede5326",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/tame-impala-loser-6ede5326.mp3",
+      "clip_present": true,
+      "title": "Loser",
+      "artist": "Tame Impala",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 108,
+      "energy": "medium",
+      "mood": [
+        "psychedelic",
+        "fuzz"
+      ],
+      "suits": "Thick fuzzed bass, reverbed vocal sitting back in the mix",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "SocialPilot: rising at 30k. Spider-Man placement driving it",
+      "source_url": "https://www.youtube.com/watch?v=s3a4OQR-10M",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "full": "full/tame-impala-loser-6ede5326/tame-impala-loser-6ede5326.wav",
+      "full_format": "wav16",
+      "full_bytes": 51385654,
+      "promoted_at": "2026-08-29T17:18:55+00:00",
+      "uses": 30000,
+      "uses_history": {
+        "2026-08-29": 30000
+      },
+      "hook_at": 42.9,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average"
+    },
+    {
+      "id": "fat-papi-prodshushy-freaked-out-120ce047",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/fat-papi-prodshushy-freaked-out-120ce047.mp3",
+      "clip_present": true,
+      "title": "FREAKED OUT",
+      "artist": "Fat Papi & Prodshushy",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 145,
+      "energy": "high",
+      "mood": [
+        "hip-hop",
+        "hard transient"
+      ],
+      "suits": "Hard snare on the one, sparse arrangement, shouted hook",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "SocialBee: rising",
+      "source_url": "https://www.youtube.com/watch?v=Q6978DnF8C4",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 15.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.6x average"
+    },
+    {
+      "id": "steve-lacy-oh-yeah-0ce357e1",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/steve-lacy-oh-yeah-0ce357e1.mp3",
+      "clip_present": true,
+      "title": "oh yeah?",
+      "artist": "Steve Lacy",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 96,
+      "energy": "medium",
+      "mood": [
+        "laid-back",
+        "guitar"
+      ],
+      "suits": "Loose guitar loop, half-sung vocal, minimal drums",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Named by SocialPilot and Buffer both",
+      "source_url": "https://www.youtube.com/watch?v=RXgUM1WpDlE",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "full": "full/steve-lacy-oh-yeah-0ce357e1/steve-lacy-oh-yeah-0ce357e1.wav",
+      "full_format": "wav16",
+      "full_bytes": 32579662,
+      "promoted_at": "2026-08-29T17:20:30+00:00",
+      "hook_at": 111.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average"
+    },
+    {
+      "id": "zayn-ayra-starr-heaven-baby-12ee176e",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/zayn-ayra-starr-heaven-baby-12ee176e.mp3",
+      "clip_present": true,
+      "title": "Heaven Baby",
+      "artist": "Zayn & Ayra Starr",
+      "platform": "both",
+      "direction": "rising",
+      "uses": 621000,
+      "bpm": 102,
+      "energy": "medium",
+      "mood": [
+        "melodic",
+        "duet",
+        "warm"
+      ],
+      "suits": "Male/female vocal trade-off over a mid-tempo Afro-pop beat",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "tokchart: +12.2%/day but already 621k uses",
+      "source_url": "https://www.youtube.com/watch?v=bb8w9l46TmI",
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 621000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 100.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average"
+    },
+    {
+      "id": "calvin-harris-ft-ellie-goulding-i-need-your-love-6cd02cf2",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/calvin-harris-ft-ellie-goulding-i-need-your-love-6cd02cf2.mp3",
+      "clip_present": true,
+      "title": "I Need Your Love",
+      "artist": "Calvin Harris ft. Ellie Goulding",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 128,
+      "energy": "high",
+      "mood": [
+        "euphoric",
+        "long build"
+      ],
+      "suits": "Extended build of roughly a minute before the drop",
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "HeyOrca: flagged for behind-the-scenes content",
+      "source_url": "https://www.youtube.com/watch?v=AtKZKl7Bgu0",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "full": "full/calvin-harris-ft-ellie-goulding-i-need-your-love-6cd02cf2/calvin-harris-ft-ellie-goulding-i-need-your-love-6cd02cf2.wav",
+      "full_format": "wav16",
+      "full_bytes": 43559230,
+      "promoted_at": "2026-08-29T18:05:50+00:00",
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "bad-bunny-eoo-a48e7193",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/bad-bunny-eoo-a48e7193.mp3",
+      "clip_present": true,
+      "title": "EoO",
+      "artist": "Bad Bunny",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 150,
+      "energy": "high",
+      "mood": [
+        "percussive",
+        "latin"
+      ],
+      "suits": "Dense layered percussion throughout, Spanish vocal, little dynamic variation",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "SocialPilot: rising. Spider-Man soundtrack",
+      "source_url": "https://www.youtube.com/watch?v=myDIeOjqQos",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 16.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.9x average"
+    },
+    {
+      "id": "fleetwood-mac-sometimes-6f356c5b",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/fleetwood-mac-sometimes-6f356c5b.mp3",
+      "clip_present": true,
+      "title": "Sometimes",
+      "artist": "Fleetwood Mac",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 112,
+      "energy": "medium",
+      "mood": [
+        "classic rock",
+        "open"
+      ],
+      "suits": "Mid-tempo, clean guitars, unhurried vocal",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "On Scott Social and Buffer",
+      "source_url": "https://www.youtube.com/watch?v=Z3o5Fv5oB-4",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "noah-kahan-end-of-august-be7f1695",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/noah-kahan-end-of-august-be7f1695.mp3",
+      "clip_present": true,
+      "title": "End of August",
+      "artist": "Noah Kahan",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 94,
+      "energy": "medium",
+      "mood": [
+        "folk",
+        "acoustic"
+      ],
+      "suits": "Acoustic guitar and voice, builds to a fuller final section",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "SocialPilot: 671k uses",
+      "source_url": "https://www.youtube.com/watch?v=X2ImEvbY6qY",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "uses": 671000,
+      "uses_history": {
+        "2026-08-29": 671000
+      },
+      "hook_at": 149.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average"
+    },
+    {
+      "id": "noodah05-fattmack-bat-signal-e00ca2fb",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/noodah05-fattmack-bat-signal-e00ca2fb.mp3",
+      "clip_present": true,
+      "title": "Bat Signal",
+      "artist": "Noodah05 & FattMack",
+      "platform": "both",
+      "direction": "fading",
+      "uses": 1000000,
+      "bpm": 140,
+      "energy": "high",
+      "mood": [
+        "dark",
+        "bass-heavy"
+      ],
+      "suits": "Heavy 808s, sparse arrangement",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "tokchart: 1m+ uses, growth down to +3.3%/day",
+      "source_url": "https://www.youtube.com/watch?v=vwJxAQNWwKs",
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 1000000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "pitbull-ft-kesha-timber-8bd49380",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/pitbull-ft-kesha-timber-8bd49380.mp3",
+      "clip_present": true,
+      "title": "Timber",
+      "artist": "Pitbull ft. Kesha",
+      "platform": "both",
+      "direction": "fading",
+      "bpm": 130,
+      "energy": "high",
+      "mood": [
+        "party",
+        "throwback"
+      ],
+      "suits": "Harmonica hook over a dance beat, very recognisable",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "SocialBee flagged a nostalgia comeback last week",
+      "source_url": "https://www.youtube.com/watch?v=hHUbLv4ThOo",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 107.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average"
+    },
+    {
+      "id": "jennie-less-than-a-lover-37b57ded",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/jennie-less-than-a-lover-37b57ded.mp3",
+      "clip_present": true,
+      "title": "Less Than a Lover",
+      "artist": "JENNIE",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 100,
+      "energy": "medium",
+      "mood": [
+        "polished",
+        "k-pop"
+      ],
+      "suits": "Clean pop-R&B production, English/Korean vocal",
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "SocialBee, week of 26 Aug",
+      "source_url": "https://www.youtube.com/watch?v=_IT83Y_HcAw",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 144.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 3.3x average"
+    },
+    {
+      "id": "the-white-stripes-seven-nation-army-2f4073e0",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/the-white-stripes-seven-nation-army-2f4073e0.mp3",
+      "clip_present": true,
+      "title": "Seven Nation Army",
+      "artist": "The White Stripes",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 120,
+      "energy": "high",
+      "mood": [
+        "driving",
+        "stomp",
+        "iconic"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=0J2QdDbelmY",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 117.1,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.9x average",
+      "pinned": true,
+      "full": "full/the-white-stripes-seven-nation-army-2f4073e0/the-white-stripes-seven-nation-army-2f4073e0.wav",
+      "full_format": "wav16",
+      "full_bytes": 45759366,
+      "promoted_at": "2026-08-31T10:14:43+00:00"
+    },
+    {
+      "id": "led-zeppelin-immigrant-song-31166081",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/led-zeppelin-immigrant-song-31166081.mp3",
+      "clip_present": true,
+      "title": "Immigrant Song",
+      "artist": "Led Zeppelin",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 112,
+      "energy": "high",
+      "mood": [
+        "relentless",
+        "classic",
+        "aggressive"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=P3Y8OWkiUts",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true
+    },
+    {
+      "id": "janes-addiction-been-caught-stealing-e43128f9",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/janes-addiction-been-caught-stealing-e43128f9.mp3",
+      "clip_present": true,
+      "title": "Been Caught Stealing",
+      "artist": "Jane's Addiction",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 104,
+      "energy": "high",
+      "mood": [
+        "swagger",
+        "loose"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=jrwjiO1MCVs",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 113.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.1x average",
+      "pinned": true
+    },
+    {
+      "id": "rage-against-the-machine-bulls-on-parade-0e37bf6b",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/rage-against-the-machine-bulls-on-parade-0e37bf6b.mp3",
+      "clip_present": true,
+      "title": "Bulls On Parade",
+      "artist": "Rage Against the Machine",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 106,
+      "energy": "high",
+      "mood": [
+        "heavy",
+        "riff"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=3L4YrGaR8E4",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 44.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true
+    },
+    {
+      "id": "the-black-keys-lonely-boy-3dd8ece4",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/the-black-keys-lonely-boy-3dd8ece4.mp3",
+      "clip_present": true,
+      "title": "Lonely Boy",
+      "artist": "The Black Keys",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 166,
+      "energy": "high",
+      "mood": [
+        "raw",
+        "drums"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=a_426RiwST8",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 13.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average",
+      "pinned": true
+    },
+    {
+      "id": "the-rolling-stones-gimme-shelter-73f8acb2",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/the-rolling-stones-gimme-shelter-73f8acb2.mp3",
+      "clip_present": true,
+      "title": "Gimme Shelter",
+      "artist": "The Rolling Stones",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 120,
+      "energy": "medium",
+      "mood": [
+        "ominous",
+        "builds"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=RbmS3tQJ7Os",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 157.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average",
+      "pinned": true
+    },
+    {
+      "id": "creedence-clearwater-revival-fortunate-son-d5d60b9d",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/creedence-clearwater-revival-fortunate-son-d5d60b9d.mp3",
+      "clip_present": true,
+      "title": "Fortunate Son",
+      "artist": "Creedence Clearwater Revival",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 132,
+      "energy": "high",
+      "mood": [
+        "americana",
+        "drive"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=ZWijx_AgPiA",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true,
+      "full": "full/creedence-clearwater-revival-fortunate-son-d5d60b9d/creedence-clearwater-revival-fortunate-son-d5d60b9d.wav",
+      "full_format": "wav16",
+      "full_bytes": 26308102,
+      "promoted_at": "2026-08-31T10:15:53+00:00"
+    },
+    {
+      "id": "steppenwolf-born-to-be-wild-39f38b83",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/steppenwolf-born-to-be-wild-39f38b83.mp3",
+      "clip_present": true,
+      "title": "Born to Be Wild",
+      "artist": "Steppenwolf",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 73,
+      "energy": "medium",
+      "mood": [
+        "iconic",
+        "biker"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=egMWlD3fLJ8",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true,
+      "full": "full/steppenwolf-born-to-be-wild-39f38b83/steppenwolf-born-to-be-wild-39f38b83.wav",
+      "full_format": "wav16",
+      "full_bytes": 41459402,
+      "promoted_at": "2026-08-31T10:16:17+00:00"
+    },
+    {
+      "id": "golden-earring-radar-love-45565637",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/golden-earring-radar-love-45565637.mp3",
+      "clip_present": true,
+      "title": "Radar Love",
+      "artist": "Golden Earring",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 104,
+      "energy": "high",
+      "mood": [
+        "motorik",
+        "road"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=aRlSHG5hRY4",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 154.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true
+    },
+    {
+      "id": "mountain-mississippi-queen-d0ca5764",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/mountain-mississippi-queen-d0ca5764.mp3",
+      "clip_present": true,
+      "title": "Mississippi Queen",
+      "artist": "Mountain",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 126,
+      "energy": "high",
+      "mood": [
+        "cowbell",
+        "riff"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=qEnF6EB-yMs",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true
+    },
+    {
+      "id": "m83-midnight-city-e3750425",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/m83-midnight-city-e3750425.mp3",
+      "clip_present": true,
+      "title": "Midnight City",
+      "artist": "M83",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 105,
+      "energy": "high",
+      "mood": [
+        "euphoric",
+        "synth"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=dX3k_QDnzHE",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true,
+      "full": "full/m83-midnight-city-e3750425/m83-midnight-city-e3750425.wav",
+      "full_format": "wav16",
+      "full_bytes": 46691138,
+      "promoted_at": "2026-08-31T10:16:55+00:00"
+    },
+    {
+      "id": "justice-genesis-0864d48d",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/justice-genesis-0864d48d.mp3",
+      "clip_present": true,
+      "title": "Genesis",
+      "artist": "Justice",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 122,
+      "energy": "high",
+      "mood": [
+        "grinding",
+        "electro"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=VKzWLUQizz8",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 25.9,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.0x average",
+      "pinned": true
+    },
+    {
+      "id": "kavinsky-nightcall-8d1e499d",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/kavinsky-nightcall-8d1e499d.mp3",
+      "clip_present": true,
+      "title": "Nightcall",
+      "artist": "Kavinsky",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 90,
+      "energy": "medium",
+      "mood": [
+        "synthwave",
+        "cool"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=MV_3Dpw-BRY",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 61.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average",
+      "pinned": true,
+      "full": "full/kavinsky-nightcall-8d1e499d/kavinsky-nightcall-8d1e499d.wav",
+      "full_format": "wav16",
+      "full_bytes": 49317034,
+      "promoted_at": "2026-08-31T10:16:37+00:00"
+    },
+    {
+      "id": "college-electric-youth-a-real-hero-349e6f56",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/college-electric-youth-a-real-hero-349e6f56.mp3",
+      "clip_present": true,
+      "title": "A Real Hero",
+      "artist": "College & Electric Youth",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 112,
+      "energy": "medium",
+      "mood": [
+        "dreamy",
+        "synthwave"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=-DSVDcw6iW8",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 88.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "pinned": true
+    },
+    {
+      "id": "eric-prydz-opus-590c34aa",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/eric-prydz-opus-590c34aa.mp3",
+      "clip_present": true,
+      "title": "Opus",
+      "artist": "Eric Prydz",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 126,
+      "energy": "high",
+      "mood": [
+        "progressive",
+        "long build"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=h-nQ63LCV7I",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 139.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "pinned": true
+    },
+    {
+      "id": "deadmau5-strobe-f0ab0779",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/deadmau5-strobe-f0ab0779.mp3",
+      "clip_present": true,
+      "title": "Strobe",
+      "artist": "deadmau5",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 128,
+      "energy": "medium",
+      "mood": [
+        "patient",
+        "cinematic"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=tKi9Z-f6qX4",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 394.9,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.8x average",
+      "pinned": true,
+      "full": "full/deadmau5-strobe-f0ab0779/deadmau5-strobe-f0ab0779.wav",
+      "full_format": "wav16",
+      "full_bytes": 122280446,
+      "promoted_at": "2026-08-31T10:23:42+00:00"
+    },
+    {
+      "id": "rufus-du-sol-innerbloom-46ee4d6f",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/rufus-du-sol-innerbloom-46ee4d6f.mp3",
+      "clip_present": true,
+      "title": "Innerbloom",
+      "artist": "RÜFÜS DU SOL",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 120,
+      "energy": "medium",
+      "mood": [
+        "hypnotic",
+        "spacious"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=Tx9zMFodNtA",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 330.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.9x average",
+      "pinned": true,
+      "full": "full/rufus-du-sol-innerbloom-46ee4d6f/rufus-du-sol-innerbloom-46ee4d6f.wav",
+      "full_format": "wav16",
+      "full_bytes": 110987750,
+      "promoted_at": "2026-08-31T10:25:18+00:00"
+    },
+    {
+      "id": "odesza-sun-models-6414df89",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/odesza-sun-models-6414df89.mp3",
+      "clip_present": true,
+      "title": "Sun Models",
+      "artist": "ODESZA",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 100,
+      "energy": "medium",
+      "mood": [
+        "bright",
+        "chopped"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=cwLRN5sdfnA",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 16.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "pinned": true
+    },
+    {
+      "id": "kaskade-coming-home-b0e67c93",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/kaskade-coming-home-b0e67c93.mp3",
+      "clip_present": true,
+      "title": "Coming Home",
+      "artist": "Kaskade",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 122,
+      "energy": "medium",
+      "mood": [
+        "warm",
+        "uplifting"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=WZdcRP1SgLY",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true
+    },
+    {
+      "id": "jon-hopkins-emerald-rush-c02de813",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/jon-hopkins-emerald-rush-c02de813.mp3",
+      "clip_present": true,
+      "title": "Emerald Rush",
+      "artist": "Jon Hopkins",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 124,
+      "energy": "high",
+      "mood": [
+        "textured",
+        "driving"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=4sk0uDbM5lc",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 117.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.8x average",
+      "pinned": true
+    },
+    {
+      "id": "masego-fkj-tadow-f5b0cc3c",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/masego-fkj-tadow-f5b0cc3c.mp3",
+      "clip_present": true,
+      "title": "Tadow",
+      "artist": "Masego & FKJ",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 92,
+      "energy": "medium",
+      "mood": [
+        "smooth",
+        "live"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=zwf5MpcuKDM",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 39.3,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.3x average",
+      "pinned": true,
+      "full": "full/masego-fkj-tadow-f5b0cc3c/masego-fkj-tadow-f5b0cc3c.wav",
+      "full_format": "wav16",
+      "full_bytes": 57916962,
+      "promoted_at": "2026-08-31T10:17:53+00:00"
+    },
+    {
+      "id": "jamie-xx-gosh-fa29bebd",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/jamie-xx-gosh-fa29bebd.mp3",
+      "clip_present": true,
+      "title": "Gosh",
+      "artist": "Jamie xx",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 128,
+      "energy": "high",
+      "mood": [
+        "minimal",
+        "tension"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=hTGJfRPLe08",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 129.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average",
+      "pinned": true
+    },
+    {
+      "id": "travis-scott-sicko-mode-9888a3b8",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/travis-scott-sicko-mode-9888a3b8.mp3",
+      "clip_present": true,
+      "title": "Sicko Mode",
+      "artist": "Travis Scott",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 155,
+      "energy": "high",
+      "mood": [
+        "beat switch",
+        "punchy"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=6ONRf7h3Mdk",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 48.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.8x average",
+      "pinned": true,
+      "full": "full/travis-scott-sicko-mode-9888a3b8/travis-scott-sicko-mode-9888a3b8.wav",
+      "full_format": "wav16",
+      "full_bytes": 62001230,
+      "promoted_at": "2026-08-31T10:18:45+00:00"
+    },
+    {
+      "id": "kendrick-lamar-humble-b3e06761",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/kendrick-lamar-humble-b3e06761.mp3",
+      "clip_present": true,
+      "title": "HUMBLE.",
+      "artist": "Kendrick Lamar",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 150,
+      "energy": "high",
+      "mood": [
+        "minimal",
+        "hard"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=tvTRZJ-4EyI",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 97.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average",
+      "pinned": true,
+      "full": "full/kendrick-lamar-humble-b3e06761/kendrick-lamar-humble-b3e06761.wav",
+      "full_format": "wav16",
+      "full_bytes": 35253542,
+      "promoted_at": "2026-08-31T10:18:45+00:00"
+    },
+    {
+      "id": "drake-nonstop-7ff1cc5d",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/drake-nonstop-7ff1cc5d.mp3",
+      "clip_present": true,
+      "title": "Nonstop",
+      "artist": "Drake",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 154,
+      "energy": "high",
+      "mood": [
+        "bass",
+        "swagger"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=QVqS3tB8OtE",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 76.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.9x average",
+      "pinned": true,
+      "full": "full/drake-nonstop-7ff1cc5d/drake-nonstop-7ff1cc5d.wav",
+      "full_format": "wav16",
+      "full_bytes": 45813838,
+      "promoted_at": "2026-08-31T10:18:45+00:00"
+    },
+    {
+      "id": "sza-kill-bill-1b996b03",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/sza-kill-bill-1b996b03.mp3",
+      "clip_present": true,
+      "title": "Kill Bill",
+      "artist": "SZA",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 89,
+      "energy": "medium",
+      "mood": [
+        "smooth",
+        "dark"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=MSRcC626prw",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 173.9,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.0x average",
+      "pinned": true
+    },
+    {
+      "id": "aap-rocky-praise-the-lord-da-shine-5f2910b9",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/aap-rocky-praise-the-lord-da-shine-5f2910b9.mp3",
+      "clip_present": true,
+      "title": "Praise The Lord (Da Shine)",
+      "artist": "A$AP Rocky",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 144,
+      "energy": "high",
+      "mood": [
+        "flute hook",
+        "distinct"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=Kbj2Zss-5GY",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 59.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true,
+      "full": "full/aap-rocky-praise-the-lord-da-shine-5f2910b9/aap-rocky-praise-the-lord-da-shine-5f2910b9.wav",
+      "full_format": "wav16",
+      "full_bytes": 43532366,
+      "promoted_at": "2026-08-31T10:22:23+00:00"
+    },
+    {
+      "id": "dua-lipa-levitating-2e974514",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/dua-lipa-levitating-2e974514.mp3",
+      "clip_present": true,
+      "title": "Levitating",
+      "artist": "Dua Lipa",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 103,
+      "energy": "high",
+      "mood": [
+        "disco",
+        "bright"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "source_url": "https://www.youtube.com/watch?v=TUVcZfQe-Kw",
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 16.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average",
+      "pinned": true,
+      "full": "full/dua-lipa-levitating-2e974514/dua-lipa-levitating-2e974514.wav",
+      "full_format": "wav16",
+      "full_bytes": 44181154,
+      "promoted_at": "2026-08-31T10:22:05+00:00"
+    },
+    {
+      "id": "the-xx-intro-8d422bff",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/the-xx-intro-8d422bff.mp3",
+      "clip_present": true,
+      "title": "Intro",
+      "artist": "The xx",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 100,
+      "energy": "medium",
+      "mood": [
+        "building",
+        "instrumental"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=xMV6l2y67rk",
+      "clip_bytes": 481114,
+      "hook_at": 23.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average",
+      "pinned": true,
+      "full": "full/the-xx-intro-8d422bff/the-xx-intro-8d422bff.wav",
+      "full_format": "wav16",
+      "full_bytes": 24560718,
+      "promoted_at": "2026-08-31T10:22:05+00:00"
+    },
+    {
+      "id": "hans-zimmer-time-1058fb87",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/hans-zimmer-time-1058fb87.mp3",
+      "clip_present": true,
+      "title": "Time",
+      "artist": "Hans Zimmer",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 120,
+      "energy": "medium",
+      "mood": [
+        "cinematic",
+        "swelling"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=c56t7upa8Bk",
+      "clip_bytes": 481114,
+      "hook_at": 179.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true,
+      "full": "full/hans-zimmer-time-1058fb87/hans-zimmer-time-1058fb87.wav",
+      "full_format": "wav16",
+      "full_bytes": 52908138,
+      "promoted_at": "2026-08-31T10:21:41+00:00"
+    },
+    {
+      "id": "explosions-in-the-sky-your-hand-in-mine-5382a84a",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/explosions-in-the-sky-your-hand-in-mine-5382a84a.mp3",
+      "clip_present": true,
+      "title": "Your Hand in Mine",
+      "artist": "Explosions in the Sky",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 80,
+      "energy": "medium",
+      "mood": [
+        "post-rock",
+        "instrumental"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=AH1S2e9TmWU",
+      "clip_bytes": 481114,
+      "hook_at": 64.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true
+    },
+    {
+      "id": "odesza-bloom-a52a5ab4",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/odesza-bloom-a52a5ab4.mp3",
+      "clip_present": true,
+      "title": "Bloom",
+      "artist": "ODESZA",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 95,
+      "energy": "medium",
+      "mood": [
+        "expansive",
+        "warm"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=wuC1fHTnuJs",
+      "clip_bytes": 481114,
+      "hook_at": 13.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true
+    },
+    {
+      "id": "explosions-in-the-sky-first-breath-after-coma-2e17a343",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/explosions-in-the-sky-first-breath-after-coma-2e17a343.mp3",
+      "clip_present": true,
+      "title": "First Breath After Coma",
+      "artist": "Explosions in the Sky",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 90,
+      "energy": "medium",
+      "mood": [
+        "build",
+        "instrumental"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=SRwKpg8voqI",
+      "clip_bytes": 481114,
+      "hook_at": 183.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.1x average",
+      "pinned": true
+    },
+    {
+      "id": "ludovico-einaudi-nuvole-bianche-a34feff2",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/ludovico-einaudi-nuvole-bianche-a34feff2.mp3",
+      "clip_present": true,
+      "title": "Nuvole Bianche",
+      "artist": "Ludovico Einaudi",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 70,
+      "energy": "low",
+      "mood": [
+        "piano",
+        "reflective"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=VUCI-1vIbUo",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true
+    },
+    {
+      "id": "ludovico-einaudi-experience-3d48edcc",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/ludovico-einaudi-experience-3d48edcc.mp3",
+      "clip_present": true,
+      "title": "Experience",
+      "artist": "Ludovico Einaudi",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 78,
+      "energy": "medium",
+      "mood": [
+        "strings",
+        "building"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=1e9B31FLT-s",
+      "clip_bytes": 481114,
+      "hook_at": 104.3,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true,
+      "full": "full/ludovico-einaudi-experience-3d48edcc/ludovico-einaudi-experience-3d48edcc.wav",
+      "full_format": "wav16",
+      "full_bytes": 60576298,
+      "promoted_at": "2026-08-31T10:21:02+00:00"
+    },
+    {
+      "id": "tame-impala-elephant-bd125d67",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/tame-impala-elephant-bd125d67.mp3",
+      "clip_present": true,
+      "title": "Elephant",
+      "artist": "Tame Impala",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 120,
+      "energy": "high",
+      "mood": [
+        "fuzz",
+        "stomp"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=LnKUD_OztRE",
+      "clip_bytes": 481114,
+      "hook_at": 61.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.8x average",
+      "pinned": true
+    },
+    {
+      "id": "mgmt-little-dark-age-14ee37b6",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/mgmt-little-dark-age-14ee37b6.mp3",
+      "clip_present": true,
+      "title": "Little Dark Age",
+      "artist": "MGMT",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 98,
+      "energy": "medium",
+      "mood": [
+        "dark synth",
+        "cool"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=rtL5oMyBHPs",
+      "clip_bytes": 481114,
+      "hook_at": 220.8,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.9x average",
+      "pinned": true,
+      "full": "full/mgmt-little-dark-age-14ee37b6/mgmt-little-dark-age-14ee37b6.wav",
+      "full_format": "wav16",
+      "full_bytes": 59604402,
+      "promoted_at": "2026-08-31T10:20:31+00:00"
+    },
+    {
+      "id": "daft-punk-instant-crush-dd9556ba",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/daft-punk-instant-crush-dd9556ba.mp3",
+      "clip_present": true,
+      "title": "Instant Crush",
+      "artist": "Daft Punk",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 106,
+      "energy": "medium",
+      "mood": [
+        "melancholy",
+        "guitar"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=a5uQMwRMHcs",
+      "clip_bytes": 481114,
+      "hook_at": 78.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "pinned": true
+    },
+    {
+      "id": "marconi-union-weightless-d7e1c94e",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/marconi-union-weightless-d7e1c94e.mp3",
+      "clip_present": true,
+      "title": "Weightless",
+      "artist": "Marconi Union",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 60,
+      "energy": "low",
+      "mood": [
+        "ambient",
+        "calm"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=UfcAVejslrU",
+      "clip_bytes": 481114,
+      "hook_at": 273.8,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average",
+      "pinned": true
+    },
+    {
+      "id": "brian-eno-an-ending-ascent-5f1d1880",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/brian-eno-an-ending-ascent-5f1d1880.mp3",
+      "clip_present": true,
+      "title": "An Ending (Ascent)",
+      "artist": "Brian Eno",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 60,
+      "energy": "low",
+      "mood": [
+        "ambient",
+        "spacious"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=OlaTeXX3uH8",
+      "clip_bytes": 481114,
+      "hook_at": 128.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true
+    },
+    {
+      "id": "chopin-ballade-no-1-in-g-minor-28b5a4ad",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/chopin-ballade-no-1-in-g-minor-28b5a4ad.mp3",
+      "clip_present": true,
+      "title": "Ballade No. 1 in G Minor",
+      "artist": "Chopin",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 70,
+      "energy": "low",
+      "mood": [
+        "piano",
+        "classical"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=BSFNl4roGlI",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true
+    },
+    {
+      "id": "erik-satie-gymnopedie-no-1-7ab096c4",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/erik-satie-gymnopedie-no-1-7ab096c4.mp3",
+      "clip_present": true,
+      "title": "Gymnopédie No. 1",
+      "artist": "Erik Satie",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 60,
+      "energy": "low",
+      "mood": [
+        "piano",
+        "sparse"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=2WfaotSK3mI",
+      "clip_bytes": 481114,
+      "hook_at": 41.6,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 4.5x average",
+      "pinned": true
+    },
+    {
+      "id": "massive-attack-teardrop-8fe512e6",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/massive-attack-teardrop-8fe512e6.mp3",
+      "clip_present": true,
+      "title": "Teardrop",
+      "artist": "Massive Attack",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 78,
+      "energy": "low",
+      "mood": [
+        "trip-hop",
+        "atmospheric"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=u7K72X4eo_s",
+      "clip_bytes": 481114,
+      "hook_at": 37.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average",
+      "pinned": true
+    },
+    {
+      "id": "moby-porcelain-772cd6a2",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/moby-porcelain-772cd6a2.mp3",
+      "clip_present": true,
+      "title": "Porcelain",
+      "artist": "Moby",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 96,
+      "energy": "low",
+      "mood": [
+        "downtempo",
+        "warm"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=IJWlBfo5Oj0",
+      "clip_bytes": 481114,
+      "hook_at": 98.8,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average",
+      "pinned": true
+    },
+    {
+      "id": "petit-biscuit-sunset-lover-8abf898b",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/petit-biscuit-sunset-lover-8abf898b.mp3",
+      "clip_present": true,
+      "title": "Sunset Lover",
+      "artist": "Petit Biscuit",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 90,
+      "energy": "low",
+      "mood": [
+        "mellow",
+        "instrumental"
+      ],
+      "profiles": [
+        "moto",
+        "business"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=4fQeaM62mOY",
+      "clip_bytes": 481114,
+      "hook_at": 19.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average",
+      "pinned": true,
+      "full": "full/petit-biscuit-sunset-lover-8abf898b/petit-biscuit-sunset-lover-8abf898b.wav",
+      "full_format": "wav16",
+      "full_bytes": 41104974,
+      "promoted_at": "2026-08-31T10:19:45+00:00"
+    },
+    {
+      "id": "eagles-take-it-easy-30fb01b0",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/eagles-take-it-easy-30fb01b0.mp3",
+      "clip_present": true,
+      "title": "Take It Easy",
+      "artist": "Eagles",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 138,
+      "energy": "medium",
+      "mood": [
+        "americana",
+        "open"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=AaBw37-nWaY",
+      "clip_bytes": 481114,
+      "hook_at": 101.8,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.8x average",
+      "pinned": true,
+      "full": "full/eagles-take-it-easy-30fb01b0/eagles-take-it-easy-30fb01b0.wav",
+      "full_format": "wav16",
+      "full_bytes": 51329926,
+      "promoted_at": "2026-08-31T10:18:45+00:00"
+    },
+    {
+      "id": "tom-cochrane-life-is-a-highway-c9d8300f",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/tom-cochrane-life-is-a-highway-c9d8300f.mp3",
+      "clip_present": true,
+      "title": "Life Is a Highway",
+      "artist": "Tom Cochrane",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 104,
+      "energy": "high",
+      "mood": [
+        "singalong",
+        "literal"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=U3sMjm9Eloo",
+      "clip_bytes": 481114,
+      "hook_at": 32.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "pinned": true,
+      "full": "full/tom-cochrane-life-is-a-highway-c9d8300f/tom-cochrane-life-is-a-highway-c9d8300f.wav",
+      "full_format": "wav16",
+      "full_bytes": 51372278,
+      "promoted_at": "2026-08-31T10:19:45+00:00"
+    },
+    {
+      "id": "led-zeppelin-ramble-on-ec46b8fc",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/led-zeppelin-ramble-on-ec46b8fc.mp3",
+      "clip_present": true,
+      "title": "Ramble On",
+      "artist": "Led Zeppelin",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 100,
+      "energy": "medium",
+      "mood": [
+        "journey",
+        "acoustic build"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=LzGBQerkvWs",
+      "clip_bytes": 481114,
+      "hook_at": 52.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average",
+      "pinned": true
+    },
+    {
+      "id": "fleetwood-mac-go-your-own-way-a4c31326",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/fleetwood-mac-go-your-own-way-a4c31326.mp3",
+      "clip_present": true,
+      "title": "Go Your Own Way",
+      "artist": "Fleetwood Mac",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 136,
+      "energy": "high",
+      "mood": [
+        "propulsive",
+        "classic"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=ozl3L9fhKtE",
+      "clip_bytes": 481114,
+      "hook_at": 139.1,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average",
+      "pinned": true,
+      "full": "full/fleetwood-mac-go-your-own-way-a4c31326/fleetwood-mac-go-your-own-way-a4c31326.wav",
+      "full_format": "wav16",
+      "full_bytes": 40971226,
+      "promoted_at": "2026-08-31T10:19:45+00:00"
+    },
+    {
+      "id": "fleetwood-mac-dreams-12040128",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/fleetwood-mac-dreams-12040128.mp3",
+      "clip_present": true,
+      "title": "Dreams",
+      "artist": "Fleetwood Mac",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 120,
+      "energy": "medium",
+      "mood": [
+        "floating",
+        "classic"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=Y3ywicffOj4",
+      "clip_bytes": 481114,
+      "hook_at": 95.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "pinned": true,
+      "full": "full/fleetwood-mac-dreams-12040128/fleetwood-mac-dreams-12040128.wav",
+      "full_format": "wav16",
+      "full_bytes": 50498466,
+      "promoted_at": "2026-08-31T10:19:45+00:00"
+    },
+    {
+      "id": "willie-nelson-on-the-road-again-5544fbb5",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/willie-nelson-on-the-road-again-5544fbb5.mp3",
+      "clip_present": true,
+      "title": "On the Road Again",
+      "artist": "Willie Nelson",
+      "platform": "both",
+      "direction": "extra",
+      "bpm": 96,
+      "energy": "medium",
+      "mood": [
+        "country",
+        "literal"
+      ],
+      "profiles": [
+        "moto"
+      ],
+      "licence": "platform",
+      "notes": "Standing extra — a genre suggestion, not trend data. Ignore freely.",
+      "last_seen": "2026-08-29",
+      "source_url": "https://www.youtube.com/watch?v=dBN86y30Ufc",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20",
+      "pinned": true,
+      "full": "full/willie-nelson-on-the-road-again-5544fbb5/willie-nelson-on-the-road-again-5544fbb5.wav",
+      "full_format": "wav16",
+      "full_bytes": 29506882,
+      "promoted_at": "2026-08-31T10:19:45+00:00"
+    },
+    {
+      "id": "ariana-grande-petal-62e42358",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/ariana-grande-petal-62e42358.mp3",
+      "clip_present": true,
+      "title": "petal",
+      "artist": "Ariana Grande",
+      "platform": "both",
+      "direction": "rising",
+      "uses": 90000,
+      "bpm": 92,
+      "energy": "medium",
+      "mood": [
+        "breathy",
+        "pop"
+      ],
+      "suits": "Soft multi-tracked vocal over sparse production",
+      "licence": "platform",
+      "notes": "SocialPilot: rising at 90k",
+      "source_url": "https://www.youtube.com/watch?v=Tc-gXkHAri8",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 90000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 31.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average"
+    },
+    {
+      "id": "ravyn-lenae-in-out-24361306",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/ravyn-lenae-in-out-24361306.mp3",
+      "clip_present": true,
+      "title": "In & Out",
+      "artist": "Ravyn Lenae",
+      "platform": "both",
+      "direction": "rising",
+      "uses": 8000,
+      "bpm": 104,
+      "energy": "medium",
+      "mood": [
+        "smooth",
+        "r&b"
+      ],
+      "suits": "Light R&B groove, airy vocal, clean low end",
+      "licence": "platform",
+      "notes": "SocialPilot: rising at only 8k — earliest catch on the list",
+      "source_url": "https://www.youtube.com/watch?v=KeJAswK_HSo",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 8000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 36.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average"
+    },
+    {
+      "id": "sienna-spiro-material-lover-1f5c7e8b",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/sienna-spiro-material-lover-1f5c7e8b.mp3",
+      "clip_present": true,
+      "title": "Material Lover",
+      "artist": "Sienna Spiro",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 100,
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "vocal-led"
+      ],
+      "suits": "Clean pop production, prominent lead vocal throughout",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=vZTlT-8eHCw",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 40.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average"
+    },
+    {
+      "id": "sabrina-carpenter-go-go-juice-a8ccccb0",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/sabrina-carpenter-go-go-juice-a8ccccb0.mp3",
+      "clip_present": true,
+      "title": "Go Go Juice",
+      "artist": "Sabrina Carpenter",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 112,
+      "energy": "medium",
+      "mood": [
+        "playful",
+        "pop"
+      ],
+      "suits": "Bouncy pop, conversational vocal delivery",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=uCNr2iCgSPs",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 124.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average"
+    },
+    {
+      "id": "g-flip-bed-on-fire-8cc98002",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/g-flip-bed-on-fire-8cc98002.mp3",
+      "clip_present": true,
+      "title": "Bed On Fire",
+      "artist": "G Flip",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 128,
+      "energy": "high",
+      "mood": [
+        "rock",
+        "drums"
+      ],
+      "suits": "Live-sounding drums, belted vocal, builds to a loud final chorus",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=9bu17n7QITc",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 144.8,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average"
+    },
+    {
+      "id": "slayyyter-dance-ee65c9b6",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/slayyyter-dance-ee65c9b6.mp3",
+      "clip_present": true,
+      "title": "DANCE…",
+      "artist": "Slayyyter",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 126,
+      "energy": "high",
+      "mood": [
+        "hyperpop",
+        "electronic"
+      ],
+      "suits": "Bright synth stabs, processed vocal, four-on-the-floor",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=0W-N1DqpmiM",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 43.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 2.6x average"
+    },
+    {
+      "id": "justin-bieber-everything-hallelujah-9952eba0",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/justin-bieber-everything-hallelujah-9952eba0.mp3",
+      "clip_present": true,
+      "title": "Everything Hallelujah",
+      "artist": "Justin Bieber",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 90,
+      "energy": "medium",
+      "mood": [
+        "gospel-tinged",
+        "vocal"
+      ],
+      "suits": "Slow build, layered backing vocals, sparse opening",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=8lxMKZVChvE",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 146.9,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average"
+    },
+    {
+      "id": "boney-m-r3hab-sunny-6f9d09a2",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/boney-m-r3hab-sunny-6f9d09a2.mp3",
+      "clip_present": true,
+      "title": "Sunny",
+      "artist": "Boney M., R3HAB",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 124,
+      "energy": "high",
+      "mood": [
+        "disco house",
+        "remix"
+      ],
+      "suits": "Disco sample over a modern house beat, repeated vocal hook",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=H_c0rPIzPQY",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "taylor-swift-i-knew-it-i-knew-you-fab821ec",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/taylor-swift-i-knew-it-i-knew-you-fab821ec.mp3",
+      "clip_present": true,
+      "title": "I Knew It, I Knew You",
+      "artist": "Taylor Swift",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 96,
+      "energy": "medium",
+      "mood": [
+        "narrative",
+        "pop"
+      ],
+      "suits": "Verse-heavy, lyric-forward, restrained production",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=XwCWKSO0F8s",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "past-day-summer-vibes-b25fc614",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/past-day-summer-vibes-b25fc614.mp3",
+      "clip_present": true,
+      "title": "Summer Vibes",
+      "artist": "Past Day",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 110,
+      "energy": "medium",
+      "mood": [
+        "upbeat",
+        "instrumental-leaning"
+      ],
+      "suits": "Bright guitar loop, minimal vocal",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=TT-o6tkWlt4",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 69.3,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average"
+    },
+    {
+      "id": "altego-beauty-and-a-beat-x-cola-altego-mix-918c2b1c",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/altego-beauty-and-a-beat-x-cola-altego-mix-918c2b1c.mp3",
+      "clip_present": true,
+      "title": "BEAUTY AND A BEAT X COLA (ALTÉGO MIX)",
+      "artist": "Altégo",
+      "platform": "both",
+      "direction": "rising",
+      "bpm": 128,
+      "energy": "high",
+      "mood": [
+        "mashup",
+        "club"
+      ],
+      "suits": "Two familiar hooks layered over a club beat",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=9dUkD0C9zcI",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "anita-ward-ring-my-bell-09d4f6f6",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/anita-ward-ring-my-bell-09d4f6f6.mp3",
+      "clip_present": true,
+      "title": "Ring My Bell",
+      "artist": "Anita Ward",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 120,
+      "energy": "medium",
+      "mood": [
+        "disco",
+        "retro"
+      ],
+      "suits": "Disco groove, distinctive synth-drum sound, repeated vocal hook",
+      "licence": "platform",
+      "notes": "SocialBee, week of 26 Aug",
+      "source_url": "https://www.youtube.com/watch?v=1eRBRL27rCQ",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 84.2,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average",
+      "full": "full/anita-ward-ring-my-bell-09d4f6f6/anita-ward-ring-my-bell-09d4f6f6.wav",
+      "full_format": "wav16",
+      "full_bytes": 94931430,
+      "promoted_at": "2026-08-31T10:09:26+00:00"
+    },
+    {
+      "id": "taylor-swift-august-cea2e359",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/taylor-swift-august-cea2e359.mp3",
+      "clip_present": true,
+      "title": "august",
+      "artist": "Taylor Swift",
+      "platform": "both",
+      "direction": "peaking",
+      "uses": 2500000,
+      "bpm": 90,
+      "energy": "low",
+      "mood": [
+        "wistful",
+        "hazy"
+      ],
+      "suits": "Soft dynamics throughout, reverb-heavy, no hard transients",
+      "licence": "platform",
+      "notes": "SocialPilot: 2.5m uses — saturated, and seasonal",
+      "source_url": "https://www.youtube.com/watch?v=nn_0zPAfyo8",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 2500000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 95.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average"
+    },
+    {
+      "id": "shakira-she-wolf-b7325494",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/shakira-she-wolf-b7325494.mp3",
+      "clip_present": true,
+      "title": "She Wolf",
+      "artist": "Shakira",
+      "platform": "both",
+      "direction": "peaking",
+      "uses": 30000,
+      "bpm": 124,
+      "energy": "high",
+      "mood": [
+        "dance",
+        "distinctive vocal"
+      ],
+      "suits": "Electro-pop with a very recognisable vocal hook",
+      "licence": "platform",
+      "notes": "SocialPilot: 30k, and on Scott Social too",
+      "source_url": "https://www.youtube.com/watch?v=booKP974B0k",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 30000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 78.5,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average"
+    },
+    {
+      "id": "miss-rany-cherry-on-the-edge-9eb6b9f4",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/miss-rany-cherry-on-the-edge-9eb6b9f4.mp3",
+      "clip_present": true,
+      "title": "Cherry on the Edge",
+      "artist": "miss rany",
+      "platform": "both",
+      "direction": "peaking",
+      "uses": 109000,
+      "bpm": 105,
+      "energy": "medium",
+      "mood": [
+        "indie",
+        "dreamy"
+      ],
+      "suits": "Washed guitars, soft vocal, little dynamic range",
+      "licence": "platform",
+      "notes": "SocialPilot: 109k uses",
+      "source_url": "https://www.youtube.com/watch?v=ujSfjlNmX4s",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 109000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "empire-of-the-sun-we-are-the-people-me-n-u-remix-ea24e9d7",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/empire-of-the-sun-we-are-the-people-me-n-u-remix-ea24e9d7.mp3",
+      "clip_present": true,
+      "title": "We Are The People (me n ü Remix)",
+      "artist": "Empire of the Sun",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 122,
+      "energy": "high",
+      "mood": [
+        "anthemic",
+        "remix"
+      ],
+      "suits": "Big synth lead, remix build structure",
+      "licence": "platform",
+      "notes": "SocialPilot: one of Instagram's biggest right now",
+      "source_url": "https://www.youtube.com/watch?v=-pA4KpehwPo",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 34.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average",
+      "full": "full/empire-of-the-sun-we-are-the-people-me-n-u-remix-ea24e9d7/empire-of-the-sun-we-are-the-people-me-n-u-remix-ea24e9d7.wav",
+      "full_format": "wav16",
+      "full_bytes": 36537514,
+      "promoted_at": "2026-08-31T10:12:06+00:00"
+    },
+    {
+      "id": "ian-mcconnell-you-never-take-me-to-bangladesh-05886ba1",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/ian-mcconnell-you-never-take-me-to-bangladesh-05886ba1.mp3",
+      "clip_present": true,
+      "title": "You Never Take Me to Bangladesh",
+      "artist": "Ian McConnell",
+      "platform": "both",
+      "direction": "peaking",
+      "energy": "medium",
+      "mood": [
+        "spoken",
+        "comedy"
+      ],
+      "suits": "Spoken comedy audio, not music",
+      "licence": "platform",
+      "notes": "SocialPilot: hundreds of thousands of uses",
+      "source_url": "https://www.youtube.com/watch?v=adojY1SI-70",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 19.0,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.5x average"
+    },
+    {
+      "id": "jkl-sweetly-04a25ccc",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/jkl-sweetly-04a25ccc.mp3",
+      "clip_present": true,
+      "title": "sweetly",
+      "artist": "jkl",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 72,
+      "energy": "low",
+      "mood": [
+        "instrumental",
+        "gentle"
+      ],
+      "suits": "Fully instrumental, slow, sparse — nothing competing with a voice",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=jVOnPgW34TI",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "justin-timberlake-summer-love-a012bb6e",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/justin-timberlake-summer-love-a012bb6e.mp3",
+      "clip_present": true,
+      "title": "Summer Love",
+      "artist": "Justin Timberlake",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 116,
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "throwback"
+      ],
+      "suits": "Mid-2000s pop production, falsetto hook",
+      "licence": "platform",
+      "notes": "Scott Social, top of the list",
+      "source_url": "https://www.youtube.com/watch?v=zMaNfqfsMtE",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.7x average"
+    },
+    {
+      "id": "the-weeknd-the-morning-d59a8b07",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/the-weeknd-the-morning-d59a8b07.mp3",
+      "clip_present": true,
+      "title": "The Morning",
+      "artist": "The Weeknd",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 90,
+      "energy": "medium",
+      "mood": [
+        "moody",
+        "r&b"
+      ],
+      "suits": "Dark R&B, sparse verses, prominent low end",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=5TAko3RH0bk",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 86.4,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.4x average"
+    },
+    {
+      "id": "tom-petty-and-the-heartbreakers-mary-janes-last-da-aa2e19cc",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/tom-petty-and-the-heartbreakers-mary-janes-last-da-aa2e19cc.mp3",
+      "clip_present": true,
+      "title": "Mary Jane's Last Dance",
+      "artist": "Tom Petty and the Heartbreakers",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 90,
+      "energy": "medium",
+      "mood": [
+        "classic rock",
+        "harmonica"
+      ],
+      "suits": "Steady rock groove, harmonica hook, plain production",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=aowSGxim_O8",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    },
+    {
+      "id": "katy-perry-the-one-that-got-away-98aa02cd",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/katy-perry-the-one-that-got-away-98aa02cd.mp3",
+      "clip_present": true,
+      "title": "The One That Got Away",
+      "artist": "Katy Perry",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 134,
+      "energy": "medium",
+      "mood": [
+        "pop",
+        "nostalgic"
+      ],
+      "suits": "Big pop chorus, clear verse/chorus contrast",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=Ahha3Cqe_fk",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 156.6,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.3x average",
+      "full": "full/katy-perry-the-one-that-got-away-98aa02cd/katy-perry-the-one-that-got-away-98aa02cd.wav",
+      "full_format": "wav16",
+      "full_bytes": 55665554,
+      "promoted_at": "2026-08-31T10:14:02+00:00"
+    },
+    {
+      "id": "justin-bieber-one-less-lonely-girl-5c0c4016",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/justin-bieber-one-less-lonely-girl-5c0c4016.mp3",
+      "clip_present": true,
+      "title": "One Less Lonely Girl",
+      "artist": "Justin Bieber",
+      "platform": "both",
+      "direction": "peaking",
+      "bpm": 92,
+      "energy": "medium",
+      "mood": [
+        "throwback",
+        "pop"
+      ],
+      "suits": "Early-era pop ballad, prominent lead vocal",
+      "licence": "platform",
+      "notes": "Scott Social, week of 27 Aug",
+      "source_url": "https://www.youtube.com/watch?v=LXUSaVw3Mvk",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "clip_bytes": 481114,
+      "hook_at": 48.7,
+      "hook_method": "heatmap",
+      "hook_detail": "replay bump, peak 1.6x average"
+    },
+    {
+      "id": "msbestofficial-abracadabra-levita-essa-bunda-ece780b7",
+      "first_seen": "2026-08-29",
+      "runs": [
+        "2026-08-29"
+      ],
+      "clip": "clips/msbestofficial-abracadabra-levita-essa-bunda-ece780b7.mp3",
+      "clip_present": true,
+      "title": "Abracadabra levita essa bunda",
+      "artist": "Msbestofficial",
+      "platform": "both",
+      "direction": "peaking",
+      "uses": 459000,
+      "bpm": 130,
+      "energy": "high",
+      "mood": [
+        "baile funk",
+        "percussive"
+      ],
+      "suits": "Brazilian funk beat, heavy repetition, chanted vocal",
+      "licence": "platform",
+      "notes": "tokchart: 459k uses but growth down to +1.3%/day",
+      "source_url": "https://www.youtube.com/watch?v=GR294uxGVGQ",
+      "profiles": [],
+      "last_seen": "2026-08-29",
+      "uses_history": {
+        "2026-08-29": 459000
+      },
+      "clip_bytes": 481114,
+      "hook_at": 20.0,
+      "hook_method": "default",
+      "hook_detail": "no signal — used 0:20"
+    }
+  ],
+  "last_run": "2026-08-29",
+  "updated": "2026-08-30T10:59:26+00:00"
+}

@@ -1,61 +1,69 @@
-# Builds the installers. macOS universal .dmg on a macOS runner (ad-hoc signed for now, see
-# docs/SIGNING.md) and the Windows x64 NSIS installer on a Windows runner. Never cross-compiled.
+# Builds the installers: a universal macOS .dmg (ad-hoc signed, see docs/SIGNING.md) on a macOS
+# runner and a Windows x64 installer (Inno Setup) on a Windows runner. Never cross-compiled.
+# A Linux job runs the unit tests and a headless smoke run of the real UI.
 name: Build app
 
 on:
-  push:
-    tags: ["v*"]
   workflow_dispatch:
     inputs:
       ffmpeg_release:
         description: Tag of the ffmpeg release to bundle (from the "ffmpeg (LGPL)" workflow)
         required: false
       release_tag:
-        description: Optional. Also publish the installers as a GitHub pre-release under this tag (for example v0.1.0)
+        description: Optional. Also publish the installers as a GitHub pre-release under this tag (for example v0.2.0)
         required: false
+  push:
+    tags: ["v*"]
 
 env:
   FFMPEG_RELEASE: ${{ inputs.ffmpeg_release || vars.FFMPEG_RELEASE || 'ffmpeg-n8.1.3-3' }}
+  FLUTTER_VERSION: "3.47.7"
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm test
-      - name: Headless shell smoke check
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - name: Linux desktop prerequisites
         run: |
-          sudo apt-get install -y -qq xvfb > /dev/null
-          npm run build
-          SOUNDBITES_SMOKE=1 xvfb-run -a npx electron --no-sandbox out/main/index.js
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ninja-build libgtk-3-dev libmimalloc-dev libmpv-dev xvfb ffmpeg imagemagick python3 > /dev/null
+      - run: flutter pub get
+      - run: dart analyze --fatal-infos
+      - run: flutter test
+      - name: Headless smoke run
+        run: |
+          set -euo pipefail
+          flutter build linux --release
+          scripts/smoke-linux.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: smoke-screenshots
+          path: dist/screenshots/*.png
+          if-no-files-found: ignore
 
   mac:
     needs: test
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
-      - run: npm ci
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
       - name: Fetch bundled ffmpeg
         env:
           GH_TOKEN: ${{ github.token }}
-        run: node scripts/fetch-ffmpeg.mjs mac "$FFMPEG_RELEASE"
-      - name: Package (universal dmg, ad-hoc signed)
-        env:
-          CSC_IDENTITY_AUTO_DISCOVERY: "false"
-        run: npm run package:mac
-      - name: Verify signature seals the whole bundle
-        run: |
-          set -euo pipefail
-          APP=$(ls -d dist/mac-universal/*.app | head -1)
-          codesign --verify --deep --strict --verbose=2 "$APP"
-          codesign -dv "$APP" 2>&1 | grep -E 'Signature=adhoc|TeamIdentifier'
-          lipo -info "$APP/Contents/Resources/ffmpeg/ffmpeg"
+        run: scripts/fetch-ffmpeg.sh mac "$FFMPEG_RELEASE"
+      - name: Build, bundle ffmpeg, ad-hoc sign, make dmg
+        run: scripts/package-mac.sh
       - uses: actions/upload-artifact@v4
         with:
           name: Soundbites-mac
@@ -66,23 +74,26 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
-      - run: npm ci
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
       - name: Fetch bundled ffmpeg
         env:
           GH_TOKEN: ${{ github.token }}
-        run: node scripts/fetch-ffmpeg.mjs win "$env:FFMPEG_RELEASE"
-      - name: Package (NSIS x64)
-        run: npm run package:win
+        shell: bash
+        run: scripts/fetch-ffmpeg.sh win "$FFMPEG_RELEASE"
+      - name: Build and make installer
+        shell: pwsh
+        run: scripts/package-windows.ps1
       - uses: actions/upload-artifact@v4
         with:
           name: Soundbites-windows
           path: dist/*.exe
 
   release:
-    # Tagged builds (v*) become a GitHub pre-release so the installers can be downloaded in a
-    # browser, which is how friends receive them and what the Gatekeeper test needs.
     if: startsWith(github.ref, 'refs/tags/v') || inputs.release_tag != ''
     needs: [mac, windows]
     runs-on: ubuntu-latest
@@ -93,6 +104,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: dist
+          pattern: Soundbites-*
           merge-multiple: true
       - name: Create pre-release
         env:

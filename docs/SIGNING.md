@@ -1,27 +1,32 @@
 # Signing, notarisation and auto-update: the switch
 
-Today the app ships **unsigned by Apple's standards but ad-hoc signed**, because there is no paid
-Developer ID. This document is the checklist for turning real signing on later. No code changes
-are needed; it is configuration plus one small module.
+Today the app ships **ad-hoc signed** on macOS, because there is no paid Developer ID. This
+document is the checklist for turning real signing on later. No code changes are needed; it is
+a certificate, a few secrets and two lines in the packaging script.
 
 ## Current state (no certificate)
 
-In `electron-builder.yml`:
+`scripts/package-mac.sh` runs, after `flutter build macos --release` and after copying ffmpeg
+into `Contents/Resources/ffmpeg/`:
 
-```yaml
-mac:
-  identity: "-"            # ad-hoc: a signature with no Team ID
-  hardenedRuntime: false   # off; only needed for notarisation
-  notarize: false
-  entitlements: build/entitlements.mac.plist          # allow-jit + disable-library-validation
-  entitlementsInherit: build/entitlements.mac.inherit.plist
 ```
+codesign --force --deep --sign "-" --entitlements macos/Runner/Release.entitlements --timestamp=none Soundbites.app
+codesign --verify --deep --strict --verbose=2 Soundbites.app
+```
+
+`-` is the ad-hoc identity: a signature with no Team ID. The identity comes from the
+`SIGNING_IDENTITY` environment variable when set, so the switch below needs no script edit.
+
+The entitlements (`macos/Runner/Release.entitlements` and `DebugProfile.entitlements`) turn the
+App Sandbox **off** (the app spawns yt-dlp and ffmpeg and reads any folder the user picks) and
+allow JIT and unsigned libraries (`com.apple.security.cs.allow-jit`,
+`com.apple.security.cs.disable-library-validation`), which the Flutter engine and the
+media playback library need while there is no Team ID.
 
 Why ad-hoc and not nothing: Apple Silicon refuses to run code with no signature at all, and a
 bundle modified after signing shows "is damaged and can't be opened" with no approval button.
-electron-builder 26.15 does **not** fall back to ad-hoc signing on its own (earlier 26.x did and
-it was removed), so `identity: "-"` must stay explicit. The build workflow runs
-`codesign --verify --deep --strict` on the finished app and fails if the seal is broken.
+That is why ffmpeg is copied in **before** signing and why the seal covers the whole bundle
+(`--deep`). The build workflow fails if `codesign --verify` rejects the result.
 
 Friends open the app via System Settings > Privacy & Security > Open Anyway
 (see `docs/first-time-opening.md`).
@@ -31,38 +36,38 @@ Friends open the app via System Settings > Privacy & Security > Open Anyway
 1. Enrol in the Apple Developer Program and create a "Developer ID Application" certificate.
    Export it as a `.p12` with a password.
 2. In the GitHub repository, add secrets:
-   - `CSC_LINK`: the `.p12` file, base64-encoded
-   - `CSC_KEY_PASSWORD`: its password
+   - `MAC_CERT_P12`: the `.p12` file, base64-encoded
+   - `MAC_CERT_PASSWORD`: its password
    - `APPLE_API_KEY`, `APPLE_API_KEY_ID`, `APPLE_API_ISSUER`: an App Store Connect API key
-     (electron-builder's recommended notarisation credentials)
-3. In `electron-builder.yml`, change the Mac section to:
-   ```yaml
-   mac:
-     # identity: not set, so electron-builder finds the Developer ID certificate from CSC_LINK
-     hardenedRuntime: true
-     notarize: true
+     for `notarytool`
+3. In `.github/workflows/build.yml`, before the packaging step on the Mac job, import the
+   certificate into a temporary keychain (the usual `security create-keychain` /
+   `security import` steps) and set `SIGNING_IDENTITY` to the certificate's name
+   ("Developer ID Application: Name (TEAMID)").
+4. In `scripts/package-mac.sh`, replace `--timestamp=none` with `--timestamp` and add
+   `--options runtime` (the hardened runtime, required for notarisation). Remove
+   `com.apple.security.cs.disable-library-validation` from both entitlement files (a real Team
+   ID makes library validation pass). Keep `allow-jit` and keep the sandbox off.
+5. After the `.dmg` is made, notarise and staple:
    ```
-   and remove `com.apple.security.cs.disable-library-validation` from both entitlement files
-   (a real Team ID makes library validation pass).
-4. In `.github/workflows/build.yml`, remove `CSC_IDENTITY_AUTO_DISCOVERY: "false"` from the
-   Mac packaging step and pass the five secrets as environment variables.
-5. Build. The verify step should now print a `TeamIdentifier` rather than `Signature=adhoc`.
+   xcrun notarytool submit dist/Soundbites-*.dmg --key "$APPLE_API_KEY" --key-id "$APPLE_API_KEY_ID" --issuer "$APPLE_API_ISSUER" --wait
+   xcrun stapler staple dist/Soundbites-*.dmg
+   ```
+6. Build. The verify step should now print a `TeamIdentifier` rather than `Signature=adhoc`.
 
 ## Windows Authenticode
 
-Not planned (SmartScreen warnings are documented instead). If a certificate is ever bought:
-set `win.certificateSubjectName` or `CSC_LINK`/`CSC_KEY_PASSWORD` for Windows in the Windows job,
-or configure `win.azureSignOptions` for Azure Trusted Signing.
+Not planned (SmartScreen warnings are documented instead). If a certificate is ever bought,
+sign `build\windows\x64\runner\Release\soundbites.exe` and the finished installer with
+`signtool sign /fd SHA256 /td SHA256 /tr <timestamp url> ...` in
+`scripts/package-windows.ps1`, or set `SignTool` in `installer/windows/soundbites.iss`.
 
 ## Auto-update
 
-Automatic updating needs a signed, notarised Mac app (Squirrel.Mac refuses unsigned updates).
-Once the above is done:
-
-1. `npm install electron-updater`
-2. In the main process, on launch: `autoUpdater.checkForUpdatesAndNotify()` from
-   `electron-updater`, replacing the "a newer version is available" link in the About screen.
-   `publish` in `electron-builder.yml` already points at GitHub Releases for this repository.
-3. The repository is public, so GitHub Releases are readable by every copy of the app without a
-   token. (If it is ever made private again, the update check and the LGPL source offer both
-   need a public home for the releases.)
+The app only **checks** for a newer release (GitHub Releases of this repository) and shows a
+link in About. Installing updates by itself would need a signed, notarised Mac app and an
+installer that can replace itself on Windows. Once signing is on, the natural route is: download
+the new `.dmg` or installer from the release, verify its checksum, and open it for the user.
+The repository is public, so GitHub Releases are readable by every copy of the app without a
+token. (If it is ever made private again, the update check and the LGPL source offer both need
+a public home for the releases.)

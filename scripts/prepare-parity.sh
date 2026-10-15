@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# Prepares the two library copies used by test/parity.test.ts (Phase 1 checks b and c).
+# Prepares the two library copies used by test/engine/parity_test.dart (Phase 1 checks b and c).
 #   scripts/prepare-parity.sh <reference-folder-with-python-and-json> <target-folder>
-# Creates <target>/py (with the Python scripts), <target>/ts, dummy clip files of the recorded
+# Creates <target>/py (with the Python scripts), <target>/dart, dummy clip files of the recorded
 # sizes for every track (the audio itself is not needed), and three synthetic test tracks in
 # <target>/audio. Then run:
-#   SOUNDBITES_PARITY=<target> npx vitest run test/parity.test.ts
+#   SOUNDBITES_PARITY=<target> flutter test test/engine/parity_test.dart
 set -euo pipefail
 REF="$1"; OUT="$2"
 rm -rf "$OUT"; mkdir -p "$OUT/audio"
-for d in py ts; do
+for d in py dart; do
   mkdir -p "$OUT/$d/clips" "$OUT/$d/full" "$OUT/$d/pending"
   for f in library.json favourites.json profile.json promote_queue.json health.json last_run.json; do
     [ -f "$REF/$f" ] && cp "$REF/$f" "$OUT/$d/"
@@ -19,7 +19,7 @@ python3 - "$OUT" <<'PY'
 import json, os, sys
 out=sys.argv[1]
 lib=json.load(open(f'{out}/py/library.json'))
-for d in ('py','ts'):
+for d in ('py','dart'):
     for t in lib['tracks']:
         if t.get('clip_present') and t.get('clip'):
             with open(f"{out}/{d}/{t['clip']}",'wb') as f: f.write(b'\0'*max(1,t.get('clip_bytes',1000)))
