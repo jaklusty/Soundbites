@@ -5,8 +5,10 @@ takes on it so one can be picked. Each is a 1024x1024 flat-vector SVG with the m
 icon grid built in (an 824x824 rounded square, corner radius 185, centred on the canvas); the same
 artwork works for Windows. There are no fonts, raster images, gradients or filter effects, so any
 SVG renderer produces the same result. After a first review, variants 2 and 3 were shortlisted and
-each got a "b" version with a much bigger, toothier bite; `preview.png` now shows 2, 2b, 3, 3b and 4
-side by side at 512px and 32px (variants 1 to 4 are all still here).
+each got a "b" version with a much bigger, toothier bite, and then a "c" version that adds a trail of
+crumbs flying off the bite (after a reference image Jak supplied), in a light "c" and a heavy "d" weight;
+`preview.png` now shows 2c, 2d, 3c and 3d side by side at 512px and 32px (every earlier variant is
+still here as a file).
 
 ## Variant 1: single note, bite in the head (`variant-1.svg`)
 
@@ -31,6 +33,25 @@ plainly a bite, not a cut. The beam was made a little thicker and the whole draw
 beam still holds together under the bite and the chomp stays inside the rounded square. At 32px the
 missing corner is clearly visible; the tooth marks soften into a rough edge.
 
+## Variant 2c: two notes, scalloped chomp with flying crumbs (`variant-2c.svg`)
+
+Variant 2b's notes, palette and chomp, redrawn to match the reference bite style: the chomp out of the
+beam's top-right corner now has four clear tooth-mark scallops, and a trail of nine saffron crumbs (a mix
+of small dots and jagged shards, pieces of the note) flies up and to the right away from the bite,
+shrinking with distance. Because 2b's chomp already filled the corner of the rounded square, the whole
+note drawing (chomp included, so the chomp keeps its size relative to the notes) is scaled to 88% and
+nudged down-left to make room for the trail. At 32px the crumbs become a faint speckle in the corner
+and the missing beam corner still reads clearly.
+
+## Variant 2d: two notes, scalloped chomp with a heavy crumb fan (`variant-2d.svg`)
+
+Identical to 2c (same 88%-scaled notes and the same four-scallop chomp) except for the trail, which is
+much heavier to match the reference image: fifteen saffron crumbs instead of nine, the first three of
+them big chunks (a jagged shard about a quarter of the bite's width, then a large dot and another chunk
+above), spreading in a wider fan up and to the right and shrinking to specks. It reads as the corner of
+the beam physically breaking apart. At 32px the big chunks stay visible as a cluster in the top-right
+corner, so the icon is busier there than 2c; that is the trade-off to compare.
+
 ## Variant 3: sound bars, bite out of the tallest bar (`variant-3.svg`)
 
 Five rounded vertical bars of different heights, the familiar "audio playing" or waveform glyph, in cream
@@ -46,6 +67,21 @@ scallops around the rim. Because the chomp is so large, the same arc also slices
 bar next to it, which makes the bite read as one single mouthful across the glyph rather than a notch.
 At 32px it shows as an obvious bite out of the central bar.
 
+## Variant 3c: sound bars, scalloped chomp with flying crumbs (`variant-3c.svg`)
+
+Variant 3b's bars, palette and chomp, unchanged, plus a trail of nine cream crumbs (dots and shards,
+pieces of the bar) that starts at the top edge of the bite and flies up and to the right between the
+tallest bar and the right-hand bars, shrinking as it goes. Nothing else moved, since this layout already
+had empty space above the shorter bars for the trail. At 32px the trail reads as a few light specks
+leading away from the bite.
+
+## Variant 3d: sound bars, scalloped chomp with a heavy crumb fan (`variant-3d.svg`)
+
+Identical to 3c except for the trail: fifteen cream crumbs, led by a big jagged chunk right at the top of
+the bite, a large dot beside it and a third chunk above, fanning up and to the right across the space
+above the two right-hand bars and shrinking to specks near the corner. The bars themselves are untouched.
+At 32px the chunks read as a visible spray leaving the bite, noticeably heavier than 3c.
+
 ## Variant 4: bold note, chomp with tooth marks (`variant-4.svg`)
 
 A chunky, heavyweight eighth note in near-black on a mustard background. Instead of a smooth semicircle,
@@ -57,7 +93,7 @@ the tooth marks disappear at favicon size but the overall silhouette still reads
 
 - `variant-N.svg`: the source artwork (edit these, everything else is generated from them).
 - `variant-N-512.png`, `variant-N-32.png`: renders at the two sizes used for the preview sheet.
-- `preview.png`: variants 2, 2b, 3, 3b and 4 side by side at 512px and 32px, labelled.
+- `preview.png`: variants 2c, 2d, 3c and 3d side by side at 512px and 32px, labelled.
 
 Renders were made with `cairosvg` (`python3 -m pip install --user cairosvg`) and the sheet assembled with Pillow.
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soundbites app icon, variant 2d: beamed pair of eighth notes, scalloped chomp out of the beam corner with a heavy fan of crumbs breaking away, dark background. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- macOS icon grid: 824x824 rounded square, corner radius 185 -->
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="#17141F"/>
+
+  <!-- Variant 2b's notes and chomp, scaled to 88% and moved down-left so the crumb trail has room in the corner -->
+  <g transform="translate(22 63) scale(0.88)">
+    <g fill="#F6C453">
+      <ellipse cx="280" cy="760" rx="135" ry="100" transform="rotate(-20 280 760)"/>
+      <rect x="351" y="320" width="60" height="450"/>
+      <ellipse cx="620" cy="695" rx="135" ry="100" transform="rotate(-20 620 695)"/>
+      <rect x="691" y="255" width="60" height="450"/>
+      <path d="M 351 320 L 751 255 L 751 445 L 351 510 Z"/>
+    </g>
+    <!-- The chomp: big circle out of the beam's top-right corner, four tooth-mark scallops along the rim -->
+    <g fill="#17141F">
+      <circle cx="770" cy="235" r="115"/>
+      <circle cx="754" cy="349" r="34"/>
+      <circle cx="712" cy="335" r="34"/>
+      <circle cx="679" cy="306" r="34"/>
+      <circle cx="660" cy="267" r="34"/>
+    </g>
+  </g>
+
+  <!-- Crumbs: a heavy fan of note chunks breaking away up and to the right, shrinking with distance -->
+  <g fill="#F6C453">
+    <polygon points="735,170 790,128 805,185 760,205"/>
+    <circle cx="823" cy="196" r="40"/>
+    <circle cx="712" cy="135" r="30"/>
+    <polygon points="840,150 856,146 862,168"/>
+    <circle cx="885" cy="245" r="18"/>
+    <circle cx="760" cy="120" r="14"/>
+    <polygon points="795,118 806,116 806,132"/>
+    <circle cx="826" cy="138" r="7"/>
+    <circle cx="888" cy="204" r="9"/>
+    <polygon points="876,180 886,178 884,192"/>
+    <circle cx="906" cy="232" r="6"/>
+    <circle cx="912" cy="262" r="4"/>
+    <circle cx="730" cy="108" r="6"/>
+    <circle cx="846" cy="142" r="4"/>
+    <circle cx="908" cy="290" r="5"/>
+  </g>
+</svg>
