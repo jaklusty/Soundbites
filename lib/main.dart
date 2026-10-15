@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:window_manager/window_manager.dart';
 
 import 'engine/engine.dart';
 import 'engine/instance_lock.dart';
+import 'engine/settings.dart';
 import 'ui/app.dart';
 import 'ui/controller.dart';
 import 'ui/demo_controller.dart';
@@ -39,14 +41,17 @@ Future<void> main() async {
       // No libmpv on this machine (headless CI): the UI still runs, playback reports an error.
     }
   }
+  var haveWindow = false;
   try {
     await windowManager.ensureInitialized();
     await windowManager.setTitle('Soundbites');
     await windowManager.setMinimumSize(const Size(900, 600));
+    haveWindow = true;
   } catch (_) {}
 
   final demo = Platform.environment['SOUNDBITES_DEMO_LIBRARY'];
   final SoundbitesController controller;
+  Engine? engine;
   if (demo != null && demo.isNotEmpty) {
     controller = DemoController(demo);
   } else {
@@ -56,12 +61,62 @@ Future<void> main() async {
       runApp(const AlreadyRunningApp());
       return;
     }
-    final engine = Engine(appDataDir: appData.path, version: appVersion);
+    engine = Engine(appDataDir: appData.path, version: appVersion);
     final ec = EngineController(engine: engine, toolsDir: p.join(appData.path, 'tools'), ffmpegPath: ffmpegPath(), skipTools: Platform.isLinux);
     await ec.start();
     controller = ec;
   }
+  if (haveWindow) await _placeWindow(engine);
   runApp(SoundbitesApp(controller: controller));
+}
+
+/// Opens the window where it was last time (from settings), or at a comfortable default size in
+/// the middle of the screen, and keeps the settings up to date as it is moved or resized.
+Future<void> _placeWindow(Engine? engine) async {
+  final saved = engine?.settings.current.window;
+  try {
+    if (saved != null && saved.width >= 900 && saved.height >= 600) {
+      final size = Size(saved.width.toDouble(), saved.height.toDouble());
+      if (saved.x != null && saved.y != null) {
+        await windowManager.setBounds(Rect.fromLTWH(saved.x!.toDouble(), saved.y!.toDouble(), size.width, size.height));
+      } else {
+        await windowManager.setSize(size);
+        await windowManager.center();
+      }
+      if (saved.maximized == true) await windowManager.maximize();
+    } else {
+      await windowManager.setSize(const Size(1320, 860));
+      await windowManager.center();
+    }
+    await windowManager.show();
+  } catch (_) {}
+  if (engine != null) windowManager.addListener(_WindowSaver(engine));
+}
+
+class _WindowSaver with WindowListener {
+  _WindowSaver(this.engine);
+  final Engine engine;
+  Timer? _debounce;
+
+  void _save() {
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 400), () async {
+      try {
+        final maximized = await windowManager.isMaximized();
+        final b = await windowManager.getBounds();
+        await engine.updateSettings((c) => c.copyWith(window: WindowBounds(x: b.left.round(), y: b.top.round(), width: b.width.round(), height: b.height.round(), maximized: maximized)));
+      } catch (_) {}
+    });
+  }
+
+  @override
+  void onWindowResized() => _save();
+  @override
+  void onWindowMoved() => _save();
+  @override
+  void onWindowMaximize() => _save();
+  @override
+  void onWindowUnmaximize() => _save();
 }
 
 /// Shown instead of the library when another copy of Soundbites is already open.
