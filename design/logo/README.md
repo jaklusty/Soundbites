@@ -132,3 +132,24 @@ on black) and as the app tile (`variant-5x-tile.svg`, white on the macOS rounded
 near-black). `preview-5.png` shows all three on white, on black, in the tile, and at 32 and
 16 pixels. The tile colour is the one open choice once a shape is picked; the mark itself stays
 one colour.
+
+## Series 6: the chosen logo (`logo-6-source.jpg`)
+
+On 16 October 2026 Jak supplied the logo to use: a row of sound bars rising into a play
+triangle, in a blue-violet to coral gradient on a near-black rounded tile, with the word
+"soundbites" beneath. Three icon files were made from it:
+
+- **6a, as given** (`logo-6a-as-given.png`): the tile cut out of the picture and placed on the
+  macOS icon grid with transparent corners. **This is the installed app icon.**
+- **6b, no wordmark** (`logo-6b-no-wordmark.png`): the same picture with the word removed and the
+  mark centred, because a word in an icon turns to a smudge at dock and taskbar sizes.
+- **6c, vector remake** (`logo-6c-vector.svg` and `.png`): the mark redrawn as shapes with the
+  same gradient, so it is crisp at every size and can be recoloured or reused elsewhere.
+
+`preview-6.png` shows the three at 320, 64, 32 and 16 px. To switch the app icon to another one:
+
+```sh
+python3 scripts/make-icons.py design/logo/logo-6b-no-wordmark.png
+```
+
+which rewrites the macOS icon set, the Windows .ico and the in-app `assets/icon/icon.png`.

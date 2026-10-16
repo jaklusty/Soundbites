@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soundbites app icon: sound bars and a play triangle, from the logo Jak supplied on 16 October 2026, redrawn as vectors. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="g" x1="208" y1="0" x2="816" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#564DCE"/><stop offset="0.3" stop-color="#8A41D2"/>
+      <stop offset="0.55" stop-color="#D03AA0"/><stop offset="0.75" stop-color="#E24585"/><stop offset="1" stop-color="#F8705A"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="100" x2="0" y2="924" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E0B1D"/><stop offset="1" stop-color="#05030F"/>
+    </linearGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="url(#bg)"/>
+  <g fill="url(#g)">
+    <rect x="208.2" y="535.8" width="36.4" height="41.1" rx="18.2"/>
+    <rect x="265.2" y="503.1" width="42.9" height="108.2" rx="21.5"/>
+    <rect x="328.6" y="452.7" width="51.3" height="198.8" rx="25.7"/>
+    <rect x="399.6" y="389.3" width="51.3" height="315.4" rx="25.7"/>
+    <rect x="473.3" y="319.3" width="51.3" height="386.3" rx="25.7"/>
+    <rect x="544.2" y="375.3" width="51.3" height="330.3" rx="25.7"/>
+    <path d="M 617.9 433.1 L 815.8 550.7 L 617.9 668.3 Z" stroke="url(#g)" stroke-width="28" stroke-linejoin="round"/>
+  </g>
+</svg>
