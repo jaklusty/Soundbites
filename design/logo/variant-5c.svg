@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soundbites app icon, variant 5c: two beamed notes, bite from the top edge of the beam -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" fill="#FFFFFF"/>
+  <g fill="#111111">
+    <ellipse cx="300" cy="730" rx="150" ry="108" transform="rotate(-28 300 730)"/>
+    <ellipse cx="700" cy="670" rx="150" ry="108" transform="rotate(-28 700 670)"/>
+    <path d="M 404 300 L 468 300 L 468 730 L 404 730 Z"/>
+    <path d="M 804 240 L 868 240 L 868 670 L 804 670 Z"/>
+    <path d="M 404 300 L 868 240 L 868 352 L 404 412 Z"/>
+  </g>
+  <!-- the bite, in the background colour -->
+  <circle cx="636" cy="258" r="84" fill="#FFFFFF"/>
+</svg>

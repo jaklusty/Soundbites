@@ -113,3 +113,22 @@ does both from one PNG.
 
 The rounded-square background is part of the artwork on purpose: macOS does not clip icons, so the
 PNG must already contain the rounded square with transparent corners, which these SVGs do.
+
+## Series 5: one silhouette, one bite (`variant-5a.svg`, `variant-5b.svg`, `variant-5c.svg`)
+
+After the crumb variants Jak asked for something as professional as the Apple logo but on the
+music theme. The Apple mark works because it is a single flat silhouette with one clean bite and
+nothing else: no outline, no crumbs, no background needed, and it reads the same in black, in
+white, and at 16 pixels. Series 5 applies that rule to the note.
+
+- **5a:** a single eighth note, redrawn with a straight stem and a tapered flag that sweeps out
+  and comes back to a point, with one round bite out of the upper left of the note head. The
+  bite sits opposite the flag so the mark balances.
+- **5b:** the same note with the bite out of the lower right of the head, nearer the stem.
+- **5c:** two beamed notes with a round bite out of the top edge of the beam.
+
+Each variant exists as the plain mark (`variant-5x.svg`, black on white; swap the fill for white
+on black) and as the app tile (`variant-5x-tile.svg`, white on the macOS rounded square in
+near-black). `preview-5.png` shows all three on white, on black, in the tile, and at 32 and
+16 pixels. The tile colour is the one open choice once a shape is picked; the mark itself stays
+one colour.

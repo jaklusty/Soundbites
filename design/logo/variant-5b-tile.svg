@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soundbites app icon, variant 5b: single note, bite from the lower right of the head -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" fill="#FFFFFF"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" ry="185" fill="#1C1C1E"/>
+  <g fill="#FFFFFF">
+    <!-- head: a tilted oval -->
+    <ellipse cx="400" cy="722" rx="170" ry="122" transform="rotate(-28 400 722)"/>
+    <!-- stem: straight, square top -->
+    <path d="M 518 188 L 586 188 L 586 722 L 518 722 Z"/>
+    <!-- flag: a tapered wave from the top of the stem, out to the right and back to a point -->
+    <path d="M 586 188
+             C 700 226, 772 330, 758 470
+             C 752 546, 712 598, 658 628
+             C 700 548, 690 448, 586 398 Z"/>
+  </g>
+  <!-- the bite, in the background colour -->
+  <circle cx="556" cy="812" r="86" fill="#1C1C1E"/>
+</svg>
