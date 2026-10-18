@@ -105,7 +105,8 @@ String cleanQuery(String q) {
   return s.length > 200 ? s.substring(0, 200) : s;
 }
 
-const String _print = r'%(id)s\t%(title)s\t%(channel,uploader)s\t%(duration)s';
+// A real tab between the columns (a raw string here would hand yt-dlp the two characters backslash-t).
+const String printTemplate = '%(id)s\t%(title)s\t%(channel,uploader)s\t%(duration)s';
 
 List<ResolvedUpload> parsePrintLines(String stdout) {
   final out = <ResolvedUpload>[];
@@ -132,7 +133,7 @@ Future<ResolvedUpload?> resolveSearch(YtDlpOptions o, String query, List<String>
   final q = cleanQuery(query);
   if (q.isEmpty) return null;
   final n = 3 + rejected.length < 10 ? 3 + rejected.length : 10;
-  final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '--skip-download', '--flat-playlist', '--print', _print, '--', 'ytsearch$n:$q'], timeout: searchTimeout);
+  final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '--skip-download', '--flat-playlist', '--print', printTemplate, '--', 'ytsearch$n:$q'], timeout: searchTimeout);
   if (res.code != 0) {
     final tail = failureReason(res);
     o.log?.call('  · search ${jsonEncode(q)} failed: $tail');
@@ -150,7 +151,7 @@ Future<ResolvedUpload?> resolveSearch(YtDlpOptions o, String query, List<String>
 
 /// Title, channel and duration for a known URL, without downloading.
 Future<ResolvedUpload?> inspect(YtDlpOptions o, String url) async {
-  final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '--skip-download', '--print', _print, '--', url], timeout: searchTimeout);
+  final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '--skip-download', '--print', printTemplate, '--', url], timeout: searchTimeout);
   if (res.code != 0) {
     if (extractorFailure.hasMatch(res.stderr)) o.onExtractorFailure?.call(lastLine(res.stderr));
     o.onFailure?.call('could not read the link: ${failureReason(res)}');

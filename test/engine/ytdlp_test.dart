@@ -24,6 +24,10 @@ void main() {
       expect(cleanQuery('  \t\n  '), '');
     });
     test('parses print lines and ignores junk', () {
+      // The template must carry real tab characters: yt-dlp does not unescape "\\t", and a raw
+      // string once handed it the two letters, so every search "found nothing" (18 October 2026).
+      expect(printTemplate.contains('\t'), isTrue);
+      expect(printTemplate.contains(r'\t'), isFalse);
       final r = parsePrintLines('u5Ee8QrWyhc\tBicep - Glue\tBicep\t237\nnotanid\tx\ty\tz\nabcdefghijk\tT\tNA\tNA\n');
       expect(r, [
         const ResolvedUpload(videoId: 'u5Ee8QrWyhc', url: 'https://www.youtube.com/watch?v=u5Ee8QrWyhc', title: 'Bicep - Glue', channel: 'Bicep', duration: 237),
