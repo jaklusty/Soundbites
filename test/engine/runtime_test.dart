@@ -229,7 +229,10 @@ void main() {
     final rt = makeRuntime(e, f);
     await rt.checkFeed();
     await waitIdle(rt, e);
-    // Pretend the newest two runs produced nothing: drop their clips and mark the reason.
+    // Pretend the newest two runs produced nothing: remove the clips and mark the reason.
+    for (final f in Directory(p.join(lib, 'clips')).listSync()) {
+      f.deleteSync();
+    }
     await Store(lib).update('library.json', {}, (json) {
       for (final t in (json['tracks'] as List).cast<Map<String, dynamic>>()) {
         t['clip_present'] = false;
