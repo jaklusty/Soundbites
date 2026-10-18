@@ -108,7 +108,7 @@ class Runtime {
     final s = engine.settings.current;
     if (s.lastAppVersion != engine.version) {
       await engine.settings.update((c) => c.copyWith(lastAppVersion: engine.version));
-      if (s.lastAppVersion != null) await retryAllNoAudio();
+      await retryAllNoAudio();
     }
     kickPromote();
   }
@@ -348,15 +348,10 @@ class Runtime {
     final lib = Library(await store.readOr('library.json', Library.empty().json));
     final profile = await store.readOr('profile.json', <String, dynamic>{});
     final keepRuns = ((profile['retention'] as Map?)?['keep_runs'] as num?)?.toInt() ?? 8;
-    final runs = lib.tracks.expand((t) => t.runs).where(validRunStamp).toSet().toList()..sort();
-    final recent = runs.reversed.take(keepRuns).toSet();
     var queued = 0;
-    for (final t in lib.tracks) {
-      if (t.clipPresent || !t.runs.any(recent.contains)) continue;
-      if (t.userSourceUrl != null || t.sourceUrl != null || ((t.artist ?? '').isNotEmpty && (t.title ?? '').isNotEmpty)) {
-        await retryTrack(t.id);
-        queued++;
-      }
+    for (final t in retryableTracks(lib, keepRuns)) {
+      await retryTrack(t.id);
+      queued++;
     }
     _log('retrying $queued tracks without a clip');
     return queued;

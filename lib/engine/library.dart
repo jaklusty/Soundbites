@@ -314,3 +314,14 @@ String nowIso([DateTime? at]) {
   String two(int n) => n.toString().padLeft(2, '0');
   return '${d.year}-${two(d.month)}-${two(d.day)}T${two(d.hour)}:${two(d.minute)}:${two(d.second)}+00:00';
 }
+
+/// Tracks from the newest `keepRuns` runs that have no clip but could get one: the ones a
+/// "try again for all" should queue. Older runs are metadata only by design.
+List<Track> retryableTracks(Library lib, int keepRuns) {
+  final runs = lib.tracks.expand((t) => t.runs).where(validRunStamp).toSet().toList()..sort();
+  final recent = runs.reversed.take(keepRuns).toSet();
+  return lib.tracks.where((t) {
+    if (t.clipPresent || t.json['local'] != null || !t.runs.any(recent.contains)) return false;
+    return t.userSourceUrl != null || t.sourceUrl != null || ((t.artist ?? '').isNotEmpty && (t.title ?? '').isNotEmpty);
+  }).toList();
+}

@@ -254,6 +254,37 @@ void main() {
     await e.close();
   });
 
+  test('the first start of a new app version retries recent tracks without a clip', () async {
+    final e = await openEngine();
+    final f = Fake();
+    var rt = makeRuntime(e, f);
+    await rt.checkFeed();
+    await waitIdle(rt, e);
+    for (final file in Directory(p.join(lib, 'clips')).listSync()) {
+      file.deleteSync();
+    }
+    await Store(lib).update('library.json', {}, (json) {
+      for (final t in (json['tracks'] as List).cast<Map<String, dynamic>>()) {
+        t['clip_present'] = false;
+        t['clip'] = null;
+      }
+      return json;
+    });
+    expect((await e.snapshot()).retryableCount, 5);
+    rt.stop();
+    // No version on record (as after 0.2.0) still counts as a change.
+    expect(e.settings.current.lastAppVersion, isNull);
+    final before = f.downloads.length;
+    rt = makeRuntime(e, f);
+    await rt.start();
+    await waitIdle(rt, e);
+    expect(f.downloads.length - before, 5);
+    expect(e.settings.current.lastAppVersion, '0.2.0');
+    expect((await e.snapshot()).retryableCount, 0);
+    rt.stop();
+    await e.close();
+  });
+
   test('a starred track gets its full track pulled in the background', () async {
     final e = await openEngine();
     final f = Fake();

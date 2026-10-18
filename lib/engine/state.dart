@@ -74,6 +74,7 @@ class AppState {
     this.pending = const [],
     this.lastRunSummary,
     this.reclaimableCount = 0,
+    this.retryableCount = 0,
     this.reclaimableBytes = 0,
     FeedStatus? feed,
     ToolsStatus? tools,
@@ -99,6 +100,9 @@ class AppState {
   final List<String> pending;
   final Json? lastRunSummary;
   final int reclaimableCount, reclaimableBytes;
+
+  /// Recent tracks without a clip that a retry could fill.
+  final int retryableCount;
   final FeedStatus feed;
   final ToolsStatus tools;
   final UpdateInfo? update;

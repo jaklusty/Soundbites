@@ -1,7 +1,7 @@
 name: soundbites
 description: A desktop library of trending sounds for short-form video.
 publish_to: 'none'
-version: 0.2.1+3
+version: 0.2.2+4
 
 environment:
   sdk: ^3.13.0

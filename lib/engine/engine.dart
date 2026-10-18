@@ -167,6 +167,7 @@ class Engine {
         pending: pending,
         lastRunSummary: lastRun,
         reclaimableCount: rec.count,
+        retryableCount: retryableTracks(lib, ((profile['retention'] as Map?)?['keep_runs'] as num?)?.toInt() ?? 8).length,
         reclaimableBytes: rec.bytes,
         feed: feed,
         tools: tools,
