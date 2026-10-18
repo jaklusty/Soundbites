@@ -248,7 +248,8 @@ void main() {
     expect(f.downloads.length - before, 5);
     final s = await e.snapshot();
     expect(s.tracks.where((t) => t.clipPresent).length, 5);
-    expect(s.tracks.where((t) => t.json['audio_error'] != null), isEmpty);
+    // The two metadata-only tracks from the oldest run keep their note; the retried five lose it.
+    expect(s.tracks.where((t) => t.json['audio_error'] != null).map((t) => t.runs.single).toList(), ['2026-09-01', '2026-09-01']);
     rt.stop();
     await e.close();
   });
