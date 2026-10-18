@@ -326,7 +326,13 @@ Future<InstallResult> _installLatest(ToolSpec spec, Platform platform, String to
     await Process.run('chmod', ['755', finalPath]);
     // macOS Gatekeeper kills a quarantined, unnotarised binary outright. Files this app downloads
     // should not carry the flag, but clearing it costs nothing and fails silently when absent.
-    if (platform == Platform.darwin) await Process.run('xattr', ['-d', 'com.apple.quarantine', finalPath]);
+    if (platform == Platform.darwin) {
+      try {
+        await Process.run('xattr', ['-d', 'com.apple.quarantine', finalPath]);
+      } on ProcessException {
+        // No xattr command (tests run the macOS path on Linux).
+      }
+    }
   }
   return InstallResult(path: finalPath, tag: tag, alreadyPresent: false);
 }
