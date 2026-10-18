@@ -117,6 +117,8 @@ class DemoController implements SoundbitesController {
   @override
   Future<void> retryTrack(String id) async {}
   @override
+  Future<int> retryAllNoAudio() async => 0;
+  @override
   Future<void> wrongTrack(String id, bool alsoRemoveFull) async {}
   @override
   Future<void> setTrackLink(String id, String url) async {}

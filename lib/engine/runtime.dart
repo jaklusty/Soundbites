@@ -103,6 +103,13 @@ class Runtime {
     _timers.add(Timer.periodic(updateInterval, (_) => checkForUpdate()));
     unawaited(checkForUpdate());
     await checkFeed();
+    // First run of a new app version: give every recent track without a clip one more go, in
+    // case the previous version was the reason (as 0.2.0 was).
+    final s = engine.settings.current;
+    if (s.lastAppVersion != engine.version) {
+      await engine.settings.update((c) => c.copyWith(lastAppVersion: engine.version));
+      if (s.lastAppVersion != null) await retryAllNoAudio();
+    }
     kickPromote();
   }
 
@@ -331,13 +338,28 @@ class Runtime {
     unawaited(_work());
   }
 
-  Future<void> _retryNoAudio() async {
+  Future<void> _retryNoAudio() => retryAllNoAudio();
+
+  /// Queue every track without a clip from the newest keep_runs runs (older runs are metadata
+  /// only by design). Returns how many were queued.
+  Future<int> retryAllNoAudio() async {
     final store = engine.store;
-    if (store == null) return;
+    if (store == null) return 0;
     final lib = Library(await store.readOr('library.json', Library.empty().json));
+    final profile = await store.readOr('profile.json', <String, dynamic>{});
+    final keepRuns = ((profile['retention'] as Map?)?['keep_runs'] as num?)?.toInt() ?? 8;
+    final runs = lib.tracks.expand((t) => t.runs).where(validRunStamp).toSet().toList()..sort();
+    final recent = runs.reversed.take(keepRuns).toSet();
+    var queued = 0;
     for (final t in lib.tracks) {
-      if (!t.clipPresent && (t.userSourceUrl != null || t.sourceUrl != null || ((t.artist ?? '').isNotEmpty && (t.title ?? '').isNotEmpty))) await retryTrack(t.id);
+      if (t.clipPresent || !t.runs.any(recent.contains)) continue;
+      if (t.userSourceUrl != null || t.sourceUrl != null || ((t.artist ?? '').isNotEmpty && (t.title ?? '').isNotEmpty)) {
+        await retryTrack(t.id);
+        queued++;
+      }
     }
+    _log('retrying $queued tracks without a clip');
+    return queued;
   }
 
   Future<void> _work() async {

@@ -223,6 +223,33 @@ void main() {
     await e.close();
   });
 
+  test('retry-all queues recent tracks without a clip, not the metadata-only old runs', () async {
+    final e = await openEngine();
+    final f = Fake();
+    final rt = makeRuntime(e, f);
+    await rt.checkFeed();
+    await waitIdle(rt, e);
+    // Pretend the newest two runs produced nothing: drop their clips and mark the reason.
+    await Store(lib).update('library.json', {}, (json) {
+      for (final t in (json['tracks'] as List).cast<Map<String, dynamic>>()) {
+        t['clip_present'] = false;
+        t['clip'] = null;
+        t['audio_error'] = 'search failed';
+      }
+      return json;
+    });
+    final before = f.downloads.length;
+    final queued = await rt.retryAllNoAudio();
+    await waitIdle(rt, e);
+    expect(queued, 5); // keep_runs 2: the five tracks of the newest two runs, not the two from 2026-09-01
+    expect(f.downloads.length - before, 5);
+    final s = await e.snapshot();
+    expect(s.tracks.where((t) => t.clipPresent).length, 5);
+    expect(s.tracks.where((t) => t.json['audio_error'] != null), isEmpty);
+    rt.stop();
+    await e.close();
+  });
+
   test('a starred track gets its full track pulled in the background', () async {
     final e = await openEngine();
     final f = Fake();

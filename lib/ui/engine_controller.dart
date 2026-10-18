@@ -178,6 +178,9 @@ class EngineController implements SoundbitesController {
   Future<void> retryTrack(String id) async => _runtime?.retryTrack(id);
 
   @override
+  Future<int> retryAllNoAudio() async => (await _runtime?.retryAllNoAudio()) ?? 0;
+
+  @override
   Future<void> wrongTrack(String id, bool alsoRemoveFull) async {
     await engine.rejectMatch(id, alsoRemoveFull);
     await _runtime?.retryTrack(id);

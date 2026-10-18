@@ -52,6 +52,7 @@ class AppSettings {
     this.requestPauseMs = 2000,
     this.window,
     this.toolsCheckedAt,
+    this.lastAppVersion,
     this.feedCheckedAt,
     this.updateCheckedAt,
   });
@@ -71,6 +72,7 @@ class AppSettings {
       requestPauseMs: data.containsKey('requestPauseMs') ? _num(data['requestPauseMs'], 0) : d.requestPauseMs,
       window: WindowBounds.fromJson(data['window']),
       toolsCheckedAt: str('toolsCheckedAt'),
+      lastAppVersion: str('lastAppVersion'),
       feedCheckedAt: str('feedCheckedAt'),
       updateCheckedAt: str('updateCheckedAt'),
     ));
@@ -90,6 +92,9 @@ class AppSettings {
 
   /// When tools were last checked for a newer release (ISO).
   final String? toolsCheckedAt;
+
+  /// The app version that last ran with these settings; a change triggers one retry of tracks without a clip.
+  final String? lastAppVersion;
 
   /// When the feed was last checked (ISO), for the status line.
   final String? feedCheckedAt;
@@ -120,6 +125,7 @@ class AppSettings {
     int? requestPauseMs,
     Object? window = _unset,
     Object? toolsCheckedAt = _unset,
+    Object? lastAppVersion = _unset,
     Object? feedCheckedAt = _unset,
     Object? updateCheckedAt = _unset,
   }) =>
@@ -130,6 +136,7 @@ class AppSettings {
         requestPauseMs: requestPauseMs ?? this.requestPauseMs,
         window: identical(window, _unset) ? this.window : window as WindowBounds?,
         toolsCheckedAt: identical(toolsCheckedAt, _unset) ? this.toolsCheckedAt : toolsCheckedAt as String?,
+        lastAppVersion: identical(lastAppVersion, _unset) ? this.lastAppVersion : lastAppVersion as String?,
         feedCheckedAt: identical(feedCheckedAt, _unset) ? this.feedCheckedAt : feedCheckedAt as String?,
         updateCheckedAt: identical(updateCheckedAt, _unset) ? this.updateCheckedAt : updateCheckedAt as String?,
       );
@@ -141,6 +148,7 @@ class AppSettings {
         'requestPauseMs': requestPauseMs,
         if (window != null) 'window': window!.toJson(),
         if (toolsCheckedAt != null) 'toolsCheckedAt': toolsCheckedAt,
+        if (lastAppVersion != null) 'lastAppVersion': lastAppVersion,
         if (feedCheckedAt != null) 'feedCheckedAt': feedCheckedAt,
         if (updateCheckedAt != null) 'updateCheckedAt': updateCheckedAt,
       };

@@ -299,7 +299,22 @@ class _Attention extends StatelessWidget {
 
     final blocks = <Widget>[];
     if (lines.isNotEmpty) {
-      blocks.add(_box(context, c.peakingBg, c.peaking, [const Text('Needs attention', style: TextStyle(fontWeight: FontWeight.w700)), const SizedBox(height: 4), ...lines]));
+      final noAudio = s.tracks.where((t) => !t.clipPresent && t.json['audio_error'] != null).length;
+      blocks.add(_box(context, c.peakingBg, c.peaking, [
+        const Text('Needs attention', style: TextStyle(fontWeight: FontWeight.w700)),
+        const SizedBox(height: 4),
+        ...lines,
+        if (noAudio > 0) ...[
+          const SizedBox(height: 6),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: OutlinedButton(
+              onPressed: () => controller.retryAllNoAudio(),
+              child: Text('Try again for all $noAudio tracks without a clip'),
+            ),
+          ),
+        ],
+      ]));
     } else if (s.lastRunSummary != null) {
       final r = s.lastRunSummary!;
       blocks.add(_box(context, c.panel, c.muted, [Text('Last run ${r['run']} — ${r['added']} new, ${r['updated']} updated${(r['no_audio'] ?? 0) != 0 ? ', ${r['no_audio']} without audio' : ''}. Everything is up to date.')], border: true));

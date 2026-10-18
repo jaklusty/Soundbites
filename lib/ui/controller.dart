@@ -30,6 +30,9 @@ abstract class SoundbitesController {
   String? mediaPath(String kind, String id);
 
   Future<void> retryTrack(String id);
+
+  /// Try again for every recent track without a clip. Returns how many were queued.
+  Future<int> retryAllNoAudio();
   Future<void> wrongTrack(String id, bool alsoRemoveFull);
   Future<void> setTrackLink(String id, String url);
   Future<void> checkFeedNow();
