@@ -22,6 +22,10 @@ abstract class SoundbitesController {
 
   Future<void> openExternal(String url);
   Future<void> showInFolder(String kind, String id);
+
+  /// The log file on disk, when the app keeps one.
+  String? get logPath;
+  Future<void> showLogFile();
   /// Absolute path of a clip or full track for playback and drag-out, or null.
   String? mediaPath(String kind, String id);
 

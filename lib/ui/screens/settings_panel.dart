@@ -97,6 +97,21 @@ class _SettingsPanelState extends State<SettingsPanel> {
           ),
         ]),
       ],
+      const SizedBox(height: 18),
+      const Text('Downloader', style: TextStyle(fontWeight: FontWeight.w700)),
+      Text(
+        'yt-dlp ${widget.state.tools.ytdlp ?? 'not installed yet'} · Deno ${widget.state.tools.deno ?? 'not installed yet'} · ffmpeg ${widget.state.tools.ffmpeg ?? 'not found'}',
+        style: TextStyle(fontSize: 12.5, color: c.muted),
+      ),
+      if (widget.state.tools.message != null) Text(widget.state.tools.message!, style: TextStyle(fontSize: 12.5, color: c.fading)),
+      if (widget.controller.logPath != null) ...[
+        const SizedBox(height: 6),
+        Row(children: [
+          Expanded(child: Text('If downloads fail, the log file says why: ${widget.controller.logPath}', style: TextStyle(fontSize: 12.5, color: c.muted))),
+          const SizedBox(width: 8),
+          OutlinedButton(onPressed: widget.controller.showLogFile, child: const Text('Show log file')),
+        ]),
+      ],
     ]);
   }
 

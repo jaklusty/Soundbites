@@ -11,6 +11,7 @@ import 'package:path/path.dart' as p;
 import 'package:url_launcher/url_launcher.dart';
 
 import '../engine/engine.dart';
+import '../engine/file_log.dart';
 import '../engine/library.dart';
 import '../engine/runtime.dart';
 import '../engine/state.dart';
@@ -18,13 +19,23 @@ import '../engine/tools.dart' as tools;
 import 'controller.dart';
 
 class EngineController implements SoundbitesController {
-  EngineController({required this.engine, required this.toolsDir, required this.ffmpegPath, this.skipTools = false}) {
+  EngineController({required this.engine, required this.toolsDir, required this.ffmpegPath, this.skipTools = false, this.logPath})
+      : _log = logPath == null ? null : FileLog(logPath) {
     _sub = engine.states.listen((s) => _state.value = s);
+    _log?.call('Soundbites ${engine.version} starting');
   }
 
   final Engine engine;
   final String toolsDir, ffmpegPath;
   final bool skipTools;
+  @override
+  final String? logPath;
+  final FileLog? _log;
+
+  void _logLine(String line) {
+    debugPrint(line);
+    _log?.call(line);
+  }
   Runtime? _runtime;
   late final StreamSubscription<AppState> _sub;
   final ValueNotifier<AppState> _state = ValueNotifier(AppState(version: '', library: LibraryState.none));
@@ -48,7 +59,7 @@ class EngineController implements SoundbitesController {
         platform: Platform.isWindows ? tools.Platform.win32 : tools.Platform.darwin,
         arch: _arch(),
         skipTools: skipTools,
-        log: (line) => debugPrint(line),
+        log: _logLine,
       ),
     );
     unawaited(_runtime!.start());
@@ -61,6 +72,7 @@ class EngineController implements SoundbitesController {
 
   Future<void> dispose() async {
     _runtime?.stop();
+    await _log?.close();
     await _sub.cancel();
     await engine.dispose();
   }
@@ -139,9 +151,20 @@ class EngineController implements SoundbitesController {
   }
 
   @override
+  Future<void> showLogFile() async {
+    final path = logPath;
+    if (path == null) return;
+    await _reveal(path);
+  }
+
+  @override
   Future<void> showInFolder(String kind, String id) async {
     final path = mediaPath(kind, id);
     if (path == null) return;
+    await _reveal(path);
+  }
+
+  Future<void> _reveal(String path) async {
     if (Platform.isMacOS) {
       await Process.run('open', ['-R', path]);
     } else if (Platform.isWindows) {

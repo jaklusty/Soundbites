@@ -109,6 +109,11 @@ class DemoController implements SoundbitesController {
   Future<void> openExternal(String url) async {}
   @override
   Future<void> showInFolder(String kind, String id) async {}
+
+  @override
+  String? get logPath => null;
+  @override
+  Future<void> showLogFile() async {}
   @override
   Future<void> retryTrack(String id) async {}
   @override

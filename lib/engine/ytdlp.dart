@@ -19,7 +19,10 @@ class YtDlpPaths {
 }
 
 class YtDlpOptions {
-  const YtDlpOptions({required this.paths, required this.sleepRequests, this.log, this.onExtractorFailure});
+  const YtDlpOptions({required this.paths, required this.sleepRequests, this.log, this.onExtractorFailure, this.onFailure});
+
+  YtDlpOptions copyWith({void Function(String reason)? onFailure}) =>
+      YtDlpOptions(paths: paths, sleepRequests: sleepRequests, log: log, onExtractorFailure: onExtractorFailure, onFailure: onFailure ?? this.onFailure);
 
   final YtDlpPaths paths;
 
@@ -29,6 +32,17 @@ class YtDlpOptions {
 
   /// Called when stderr looks like an extractor failure (a stale yt-dlp).
   final void Function(String detail)? onExtractorFailure;
+
+  /// Called with a one-line reason whenever a call fails, so the track can carry it.
+  final void Function(String reason)? onFailure;
+}
+
+/// The one line of a failed run worth keeping: the last stderr line, or what else went wrong.
+String failureReason(RunResult res) {
+  if (res.timedOut) return 'timed out';
+  final tail = lastLine(res.stderr);
+  if (tail.isNotEmpty) return tail;
+  return res.code == 127 ? 'the downloader could not be started' : 'exit code ${res.code}';
 }
 
 /// A search result or an inspected URL: the upload the track resolves to.
@@ -120,13 +134,17 @@ Future<ResolvedUpload?> resolveSearch(YtDlpOptions o, String query, List<String>
   final n = 3 + rejected.length < 10 ? 3 + rejected.length : 10;
   final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '--skip-download', '--flat-playlist', '--print', _print, '--', 'ytsearch$n:$q'], timeout: searchTimeout);
   if (res.code != 0) {
-    final tail = lastLine(res.stderr);
+    final tail = failureReason(res);
     o.log?.call('  · search ${jsonEncode(q)} failed: $tail');
     if (extractorFailure.hasMatch(res.stderr)) o.onExtractorFailure?.call(tail);
+    o.onFailure?.call('search failed: $tail');
     return null;
   }
   final found = parsePrintLines(res.stdout).where((u) => !rejected.contains(u.videoId)).toList();
-  if (found.isEmpty) o.log?.call('  · search ${jsonEncode(q)} found nothing new');
+  if (found.isEmpty) {
+    o.log?.call('  · search ${jsonEncode(q)} found nothing new');
+    o.onFailure?.call('search found nothing');
+  }
   return found.isEmpty ? null : found.first;
 }
 
@@ -135,6 +153,7 @@ Future<ResolvedUpload?> inspect(YtDlpOptions o, String url) async {
   final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '--skip-download', '--print', _print, '--', url], timeout: searchTimeout);
   if (res.code != 0) {
     if (extractorFailure.hasMatch(res.stderr)) o.onExtractorFailure?.call(lastLine(res.stderr));
+    o.onFailure?.call('could not read the link: ${failureReason(res)}');
     return null;
   }
   final found = parsePrintLines(res.stdout);
@@ -148,9 +167,10 @@ Future<DownloadedSource?> downloadAudio(YtDlpOptions o, String url, String workd
   final res = await runTool(o.paths.ytdlp, [...baseArgs(o), '-f', 'bestaudio', '--write-info-json', '-o', out, '--', url], timeout: timeout);
   final files = (await _readdir(workdir)).where((f) => f.startsWith('src.') && !f.endsWith('.json')).toList()..sort();
   if (res.code != 0 || files.isEmpty) {
-    final tail = lastLine(res.stderr);
+    final tail = res.code != 0 ? failureReason(res) : 'no audio file was produced';
     o.log?.call('  · download failed: $tail');
     if (extractorFailure.hasMatch(res.stderr)) o.onExtractorFailure?.call(tail);
+    o.onFailure?.call('download failed: $tail');
     return null;
   }
   Json? info;

@@ -133,11 +133,13 @@ class _TrackCardState extends State<TrackCard> {
                     Padding(
                       padding: const EdgeInsets.only(top: 4),
                       child: Text(
-                        t.matchStatus == 'no-confident-match'
-                            ? 'No clip for this one yet.'
-                            : (t.sourceUrl != null || t.userSourceUrl != null || t.runs.isNotEmpty)
-                                ? 'Clip not on disk. The research is kept.'
-                                : 'No source could be found for this one.',
+                        t.json['audio_error'] is String
+                            ? 'No clip: ${t.json['audio_error']}'
+                            : t.matchStatus == 'no-confident-match'
+                                ? 'No clip for this one yet.'
+                                : (t.sourceUrl != null || t.userSourceUrl != null || t.runs.isNotEmpty)
+                                    ? 'Clip not on disk. The research is kept.'
+                                    : 'No source could be found for this one.',
                         style: TextStyle(fontSize: 12.5, color: c.faint, fontStyle: FontStyle.italic),
                       ),
                     ),

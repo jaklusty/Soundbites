@@ -62,7 +62,7 @@ Future<void> main() async {
       return;
     }
     engine = Engine(appDataDir: appData.path, version: appVersion);
-    final ec = EngineController(engine: engine, toolsDir: p.join(appData.path, 'tools'), ffmpegPath: ffmpegPath(), skipTools: Platform.isLinux);
+    final ec = EngineController(engine: engine, toolsDir: p.join(appData.path, 'tools'), ffmpegPath: ffmpegPath(), skipTools: Platform.isLinux, logPath: p.join(appData.path, 'soundbites.log'));
     await ec.start();
     controller = ec;
   }

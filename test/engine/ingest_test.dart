@@ -170,6 +170,19 @@ void main() {
       expect(lib.tracks.first.runs, ['2026-10-10']);
     });
 
+    test('a failing downloader leaves its reason on every track and in the health line', () async {
+      final r = await runIngest(store, '2026-10-18', cands.sublist(0, 2), deps(resolve: (_, _) async => throw SourceFailure('search failed: Bad CPU type in executable')));
+      expect(r.noAudio, 2);
+      final lib = Library(await store.readOr('library.json', {}));
+      expect(lib.tracks.every((t) => t.json['audio_error'] == 'search failed: Bad CPU type in executable'), isTrue);
+      final events = (await store.readOr('health.json', {}))['events'] as List;
+      expect((events.single as Map)['detail'], 'Most common reason: search failed: Bad CPU type in executable (2 of 2).');
+      // A later success clears the reason.
+      await runIngest(store, '2026-10-19', cands.sublist(0, 1), deps());
+      final after = Library(await store.readOr('library.json', {}));
+      expect(after.tracks.firstWhere((t) => t.title == 'Glue').json.containsKey('audio_error'), isFalse);
+    });
+
     test('metadata-only runs file rows and download nothing', () async {
       var downloads = 0;
       final r = await runIngest(store, '2026-09-01', cands.sublist(0, 2), deps(downloadAudio: false, download: (_, _) async {

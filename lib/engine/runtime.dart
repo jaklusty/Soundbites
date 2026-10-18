@@ -131,9 +131,10 @@ class Runtime {
       _toolPaths = await tools.ensure(check);
       if (check) await engine.settings.update((c) => c.copyWith(toolsCheckedAt: _now().toUtc().toIso8601String()));
       final v = tools.versions(_toolPaths);
-      engine.tools = ToolsStatus(ytdlp: v.ytdlp, deno: v.deno, ffmpeg: 'bundled', message: tools.lastMessage);
-      if (tools.lastMessage != null) {
-        await engine.recordIssue('tools', tools.lastMessage!);
+      final problem = tools.lastMessage ?? await _selfCheck();
+      engine.tools = ToolsStatus(ytdlp: v.ytdlp, deno: v.deno, ffmpeg: 'bundled', message: problem);
+      if (problem != null) {
+        await engine.recordIssue('tools', problem);
       } else if (engine.store != null) {
         await clearKind(engine.store!, 'tools');
       }
@@ -144,6 +145,22 @@ class Runtime {
       _toolCheckInFlight = false;
     }
     return _toolPaths;
+  }
+
+  /// Downloaded is not the same as runnable: run each tool once and say exactly what happens if it does not start.
+  Future<String?> _selfCheck() async {
+    final ytdlp = _toolPaths.ytdlp;
+    if (ytdlp != null && opts.ytdlp == null) {
+      final r = await runTool(ytdlp, ['--version'], timeout: const Duration(seconds: 60));
+      if (r.code != 0) return 'yt-dlp is installed but does not run on this computer (${yt.failureReason(r)}). Nothing can be downloaded until this is fixed.';
+    }
+    final ffmpeg = opts.ffmpegPath;
+    if (p.basename(ffmpeg) != ffmpeg) {
+      // A real path (a bare name means PATH, development only).
+      final r = await runTool(ffmpeg, ['-version'], timeout: const Duration(seconds: 60));
+      if (r.code != 0) return 'The bundled ffmpeg does not run (${yt.failureReason(r)}). Clips cannot be made until this is fixed.';
+    }
+    return null;
   }
 
   void _onExtractorFailure(String detail) {
@@ -174,10 +191,18 @@ class Runtime {
     if (o == null) return null;
     final impl = opts.ytdlp ?? YtDlpImpl();
     final ffmpeg = opts.ffmpegPath;
+    // Each call gets its own copy of the options so the failure reason lands on the right track.
+    Future<T> withReason<T>(Future<T?> Function(yt.YtDlpOptions) call) async {
+      String? why;
+      final r = await call(o.copyWith(onFailure: (reason) => why = reason));
+      if (r == null && why != null) throw SourceFailure(why!);
+      return r as T;
+    }
+
     return IngestDeps(
-      resolve: (search, rejected) => (impl.resolveSearch ?? yt.resolveSearch)(o, search, rejected),
+      resolve: (search, rejected) => withReason<yt.ResolvedUpload?>((oo) => (impl.resolveSearch ?? yt.resolveSearch)(oo, search, rejected)),
       inspect: (url) => (impl.inspect ?? yt.inspect)(o, url),
-      download: (url, workdir) => (impl.downloadAudio ?? yt.downloadAudio)(o, url, workdir),
+      download: (url, workdir) => withReason<yt.DownloadedSource?>((oo) => (impl.downloadAudio ?? yt.downloadAudio)(oo, url, workdir)),
       clip: (src, dest, at) async {
         final r = await (opts.clipImpl ?? (s, d, a) => makeClip(ffmpeg, s, d, a))(src, dest, at);
         return (ok: r.ok, error: r.error);

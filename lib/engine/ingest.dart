@@ -242,6 +242,7 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
   await work.create(recursive: true);
 
   var done = 0, noAudio = 0, noMatch = 0;
+  final reasons = <String, int>{};
   var stopped = false;
   final outcomes = <String, bool>{};
   final pool = concurrency.clamp(1, 3);
@@ -270,6 +271,7 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
     Json? match;
     String? matchUrl;
     var matchStatus = 'no-source';
+    String? reason;
     try {
       final current = Library(await store.readOr('library.json', Library.empty().json));
       final row = current.find(pl.id);
@@ -277,6 +279,7 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
       matchStatus = src.status;
       match = src.match;
       matchUrl = src.url;
+      reason = src.reason;
       if (src.file != null) {
         final explicit = pl.cand.hookStart != null ? parseTs(pl.cand.hookStart) : null;
         hook = await detect(
@@ -287,7 +290,10 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
         log('  · hook at ${hook.at}s (${hook.method}: ${hook.detail})');
         final r = await deps.clip(src.file!.path, pl.clipPath, hook.at);
         got = r.ok;
-        if (!r.ok) log('  ! transcode failed: ${r.error ?? ''}');
+        if (!r.ok) {
+          log('  ! transcode failed: ${r.error ?? ''}');
+          reason = 'clip could not be made: ${r.error ?? 'ffmpeg failed'}';
+        }
       }
     } finally {
       if (await workdir.exists()) await workdir.delete(recursive: true);
@@ -303,12 +309,18 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
       } else if (matchStatus == 'no-confident-match') {
         rec.set('match_status', 'no-confident-match');
       }
+      if (got) {
+        rec.remove('audio_error');
+      } else if (reason != null) {
+        rec.set('audio_error', reason);
+      }
       library.updated = nowIso();
       return library.json;
     });
     if (!got) {
       noAudio++;
       if (matchStatus == 'no-confident-match') noMatch++;
+      if (reason != null) reasons[reason] = (reasons[reason] ?? 0) + 1;
     }
     outcomes[pl.id] = got;
     if (deps.pause > Duration.zero) await Future<void>.delayed(deps.pause);
@@ -363,10 +375,11 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
   if (writeSummary) {
     await store.write('last_run.json', result.toJson());
     final attempted = added + updated + noAudio;
+    final why = commonReason(reasons);
     if (noAudio > 0 && added + updated == 0) {
-      await record(store, 'ingest', false, 'Run $run downloaded nothing: $noAudio tracks had no audio.', 'Usually the downloader needs updating, or there is no network.');
+      await record(store, 'ingest', false, 'Run $run downloaded nothing: $noAudio tracks had no audio.', why ?? 'Usually the downloader needs updating, or there is no network.');
     } else if (noAudio > 0) {
-      await record(store, 'ingest', false, 'Run $run: $noAudio of $attempted had no audio${noMatch > 0 ? ' ($noMatch with no confident match)' : ''}.');
+      await record(store, 'ingest', false, 'Run $run: $noAudio of $attempted had no audio${noMatch > 0 ? ' ($noMatch with no confident match)' : ''}.', why ?? '');
     } else {
       await clearKind(store, 'ingest');
     }
@@ -375,32 +388,54 @@ Future<IngestResult> runIngest(Store store, String run, List<Candidate> candidat
   return result;
 }
 
+/// "Most common reason: ... (n of m)" for the health line, or null when nothing was recorded.
+String? commonReason(Map<String, int> reasons) {
+  if (reasons.isEmpty) return null;
+  final total = reasons.values.fold(0, (a, b) => a + b);
+  final top = reasons.entries.reduce((a, b) => b.value > a.value ? b : a);
+  return 'Most common reason: ${top.key} (${top.value} of $total).';
+}
+
+/// Thrown by a resolve or download step that knows why it failed; the reason is kept on the track.
+class SourceFailure implements Exception {
+  SourceFailure(this.reason);
+  final String reason;
+  @override
+  String toString() => reason;
+}
+
 class _Source {
-  _Source({this.file, this.match, this.url, required this.status});
+  _Source({this.file, this.match, this.url, required this.status, this.reason});
   final DownloadedSource? file;
   final Json? match;
   final String? url;
   final String status; // matched | no-confident-match | no-source | download-failed | local-missing
+  final String? reason;
 }
 
 Future<_Source> _fetchSource(Candidate cand, Track? row, String workdir, IngestDeps deps, void Function(String) log) async {
   if (cand.local != null) {
     if (await File(cand.local!).exists()) return _Source(file: DownloadedSource(path: cand.local!), status: 'matched');
     log('  ! local file missing: ${cand.local}');
-    return _Source(status: 'local-missing');
+    return _Source(status: 'local-missing', reason: 'local file missing: ${cand.local}');
   }
   // A link the user set wins over everything, then the row's known source, then the candidate's.
   var url = row?.userSourceUrl ?? row?.sourceUrl ?? cand.sourceUrl;
   ResolvedUpload? upload;
   if (url == null && cand.search != null) {
-    upload = await deps.resolve(cand.search!, row?.rejectedVideoIds ?? const []);
+    try {
+      upload = await deps.resolve(cand.search!, row?.rejectedVideoIds ?? const []);
+    } on SourceFailure catch (e) {
+      log('  · search failed for ${cand.search}: ${e.reason}');
+      return _Source(status: 'no-source', reason: e.reason);
+    }
     if (upload == null) {
       log('  · search found nothing for ${cand.search}');
-      return _Source(status: 'no-source');
+      return _Source(status: 'no-source', reason: 'search found nothing');
     }
     if (!confidentMatch(uploadTitle: upload.title, uploadChannel: upload.channel, title: cand.title, artist: cand.artist)) {
       log('  · no confident match: "${upload.title}" by ${upload.channel}');
-      return _Source(status: 'no-confident-match');
+      return _Source(status: 'no-confident-match', reason: 'best result was "${upload.title}" by ${upload.channel}');
     }
     url = upload.url;
   }
@@ -408,8 +443,13 @@ Future<_Source> _fetchSource(Candidate cand, Track? row, String workdir, IngestD
     log('  · no source_url or search — filing metadata only');
     return _Source(status: 'no-source');
   }
-  final file = await deps.download(url, workdir);
-  if (file == null) return _Source(status: 'download-failed');
+  final DownloadedSource? file;
+  try {
+    file = await deps.download(url, workdir);
+  } on SourceFailure catch (e) {
+    return _Source(status: 'download-failed', reason: e.reason);
+  }
+  if (file == null) return _Source(status: 'download-failed', reason: 'download failed');
   final info = file.info ?? const <String, dynamic>{};
   final match = <String, dynamic>{
     'video_id': upload?.videoId ?? (info['id'] ?? '').toString(),
